@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Dream Dog Builder</title>
+<title>Dog Match Builder</title>
 
 <style>
 body {
@@ -13,8 +13,9 @@ body {
   background-size: cover;
 }
 
+/* CONTAINER */
 .container {
-  max-width: 650px;
+  max-width: 700px;
   margin: 40px auto;
   background: rgba(255,255,255,0.95);
   padding: 25px;
@@ -23,13 +24,13 @@ body {
   box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-/* STEPS */
-.step {
+/* SCREENS */
+.screen {
   display: none;
   animation: fade 0.4s ease;
 }
 
-.step.active {
+.screen.active {
   display: block;
 }
 
@@ -38,98 +39,69 @@ body {
   to {opacity: 1; transform: translateY(0);}
 }
 
-/* TITLE */
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-/* OPTIONS */
-.options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.option {
-  padding: 15px;
-  border-radius: 14px;
-  border: 2px solid #eee;
-  cursor: pointer;
-  transition: 0.2s;
-  background: white;
-  font-weight: bold;
-}
-
-.option:hover {
-  transform: scale(1.03);
-  border-color: #b08968;
-}
-
-.option.selected {
-  background: #b08968;
-  color: white;
-  border-color: #b08968;
-}
-
-/* BUTTONS */
+/* BUTTON */
 button {
   padding: 12px 18px;
-  margin: 10px;
   border: none;
   border-radius: 12px;
   background: #b08968;
   color: white;
   cursor: pointer;
   transition: 0.3s;
+  margin-top: 15px;
 }
 
 button:hover {
   transform: scale(1.05);
 }
 
-/* RESULT CARD */
-.result {
-  background: white;
-  border-radius: 18px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+/* OPTIONS */
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
-.result img {
+.option {
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 2px solid #eee;
+  cursor: pointer;
+  transition: 0.2s;
+  background: white;
+}
+
+.option:hover {
+  transform: scale(1.05);
+}
+
+.option.active {
+  background: #b08968;
+  color: white;
+  border-color: #b08968;
+}
+
+/* RESULT CARD */
+.card {
+  margin-top: 20px;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  animation: pop 0.4s ease;
+}
+
+.card img {
   width: 100%;
   height: 320px;
   object-fit: cover;
-  border-radius: 15px;
-  margin-bottom: 15px;
-  animation: pop 0.4s ease;
 }
 
 @keyframes pop {
   from {transform: scale(0.9); opacity: 0;}
   to {transform: scale(1); opacity: 1;}
-}
-
-.progress {
-  font-weight: bold;
-  margin-bottom: 10px;
-}
-
-.bar {
-  height: 8px;
-  background: #eee;
-  border-radius: 10px;
-  overflow: hidden;
-  margin-bottom: 20px;
-}
-
-.fill {
-  height: 100%;
-  width: 0%;
-  background: #b08968;
-  transition: 0.3s;
 }
 </style>
 </head>
@@ -138,61 +110,57 @@ button:hover {
 
 <div class="container">
 
-  <!-- STEP 1 -->
-  <div class="step active">
-    <h1>What size dog do you want? 🐶</h1>
-    <div class="options">
-      <div class="option" data-key="size" data-value="small">Small</div>
-      <div class="option" data-key="size" data-value="medium">Medium</div>
-      <div class="option" data-key="size" data-value="large">Large</div>
+<!-- INTRO SCREEN -->
+<div class="screen active" id="intro">
+  <h1>🐶 Find Your Perfect Dog</h1>
+  <p>Answer a few quick choices and discover your ideal match in seconds.</p>
+  <button onclick="start()">Start</button>
+</div>
+
+<!-- BUILDER SCREEN -->
+<div class="screen" id="builder">
+
+  <h2>Build your dog 🧠</h2>
+
+  <div class="section">
+    <h3>Size</h3>
+    <div class="options" data-type="size">
+      <div class="option" data-value="small">Small</div>
+      <div class="option" data-value="medium">Medium</div>
+      <div class="option" data-value="large">Large</div>
     </div>
   </div>
 
-  <!-- STEP 2 -->
-  <div class="step">
-    <h1>Energy level ⚡</h1>
-    <div class="options">
-      <div class="option" data-key="energy" data-value="low">Low</div>
-      <div class="option" data-key="energy" data-value="high">High</div>
+  <div class="section">
+    <h3>Energy</h3>
+    <div class="options" data-type="energy">
+      <div class="option" data-value="low">Low</div>
+      <div class="option" data-value="high">High</div>
     </div>
   </div>
 
-  <!-- STEP 3 -->
-  <div class="step">
-    <h1>Personality 🧠</h1>
-    <div class="options">
-      <div class="option" data-key="personality" data-value="calm">Calm</div>
-      <div class="option" data-key="personality" data-value="playful">Playful</div>
-      <div class="option" data-key="personality" data-value="independent">Independent</div>
+  <div class="section">
+    <h3>Personality</h3>
+    <div class="options" data-type="personality">
+      <div class="option" data-value="calm">Calm</div>
+      <div class="option" data-value="playful">Playful</div>
+      <div class="option" data-value="independent">Independent</div>
     </div>
   </div>
 
-  <!-- STEP 4 -->
-  <div class="step">
-    <h1>Living space 🏡</h1>
-    <div class="options">
-      <div class="option" data-key="home" data-value="apartment">Apartment</div>
-      <div class="option" data-key="home" data-value="house">House</div>
-    </div>
-  </div>
+  <div id="result"></div>
 
-  <!-- RESULT -->
-  <div class="step">
-    <h1>Your Dream Dog 🐶</h1>
-    <div id="result"></div>
-    <button onclick="restart()">Try Again</button>
-  </div>
-
-  <button onclick="next()">Next</button>
+</div>
 
 </div>
 
 <script>
 
-let currentStep = 0;
-let selections = {};
-
-const steps = document.querySelectorAll(".step");
+let state = {
+  size: null,
+  energy: null,
+  personality: null
+};
 
 const dogs = [
   {
@@ -217,40 +185,38 @@ const dogs = [
   }
 ];
 
+function start() {
+  document.getElementById("intro").classList.remove("active");
+  document.getElementById("builder").classList.add("active");
+}
+
 document.querySelectorAll(".option").forEach(el => {
   el.addEventListener("click", () => {
 
-    // remove selected in same group
-    document.querySelectorAll(`[data-key="${el.dataset.key}"]`)
-      .forEach(x => x.classList.remove("selected"));
+    const type = el.parentElement.dataset.type;
 
-    el.classList.add("selected");
-    selections[el.dataset.key] = el.dataset.value;
+    state[type] = el.dataset.value;
 
+    el.parentElement.querySelectorAll(".option")
+      .forEach(x => x.classList.remove("active"));
+
+    el.classList.add("active");
+
+    updateResult();
   });
 });
 
-function next() {
-  if (currentStep < steps.length - 1) {
-    steps[currentStep].classList.remove("active");
-    currentStep++;
-    steps[currentStep].classList.add("active");
-  }
+function updateResult() {
 
-  if (currentStep === steps.length - 1) {
-    showResult();
-  }
-}
-
-function showResult() {
   let best = dogs[0];
   let bestScore = -1;
 
   dogs.forEach(dog => {
     let score = 0;
 
-    for (let key in selections) {
-      if (dog.match[key] === selections[key]) score++;
+    for (let key in state) {
+      if (!state[key]) continue;
+      if (dog.match[key] === state[key]) score++;
     }
 
     if (score > bestScore) {
@@ -260,19 +226,12 @@ function showResult() {
   });
 
   document.getElementById("result").innerHTML = `
-    <div class="result">
+    <div class="card">
       <img src="${best.img}">
       <h2>${best.name}</h2>
-      <p>Perfect match based on your lifestyle 🐾</p>
+      <p>Your perfect match updates instantly 🐾</p>
     </div>
   `;
-
-  steps[currentStep].classList.remove("active");
-  steps[currentStep + 1].classList.add("active");
-}
-
-function restart() {
-  location.reload();
 }
 
 </script>
