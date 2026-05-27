@@ -4,23 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PawMatch – Find Your Perfect Dog</title>
-    
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary: #D4A373;       /* Warm Brown */
+            --primary: #D4A373;
             --primary-dark: #BC8A5F;
-            --secondary: #FAEDCD;     /* Cream */
-            --bg-color: #FEFAE0;      /* Light Beige */
-            --text-main: #4A403A;     /* Dark Brown Text */
+            --secondary: #FAEDCD;
+            --bg-color: #FEFAE0;
+            --text-main: #4A403A;
             --text-light: #6B5B50;
             --white: #FFFFFF;
             --shadow: 0 10px 30px rgba(74, 64, 58, 0.1);
@@ -44,7 +39,6 @@
             overflow-x: hidden;
         }
 
-        /* --- LAYOUT UTILS --- */
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -60,8 +54,6 @@
 
         .hidden {
             display: none !important;
-            opacity: 0;
-            pointer-events: none;
         }
 
         .fade-in {
@@ -73,7 +65,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- NAVBAR --- */
         nav {
             padding: 20px 0;
             width: 100%;
@@ -90,7 +81,6 @@
             gap: 10px;
         }
 
-        /* --- HERO SECTION --- */
         .hero-section {
             text-align: center;
             padding: 40px 20px;
@@ -126,7 +116,6 @@
             object-fit: cover;
         }
 
-        /* --- BUTTONS --- */
         .btn {
             padding: 15px 40px;
             border: none;
@@ -164,7 +153,6 @@
             color: var(--white);
         }
 
-        /* --- QUIZ SECTION --- */
         .quiz-wrapper {
             width: 100%;
             max-width: 700px;
@@ -172,7 +160,6 @@
             padding: 40px;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            position: relative;
         }
 
         .progress-header {
@@ -247,7 +234,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
 
-        /* --- RESULT SECTION --- */
         .result-card {
             background: var(--white);
             padding: 50px 30px;
@@ -257,7 +243,6 @@
             max-width: 500px;
             width: 100%;
             position: relative;
-            overflow: hidden;
         }
 
         .result-badge {
@@ -308,7 +293,6 @@
             color: var(--text-main);
         }
 
-        /* --- FOOTER --- */
         footer {
             text-align: center;
             padding: 20px;
@@ -317,7 +301,6 @@
             margin-top: auto;
         }
 
-        /* --- RESPONSIVE --- */
         @media (max-width: 768px) {
             .hero-title { font-size: 2.2rem; }
             .quiz-wrapper { padding: 25px; }
@@ -328,7 +311,6 @@
 </head>
 <body>
 
-    <!-- Navigation -->
     <nav>
         <div class="logo">
             <i class="fa-solid fa-paw"></i> PawMatch
@@ -337,13 +319,11 @@
 
     <div class="container">
         
-        <!-- 1. HERO SECTION -->
         <section id="hero" class="hero-section fade-in">
             <h1 class="hero-title">Find Your Perfect Dog 🐶</h1>
             <p class="hero-subtitle">Take a short quiz and discover your ideal furry companion based on your lifestyle.</p>
             
             <div class="hero-img-container">
-                <!-- Placeholder Image -->
                 <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Dog">
             </div>
 
@@ -352,7 +332,6 @@
             </button>
         </section>
 
-        <!-- 2. QUIZ SECTION -->
         <section id="quiz" class="quiz-wrapper hidden">
             <div class="progress-header">
                 <div class="progress-text">
@@ -366,12 +345,9 @@
 
             <h2 id="question-text" class="question-text">Question goes here?</h2>
             
-            <div id="options-container" class="options-grid">
-                <!-- Options injected via JS -->
-            </div>
+            <div id="options-container" class="options-grid"></div>
         </section>
 
-        <!-- 3. RESULT SECTION -->
         <section id="result" class="result-card hidden">
             <div class="result-badge">It's a Match!</div>
             <img id="result-img" class="result-img" src="" alt="Dog Breed">
@@ -394,9 +370,7 @@
         &copy; 2026 PawMatch. Made with ❤️ for dog lovers.
     </footer>
 
-    <!-- JAVASCRIPT LOGIC -->
     <script>
-        // --- DATA ---
         const questions = [
             {
                 id: 1,
@@ -440,13 +414,11 @@
                 options: [
                     { text: "First-time Owner", value: "novice", icon: "fa-egg" },
                     { text: "Some Experience", value: "intermediate", icon: "fa-paw" },
-                    { text: "Very Experienced", value: "expert", icon: fa-medal" }
+                    { text: "Very Experienced", value: "expert", icon: "fa-medal" }
                 ]
             }
         ];
 
-        // Simple Scoring Logic Map
-        // We assign points to breeds based on answers.
         const breeds = {
             golden: {
                 name: "Golden Retriever",
@@ -474,56 +446,42 @@
             }
         };
 
-        // --- STATE ---
         let currentStep = 0;
         let userAnswers = [];
 
-        // --- DOM ELEMENTS ---
         const heroSection = document.getElementById('hero');
         const quizSection = document.getElementById('quiz');
         const resultSection = document.getElementById('result');
-        
         const startBtn = document.getElementById('start-btn');
         const restartBtn = document.getElementById('restart-btn');
-        
         const questionText = document.getElementById('question-text');
         const optionsContainer = document.getElementById('options-container');
         const stepLabel = document.getElementById('step-label');
         const percentLabel = document.getElementById('percent-label');
         const progressFill = document.getElementById('progress-fill');
 
-        // --- EVENT LISTENERS ---
         startBtn.addEventListener('click', startQuiz);
         restartBtn.addEventListener('click', resetQuiz);
-
-        // --- FUNCTIONS ---
 
         function startQuiz() {
             heroSection.classList.add('hidden');
             heroSection.classList.remove('fade-in');
-            
             quizSection.classList.remove('hidden');
             quizSection.classList.add('fade-in');
-            
             renderQuestion();
         }
 
         function renderQuestion() {
             const q = questions[currentStep];
-            
-            // Update Text
             questionText.textContent = q.text;
             stepLabel.textContent = `Step ${currentStep + 1} of ${questions.length}`;
             
-            // Update Progress Bar
             const percentage = ((currentStep + 1) / questions.length) * 100;
             percentLabel.textContent = `${Math.round(percentage)}%`;
             progressFill.style.width = `${percentage}%`;
 
-            // Clear previous options
             optionsContainer.innerHTML = '';
 
-            // Create Option Cards
             q.options.forEach(opt => {
                 const btn = document.createElement('div');
                 btn.className = 'option-card';
@@ -540,24 +498,18 @@
             userAnswers.push(value);
             
             if (currentStep < questions.length - 1) {
-                // Next Question
                 currentStep++;
-                // Small delay for visual effect
                 setTimeout(() => {
                     renderQuestion();
                 }, 200);
             } else {
-                // Finish Quiz
                 calculateResult();
             }
         }
 
         function calculateResult() {
-            // Reset Scores
             Object.keys(breeds).forEach(key => breeds[key].score = 0);
 
-            // Logic Engine
-            // 1. Lifestyle & Time
             if (userAnswers.includes('active') || userAnswers.includes('high')) {
                 breeds.collie.score += 3;
                 breeds.golden.score += 2;
@@ -569,27 +521,24 @@
                 breeds.frenchie.score += 1;
             }
 
-            // 2. Living Space
             if (userAnswers.includes('apartment')) {
                 breeds.frenchie.score += 3;
                 breeds.shiba.score += 2;
-                breeds.collie.score -= 2; // Collies need space
+                breeds.collie.score -= 2;
             } else if (userAnswers.includes('large')) {
                 breeds.collie.score += 2;
                 breeds.golden.score += 2;
             }
 
-            // 3. Experience
             if (userAnswers.includes('novice')) {
                 breeds.golden.score += 3;
                 breeds.frenchie.score += 2;
-                breeds.shiba.score -= 2; // Shibas are hard for novices
+                breeds.shiba.score -= 2;
             } else if (userAnswers.includes('expert')) {
                 breeds.shiba.score += 3;
                 breeds.collie.score += 2;
             }
 
-            // Find Winner
             let winnerKey = Object.keys(breeds).reduce((a, b) => breeds[a].score > breeds[b].score ? a : b);
             const winner = breeds[winnerKey];
 
@@ -600,12 +549,10 @@
             quizSection.classList.add('hidden');
             quizSection.classList.remove('fade-in');
 
-            // Populate Data
             document.getElementById('result-breed').textContent = dog.name;
             document.getElementById('result-desc').textContent = dog.desc;
             document.getElementById('result-img').src = dog.img;
             
-            // Dynamic match reason based on first answer (Lifestyle)
             const lifestyle = userAnswers[0];
             let reason = "Matches your vibe perfectly!";
             if(lifestyle === 'active') reason = "Ready for your adventures!";
@@ -623,7 +570,6 @@
             userAnswers = [];
             resultSection.classList.add('hidden');
             resultSection.classList.remove('fade-in');
-            
             heroSection.classList.remove('hidden');
             heroSection.classList.add('fade-in');
         }
