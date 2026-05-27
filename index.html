@@ -1,1 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMatch – Find Your Perfect Dog</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #D4A373;       /* Warm Brown */
+            --primary-dark: #BC8A5F;
+            --secondary: #FAEDCD;     /* Cream */
+            --bg-color: #FEFAE0;      /* Light Beige */
+            --text-main: #4A403A;     /* Dark Brown Text */
+            --text-light: #6B5B50;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(74, 64, 58, 0.1);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* --- LAYOUT UTILS --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            width: 100%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hidden {
+            display: none !important;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- NAVBAR --- */
+        nav {
+            padding: 20px 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 800px;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-img-container {
+            margin: 2rem auto;
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid var(--white);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            padding: 15px 40px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: inherit;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+            box-shadow: 0 4px 15px rgba(212, 163, 115, 0.4);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            margin-top: 20px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* --- QUIZ SECTION --- */
+        .quiz-wrapper {
+            width: 100%;
+            max-width: 700px;
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .progress-header {
+            margin-bottom: 30px;
+        }
+
+        .progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 8px;
+            background-color: var(--secondary);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: var(--primary);
+            width: 0%;
+            transition: width 0.4s ease;
+        }
+
+        .question-text {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+
+        .option-card {
+            background-color: var(--bg-color);
+            border: 2px solid transparent;
+            padding: 20px;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-align: center;
+        }
+
+        .option-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .option-card span {
+            font-weight: 500;
+        }
+
+        .option-card:hover {
+            border-color: var(--primary);
+            background-color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        /* --- RESULT SECTION --- */
+        .result-card {
+            background: var(--white);
+            padding: 50px 30px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-badge {
+            position: absolute;
+            top: 20px;
+            right: -30px;
+            background: var(--primary);
+            color: white;
+            padding: 5px 40px;
+            transform: rotate(45deg);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .result-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--secondary);
+            margin: 0 auto 20px;
+            display: block;
+        }
+
+        .result-breed {
+            font-size: 2.2rem;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .result-desc {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .match-info {
+            background-color: var(--secondary);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.2rem; }
+            .quiz-wrapper { padding: 25px; }
+            .question-text { font-size: 1.4rem; }
+            .options-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <i class="fa-solid fa-paw"></i> PawMatch
+        </div>
+    </nav>
+
+    <div class="container">
+        
+        <!-- 1. HERO SECTION -->
+        <section id="hero" class="hero-section fade-in">
+            <h1 class="hero-title">Find Your Perfect Dog 🐶</h1>
+            <p class="hero-subtitle">Take a short quiz and discover your ideal furry companion based on your lifestyle.</p>
+            
+            <div class="hero-img-container">
+                <!-- Placeholder Image -->
+                <img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Happy Dog">
+            </div>
+
+            <button id="start-btn" class="btn btn-primary">
+                Start Quiz <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </section>
+
+        <!-- 2. QUIZ SECTION -->
+        <section id="quiz" class="quiz-wrapper hidden">
+            <div class="progress-header">
+                <div class="progress-text">
+                    <span id="step-label">Step 1 of 5</span>
+                    <span id="percent-label">20%</span>
+                </div>
+                <div class="progress-bar-bg">
+                    <div id="progress-fill" class="progress-bar-fill"></div>
+                </div>
+            </div>
+
+            <h2 id="question-text" class="question-text">Question goes here?</h2>
+            
+            <div id="options-container" class="options-grid">
+                <!-- Options injected via JS -->
+            </div>
+        </section>
+
+        <!-- 3. RESULT SECTION -->
+        <section id="result" class="result-card hidden">
+            <div class="result-badge">It's a Match!</div>
+            <img id="result-img" class="result-img" src="" alt="Dog Breed">
+            <h2 id="result-breed" class="result-breed">Breed Name</h2>
+            <p id="result-desc" class="result-desc">Description goes here.</p>
+            
+            <div class="match-info">
+                <i class="fa-solid fa-heart"></i>
+                <span id="match-reason">Why it matches</span>
+            </div>
+
+            <button id="restart-btn" class="btn btn-secondary">
+                Try Again <i class="fa-solid fa-rotate-right"></i>
+            </button>
+        </section>
+
+    </div>
+
+    <footer>
+        &copy; 2026 PawMatch. Made with ❤️ for dog lovers.
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // --- DATA ---
+        const questions = [
+            {
+                id: 1,
+                text: "What is your lifestyle?",
+                options: [
+                    { text: "Very Active 🏃", value: "active", icon: "fa-person-running" },
+                    { text: "Balanced ⚖️", value: "balanced", icon: "fa-scale-balanced" },
+                    { text: "Relaxed 🛋️", value: "relaxed", icon: "fa-couch" }
+                ]
+            },
+            {
+                id: 2,
+                text: "Where do you live?",
+                options: [
+                    { text: "Small Apartment", value: "apartment", icon: "fa-building" },
+                    { text: "House with Yard", value: "yard", icon: "fa-house-chimney" },
+                    { text: "Large Space/Farm", value: "large", icon: "fa-tree" }
+                ]
+            },
+            {
+                id: 3,
+                text: "How much free time do you have daily?",
+                options: [
+                    { text: "1–2 Hours", value: "low", icon: "fa-clock" },
+                    { text: "3–5 Hours", value: "medium", icon: "fa-hourglass-half" },
+                    { text: "Whole Day", value: "high", icon: "fa-sun" }
+                ]
+            },
+            {
+                id: 4,
+                text: "Your personality:",
+                options: [
+                    { text: "Energetic & Playful", value: "energetic", icon: "fa-bolt" },
+                    { text: "Calm & Loyal", value: "calm", icon: "fa-heart" },
+                    { text: "Independent", value: "independent", icon: "fa-user-astronaut" }
+                ]
+            },
+            {
+                id: 5,
+                text: "Dog experience level:",
+                options: [
+                    { text: "First-time Owner", value: "novice", icon: "fa-egg" },
+                    { text: "Some Experience", value: "intermediate", icon: "fa-paw" },
+                    { text: "Very Experienced", value: "expert", icon: fa-medal" }
+                ]
+            }
+        ];
+
+        // Simple Scoring Logic Map
+        // We assign points to breeds based on answers.
+        const breeds = {
+            golden: {
+                name: "Golden Retriever",
+                desc: "Friendly, intelligent, and devoted. They are great family dogs and eager to please.",
+                img: "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                score: 0
+            },
+            frenchie: {
+                name: "French Bulldog",
+                desc: "Adaptable, playful, and smart. Perfect for apartment living and relaxed lifestyles.",
+                img: "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                score: 0
+            },
+            collie: {
+                name: "Border Collie",
+                desc: "Affectionate, smart, and energetic. Needs a job to do and lots of exercise.",
+                img: "https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                score: 0
+            },
+            shiba: {
+                name: "Shiba Inu",
+                desc: "Independent, loyal, and bold. Great for experienced owners who respect their space.",
+                img: "https://images.unsplash.com/photo-1563889958749-6253d06f52b7?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80",
+                score: 0
+            }
+        };
+
+        // --- STATE ---
+        let currentStep = 0;
+        let userAnswers = [];
+
+        // --- DOM ELEMENTS ---
+        const heroSection = document.getElementById('hero');
+        const quizSection = document.getElementById('quiz');
+        const resultSection = document.getElementById('result');
+        
+        const startBtn = document.getElementById('start-btn');
+        const restartBtn = document.getElementById('restart-btn');
+        
+        const questionText = document.getElementById('question-text');
+        const optionsContainer = document.getElementById('options-container');
+        const stepLabel = document.getElementById('step-label');
+        const percentLabel = document.getElementById('percent-label');
+        const progressFill = document.getElementById('progress-fill');
+
+        // --- EVENT LISTENERS ---
+        startBtn.addEventListener('click', startQuiz);
+        restartBtn.addEventListener('click', resetQuiz);
+
+        // --- FUNCTIONS ---
+
+        function startQuiz() {
+            heroSection.classList.add('hidden');
+            heroSection.classList.remove('fade-in');
+            
+            quizSection.classList.remove('hidden');
+            quizSection.classList.add('fade-in');
+            
+            renderQuestion();
+        }
+
+        function renderQuestion() {
+            const q = questions[currentStep];
+            
+            // Update Text
+            questionText.textContent = q.text;
+            stepLabel.textContent = `Step ${currentStep + 1} of ${questions.length}`;
+            
+            // Update Progress Bar
+            const percentage = ((currentStep + 1) / questions.length) * 100;
+            percentLabel.textContent = `${Math.round(percentage)}%`;
+            progressFill.style.width = `${percentage}%`;
+
+            // Clear previous options
+            optionsContainer.innerHTML = '';
+
+            // Create Option Cards
+            q.options.forEach(opt => {
+                const btn = document.createElement('div');
+                btn.className = 'option-card';
+                btn.innerHTML = `
+                    <i class="fa-solid ${opt.icon}"></i>
+                    <span>${opt.text}</span>
+                `;
+                btn.addEventListener('click', () => handleAnswer(opt.value));
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        function handleAnswer(value) {
+            userAnswers.push(value);
+            
+            if (currentStep < questions.length - 1) {
+                // Next Question
+                currentStep++;
+                // Small delay for visual effect
+                setTimeout(() => {
+                    renderQuestion();
+                }, 200);
+            } else {
+                // Finish Quiz
+                calculateResult();
+            }
+        }
+
+        function calculateResult() {
+            // Reset Scores
+            Object.keys(breeds).forEach(key => breeds[key].score = 0);
+
+            // Logic Engine
+            // 1. Lifestyle & Time
+            if (userAnswers.includes('active') || userAnswers.includes('high')) {
+                breeds.collie.score += 3;
+                breeds.golden.score += 2;
+            } else if (userAnswers.includes('relaxed') || userAnswers.includes('low')) {
+                breeds.frenchie.score += 3;
+                breeds.shiba.score += 1;
+            } else {
+                breeds.golden.score += 2;
+                breeds.frenchie.score += 1;
+            }
+
+            // 2. Living Space
+            if (userAnswers.includes('apartment')) {
+                breeds.frenchie.score += 3;
+                breeds.shiba.score += 2;
+                breeds.collie.score -= 2; // Collies need space
+            } else if (userAnswers.includes('large')) {
+                breeds.collie.score += 2;
+                breeds.golden.score += 2;
+            }
+
+            // 3. Experience
+            if (userAnswers.includes('novice')) {
+                breeds.golden.score += 3;
+                breeds.frenchie.score += 2;
+                breeds.shiba.score -= 2; // Shibas are hard for novices
+            } else if (userAnswers.includes('expert')) {
+                breeds.shiba.score += 3;
+                breeds.collie.score += 2;
+            }
+
+            // Find Winner
+            let winnerKey = Object.keys(breeds).reduce((a, b) => breeds[a].score > breeds[b].score ? a : b);
+            const winner = breeds[winnerKey];
+
+            showResult(winner);
+        }
+
+        function showResult(dog) {
+            quizSection.classList.add('hidden');
+            quizSection.classList.remove('fade-in');
+
+            // Populate Data
+            document.getElementById('result-breed').textContent = dog.name;
+            document.getElementById('result-desc').textContent = dog.desc;
+            document.getElementById('result-img').src = dog.img;
+            
+            // Dynamic match reason based on first answer (Lifestyle)
+            const lifestyle = userAnswers[0];
+            let reason = "Matches your vibe perfectly!";
+            if(lifestyle === 'active') reason = "Ready for your adventures!";
+            if(lifestyle === 'relaxed') reason = "Perfect chill companion.";
+            if(lifestyle === 'balanced') reason = "Great all-rounder for you.";
+            
+            document.getElementById('match-reason').textContent = reason;
+
+            resultSection.classList.remove('hidden');
+            resultSection.classList.add('fade-in');
+        }
+
+        function resetQuiz() {
+            currentStep = 0;
+            userAnswers = [];
+            resultSection.classList.add('hidden');
+            resultSection.classList.remove('fade-in');
+            
+            heroSection.classList.remove('hidden');
+            heroSection.classList.add('fade-in');
+        }
+    </script>
+</body>
+</html>
