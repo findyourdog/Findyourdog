@@ -22,11 +22,20 @@ body {
   border-radius: 20px;
 }
 
-.section { display: none; text-align: center; }
-.section.active { display: block; }
+.section {
+  display: none;
+  text-align: center;
+}
 
-h1 { font-size: 1.8rem; }
+.section.active {
+  display: block;
+}
 
+h1 {
+  font-size: 1.8rem;
+}
+
+/* BUTTONS */
 button {
   padding: 12px 18px;
   margin: 10px;
@@ -38,22 +47,25 @@ button {
   transition: 0.3s;
 }
 
-button:hover { transform: scale(1.05); }
+button:hover {
+  transform: scale(1.05);
+}
 
-/* HERO GRID */
+/* HERO GRID (FIXED SIZE) */
 .dog-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 12px;
   margin: 20px 0;
 }
 
 .dog-grid img {
   width: 100%;
-  height: 130px;
+  height: 180px;          /* 🔥 FIXED SIZE */
   object-fit: cover;
-  border-radius: 15px;
+  border-radius: 18px;
   transition: 0.3s;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
 }
 
 .dog-grid img:hover {
@@ -92,6 +104,7 @@ button:hover { transform: scale(1.05); }
     <h1>Let’s see which dog is for you 🐶</h1>
     <p>Take a quick quiz and find your perfect furry match 🐾</p>
 
+    <!-- GRID -->
     <div class="dog-grid">
       <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
       <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Black_and_white_french_bulldog_sitting_attentively_canine_animal.jpg?v=1779910869">
