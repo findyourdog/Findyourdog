@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>PawMatch - Find Your Dog</title>
+<title>PawMatch</title>
 
 <style>
 body {
@@ -14,23 +14,34 @@ body {
   color: #2b2b2b;
 }
 
+/* FADE IN */
+.section {
+  display: none;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+.section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 .container {
-  max-width: 600px;
+  max-width: 650px;
   margin: 40px auto;
-  background: rgba(248,245,240,0.95);
-  padding: 20px;
+  background: rgba(248,245,240,0.96);
+  padding: 25px;
   border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
 }
 
-.section { display: none; text-align: center; }
-.section.active { display: block; }
+h1 { font-size: 1.8rem; }
 
-.hero-img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 10px;
-}
-
+/* BUTTONS */
 button {
   padding: 12px 18px;
   margin: 10px;
@@ -40,10 +51,67 @@ button {
   color: white;
   cursor: pointer;
   transition: 0.3s;
+  animation: pulse 2.5s infinite;
 }
 
-button:hover { transform: scale(1.05); }
+button:hover {
+  transform: scale(1.05);
+}
 
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(176,137,104,0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(176,137,104,0); }
+  100% { box-shadow: 0 0 0 0 rgba(176,137,104,0); }
+}
+
+/* HERO CARD */
+.hero-card {
+  margin: 20px auto;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: 0.4s;
+}
+
+.hero-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: 0.4s;
+}
+
+.hero-card:hover img {
+  transform: scale(1.05);
+}
+
+.hero-text {
+  padding: 15px;
+  font-weight: bold;
+}
+
+/* PROGRESS */
+.progress {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.bar {
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.fill {
+  height: 100%;
+  width: 0%;
+  background: #b08968;
+  transition: 0.3s;
+}
+
+/* QUIZ */
 .card {
   background: white;
   padding: 20px;
@@ -52,16 +120,37 @@ button:hover { transform: scale(1.05); }
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.card img {
-  width: 100%;
-  border-radius: 15px;
-  margin-bottom: 10px;
+label {
+  display: block;
+  padding: 14px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  margin: 10px 0;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.progress {
-  font-weight: bold;
-  margin-bottom: 15px;
+label:hover {
+  background: rgba(176,137,104,0.15);
+  transform: scale(1.02);
 }
+
+input {
+  margin-right: 10px;
+}
+
+/* RESULT */
+#result-box img {
+  width: 100%;
+  border-radius: 15px;
+  transform: scale(0.9);
+  animation: pop 0.5s forwards;
+}
+
+@keyframes pop {
+  to { transform: scale(1); }
+}
+
 </style>
 </head>
 
@@ -71,33 +160,86 @@ button:hover { transform: scale(1.05); }
 
   <!-- HERO -->
   <section id="hero" class="section active">
-    <img class="hero-img" src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/wallpaper_dogs.jpg?v=1779910780">
-    <h1>Find Your Perfect Dog 🐶</h1>
-    <p>Take a short quiz and discover your ideal furry companion.</p>
+
+    <h1>Let’s find your perfect dog 🐶</h1>
+    <p>Take a quick quiz and discover your match 🐾</p>
+
+    <div class="hero-card">
+      <img id="hero-img" src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
+      <div class="hero-text" id="hero-text">Golden Retriever 🐶</div>
+    </div>
+
+    <button onclick="prevDog()">⬅</button>
+    <button onclick="nextDog()">➡</button>
+    <br>
     <button onclick="startQuiz()">Start Quiz</button>
+
   </section>
 
   <!-- QUIZ -->
   <section id="quiz" class="section">
+
     <div class="progress" id="progress"></div>
+    <div class="bar"><div class="fill" id="fill"></div></div>
+
     <div id="question-box"></div>
 
-    <div>
-      <button onclick="prevQuestion()">Back</button>
-      <button onclick="nextQuestion()">Next</button>
-    </div>
+    <button onclick="prevQuestion()">Back</button>
+    <button onclick="nextQuestion()">Next</button>
+
   </section>
 
   <!-- RESULT -->
   <section id="result" class="section">
+
     <h2>Your Perfect Match 🐾</h2>
     <div id="result-box"></div>
+
     <button onclick="restartQuiz()">Try Again</button>
+
   </section>
 
 </div>
 
 <script>
+
+const dogs = [
+  {
+    name: "Golden Retriever 🐶",
+    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194"
+  },
+  {
+    name: "French Bulldog 🐶",
+    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Black_and_white_french_bulldog_sitting_attentively_canine_animal.jpg?v=1779910869"
+  },
+  {
+    name: "Border Collie 🐶",
+    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927"
+  },
+  {
+    name: "Shiba Inu 🐶",
+    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/3.jpg?v=1779911250"
+  }
+];
+
+let heroIndex = 0;
+
+function updateHero() {
+  document.getElementById("hero-img").src = dogs[heroIndex].img;
+  document.getElementById("hero-text").innerText = dogs[heroIndex].name;
+}
+
+function nextDog() {
+  heroIndex = (heroIndex + 1) % dogs.length;
+  updateHero();
+}
+
+function prevDog() {
+  heroIndex = (heroIndex - 1 + dogs.length) % dogs.length;
+  updateHero();
+}
+
+/* QUIZ */
 const questions = [
   {
     q: "What is your lifestyle?",
@@ -144,32 +286,6 @@ const questions = [
 let current = 0;
 let answers = [];
 
-const box = document.getElementById("question-box");
-const progress = document.getElementById("progress");
-
-const dogs = {
-  retriever: {
-    name: "Golden Retriever 🐶",
-    desc: "Friendly, loyal and perfect for active families.",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194"
-  },
-  french: {
-    name: "French Bulldog 🐶",
-    desc: "Calm, cute and perfect for apartment life.",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Black_and_white_french_bulldog_sitting_attentively_canine_animal.jpg?v=1779910869"
-  },
-  collie: {
-    name: "Border Collie 🐶",
-    desc: "Super intelligent and extremely active.",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927"
-  },
-  shiba: {
-    name: "Shiba Inu 🐶",
-    desc: "Independent, strong personality and smart.",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/3.jpg?v=1779911250"
-  }
-};
-
 function startQuiz() {
   document.getElementById("hero").classList.remove("active");
   document.getElementById("quiz").classList.add("active");
@@ -178,16 +294,21 @@ function startQuiz() {
 
 function showQuestion() {
   let q = questions[current];
-  progress.innerText = `Step ${current + 1} of ${questions.length}`;
 
-  box.innerHTML = `
+  document.getElementById("progress").innerText =
+    `Step ${current + 1} of ${questions.length}`;
+
+  document.getElementById("fill").style.width =
+    ((current + 1) / questions.length) * 100 + "%";
+
+  document.getElementById("question-box").innerHTML = `
     <div class="card">
       <h3>${q.q}</h3>
       ${q.options.map((opt, i) => `
         <label>
           <input type="radio" name="answer" value="${i}">
           ${opt.text}
-        </label><br/>
+        </label>
       `).join("")}
     </div>
   `;
@@ -217,8 +338,8 @@ function prevQuestion() {
 function calculateResult() {
   let score = { retriever: 0, french: 0, collie: 0, shiba: 0 };
 
-  answers.forEach((ans, qIndex) => {
-    let option = questions[qIndex].options[ans];
+  answers.forEach((ans, i) => {
+    let option = questions[i].options[ans];
     for (let dog in option.score) {
       score[dog] += option.score[dog];
     }
@@ -228,7 +349,7 @@ function calculateResult() {
     score[a] > score[b] ? a : b
   );
 
-  return dogs[best];
+  return dogs.find(d => d.name.toLowerCase().includes(best));
 }
 
 function showResult() {
@@ -241,7 +362,7 @@ function showResult() {
     <div class="card">
       <img src="${dog.img}">
       <h3>${dog.name}</h3>
-      <p>${dog.desc}</p>
+      <p>Perfect match for your personality 🐾</p>
     </div>
   `;
 }
@@ -253,6 +374,8 @@ function restartQuiz() {
   document.getElementById("result").classList.remove("active");
   document.getElementById("hero").classList.add("active");
 }
+
+updateHero();
 </script>
 
 </body>
