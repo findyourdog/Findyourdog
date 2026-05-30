@@ -1,316 +1,152 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puppy Care Studio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-
-/* =========================
-   BASE
-========================= */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --secondary: #f59e0b;
+  --secondary-hover: #d97706;
+  --bg: #ffffff;
+  --bg-alt: #f8fafc;
+  --text: #0f172a;
+  --text-light: #475569;
+  --border: #e2e8f0;
+  --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --radius: 12px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
 }
 
-body{
-font-family:'Inter',sans-serif;
-background:#0b0c10;
-color:#fff;
-overflow-x:hidden;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body { font-family: var(--font-sans); line-height: 1.6; color: var(--text); background: var(--bg); }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; }
+a { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
+
+/* Buttons */
+.btn-primary, .btn-secondary {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  transition: var(--transition);
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+.btn-secondary { background: transparent; border: 2px solid var(--primary); color: var(--primary); }
+.btn-secondary:hover { background: var(--primary); color: white; }
+
+/* Navbar */
+.navbar {
+  position: sticky;
+  top: 0;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  padding: 1rem 0;
+}
+.nav-container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+
+.nav-links { display: flex; gap: 1.5rem; align-items: center; }
+.nav-links a { font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Pure CSS Mobile Toggle */
+.menu-toggle { display: none; background: none; border: none; cursor: pointer; padding: 0.5rem; }
+.menu-toggle span {
+  display: block; width: 24px; height: 3px; background: var(--text);
+  margin: 5px 0; border-radius: 2px; transition: var(--transition);
 }
 
-/* soft glowing background */
-body::before{
-content:"";
-position:fixed;
-width:600px;
-height:600px;
-background:radial-gradient(circle,#ff6b6b33,transparent 60%);
-top:-200px;
-left:-200px;
-filter:blur(60px);
+@media (max-width: 768px) {
+  .menu-toggle { display: block; }
+  .nav-links {
+    position: fixed; top: 70px; right: -100%;
+    width: 80%; max-width: 300px; height: calc(100vh - 70px);
+    background: white; flex-direction: column; padding: 2rem;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.1); transition: right 0.3s ease; z-index: 99;
+  }
+  .nav-toggle:checked ~ .nav-links { right: 0; }
+  .nav-toggle:checked ~ .menu-toggle span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .nav-toggle:checked ~ .menu-toggle span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .menu-toggle span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-body::after{
-content:"";
-position:fixed;
-width:500px;
-height:500px;
-background:radial-gradient(circle,#7dd3fc33,transparent 60%);
-bottom:-200px;
-right:-200px;
-filter:blur(60px);
+/* Hero */
+.hero { padding: 5rem 0; background: var(--bg-alt); }
+.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.hero-content h1 { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3rem); line-height: 1.2; margin-bottom: 1rem; }
+.hero-content p { font-size: 1.125rem; color: var(--text-light); margin-bottom: 2rem; }
+.hero-buttons { display: flex; gap: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+.trust-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; font-weight: 500; color: var(--primary); }
+.hero-image img { border-radius: var(--radius); box-shadow: var(--shadow); }
+
+/* Features */
+.features { padding: 5rem 0; }
+.section-title { text-align: center; font-size: clamp(1.8rem, 4vw, 2.25rem); font-family: var(--font-display); margin-bottom: 0.5rem; }
+.section-subtitle { text-align: center; color: var(--text-light); margin-bottom: 3rem; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+.feature-card {
+  background: var(--bg); padding: 2rem; border-radius: var(--radius);
+  box-shadow: var(--shadow); border: 1px solid var(--border); transition: var(--transition);
 }
+.feature-card:hover { transform: translateY(-5px); }
+.feature-card .icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.feature-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; }
+.feature-card p { color: var(--text-light); }
 
-/* =========================
-   HERO (LUXURY SaaS STYLE)
-========================= */
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:0 20px;
-position:relative;
+/* Checklist */
+.checklist-section { padding: 5rem 0; background: var(--bg-alt); }
+.checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+.checklist { display: flex; flex-direction: column; gap: 0.5rem; }
+.checklist li {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.75rem 0; border-bottom: 1px solid var(--border);
 }
-
-.hero-card{
-max-width:800px;
+.checklist input[type="checkbox"] {
+  width: 1.25rem; height: 1.25rem; accent-color: var(--primary); cursor: pointer; flex-shrink: 0;
 }
+.checklist label { cursor: pointer; font-size: 1.05rem; }
+.checklist-image img { border-radius: var(--radius); box-shadow: var(--shadow); }
 
-.badge{
-display:inline-block;
-padding:8px 16px;
-background:rgba(255,255,255,0.08);
-border:1px solid rgba(255,255,255,0.1);
-border-radius:50px;
-font-size:12px;
-margin-bottom:20px;
-backdrop-filter:blur(10px);
+/* Newsletter */
+.newsletter {
+  padding: 5rem 0; text-align: center;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%); color: white;
 }
-
-.hero h1{
-font-size:4rem;
-font-weight:800;
-letter-spacing:-2px;
+.newsletter h2 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.25rem); margin-bottom: 1rem; }
+.newsletter p { max-width: 600px; margin: 0 auto 2rem; opacity: 0.9; }
+.newsletter-form { display: flex; gap: 0.75rem; max-width: 500px; margin: 0 auto; flex-wrap: wrap; }
+.newsletter-form input {
+  flex: 1; padding: 0.85rem 1rem; border: 2px solid transparent;
+  border-radius: var(--radius); font-size: 1rem; min-width: 200px; outline: none;
 }
+.newsletter-form input:focus { border-color: var(--secondary); }
+.newsletter-form input:invalid:not(:placeholder-shown) { border-color: #ef4444; }
+.newsletter-form button { background: var(--secondary); color: #000; }
+.newsletter-form button:hover { background: var(--secondary-hover); }
+.form-note { font-size: 0.85rem; margin-top: 1rem; opacity: 0.8; }
 
-.hero p{
-color:#bbb;
-margin-top:20px;
-font-size:1.1rem;
-max-width:600px;
-margin-left:auto;
-margin-right:auto;
+/* Footer */
+.footer { background: #0f172a; color: white; padding: 4rem 0 2rem; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+.footer-brand h3 { font-family: var(--font-display); font-size: 1.75rem; margin-bottom: 1rem; }
+.footer-links h4 { margin-bottom: 1rem; font-size: 1.1rem; }
+.footer-links ul li { margin-bottom: 0.5rem; }
+.footer-links a { opacity: 0.8; transition: opacity 0.2s; }
+.footer-links a:hover { opacity: 1; }
+.footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid #1e293b; opacity: 0.7; }
+
+/* Responsive Adjustments */
+@media (max-width: 900px) {
+  .hero-grid, .checklist-grid, .footer-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-buttons, .trust-badges { justify-content: center; }
+  .checklist-image { order: -1; margin-bottom: 2rem; }
+  .newsletter-form { flex-direction: column; align-items: center; }
+  .newsletter-form input, .newsletter-form button { width: 100%; }
 }
-
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:14px 34px;
-border-radius:50px;
-background:linear-gradient(135deg,#ff6b6b,#ff9a9e);
-color:#fff;
-font-weight:600;
-text-decoration:none;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-5px) scale(1.03);
-box-shadow:0 20px 40px rgba(255,107,107,0.25);
-}
-
-/* =========================
-   SECTION LAYOUT
-========================= */
-section{
-padding:120px 10%;
-}
-
-/* =========================
-   STORY GRID (not simple cards anymore)
-========================= */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-margin-top:60px;
-}
-
-.card{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-padding:30px;
-border-radius:24px;
-backdrop-filter:blur(12px);
-transition:.4s;
-}
-
-.card:hover{
-transform:translateY(-10px);
-background:rgba(255,255,255,0.08);
-}
-
-/* =========================
-   SECTION TITLE STYLE
-========================= */
-.title{
-font-size:2.5rem;
-font-weight:700;
-letter-spacing:-1px;
-}
-
-.subtitle{
-color:#aaa;
-margin-top:10px;
-max-width:600px;
-}
-
-/* =========================
-   FEATURES VISUAL BLOCK
-========================= */
-.feature-wrap{
-margin-top:60px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:40px;
-align-items:center;
-}
-
-.feature-box{
-background:rgba(255,255,255,0.05);
-padding:40px;
-border-radius:30px;
-border:1px solid rgba(255,255,255,0.08);
-}
-
-/* =========================
-   CONTACT
-========================= */
-.contact{
-background:rgba(255,255,255,0.03);
-border-top:1px solid rgba(255,255,255,0.08);
-}
-
-input,textarea{
-width:100%;
-padding:15px;
-border-radius:14px;
-border:1px solid rgba(255,255,255,0.1);
-background:rgba(255,255,255,0.05);
-color:#fff;
-margin-bottom:15px;
-outline:none;
-}
-
-textarea{height:120px;}
-
-input:focus,textarea:focus{
-border-color:#ff6b6b;
-}
-
-/* =========================
-   FOOTER
-========================= */
-footer{
-text-align:center;
-padding:40px;
-color:#777;
-}
-
-/* =========================
-   RESPONSIVE
-========================= */
-@media(max-width:768px){
-.hero h1{font-size:2.5rem;}
-.feature-wrap{grid-template-columns:1fr;}
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- HERO -->
-<section class="hero">
-<div class="hero-card">
-
-<div class="badge">🐶 Puppy Care Studio</div>
-
-<h1>Raise a Perfect Puppy</h1>
-
-<p>
-A modern guide to puppy care — nutrition, training, behavior and love, designed like a premium experience.
-</p>
-
-<a href="#start" class="btn">Start Journey</a>
-
-</div>
-</section>
-
-<!-- STORY -->
-<section id="start">
-
-<div class="title">Your Puppy Journey</div>
-<div class="subtitle">Not just information — a guided experience for modern dog owners.</div>
-
-<div class="grid">
-
-<div class="card">
-<h3>Step 01</h3>
-<p>Understand your puppy’s needs and behavior patterns.</p>
-</div>
-
-<div class="card">
-<h3>Step 02</h3>
-<p>Build daily routine, feeding and training structure.</p>
-</div>
-
-<div class="card">
-<h3>Step 03</h3>
-<p>Create emotional bond and healthy lifestyle.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- FEATURES -->
-<section>
-
-<div class="title">Core Essentials</div>
-<div class="subtitle">Everything your puppy needs to grow healthy and happy.</div>
-
-<div class="feature-wrap">
-
-<div class="feature-box">
-<h3>🍖 Nutrition</h3>
-<p>Balanced diet designed for growth and energy.</p>
-<br>
-<h3>🏡 Safety</h3>
-<p>Safe environment setup for stress-free living.</p>
-</div>
-
-<div class="feature-box">
-<h3>🎾 Training</h3>
-<p>Simple behavioral training methods.</p>
-<br>
-<h3>❤️ Health</h3>
-<p>Preventive care and vet routine guidance.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- CONTACT -->
-<section class="contact">
-
-<div class="title">Join the Puppy Community</div>
-<div class="subtitle">Get updates, guides and expert tips.</div>
-
-<br><br>
-
-<form style="max-width:600px;margin:auto;">
-<input type="text" placeholder="Your Name">
-<input type="email" placeholder="Your Email">
-<textarea placeholder="Your Message"></textarea>
-<button class="btn" type="button">Send Message</button>
-</form>
-
-</section>
-
-<footer>
-© 2026 Puppy Care Studio — All rights reserved
-</footer>
-
-</body>
-</html>
