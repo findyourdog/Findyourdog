@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>PawCare Premium</title>
+<title>PawCare Luxury</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================
-   RESET + GLOBAL
+   LUXURY DARK THEME
 ========================= */
 
 *{
@@ -26,13 +26,44 @@ html{
 
 body{
   font-family:'Inter',sans-serif;
-  background: radial-gradient(circle at top, #ffffff, #eef3ff);
-  color:#111;
-  line-height:1.6;
+  background: radial-gradient(circle at top, #0b0f1a, #05060a);
+  color:#eaeaea;
+  overflow-x:hidden;
+}
+
+/* GOLD ACCENT */
+:root{
+  --gold:#d4af37;
+  --glass:rgba(255,255,255,0.05);
 }
 
 /* =========================
-   CONTAINER
+   FLOATING PAWS (ANIMATION)
+========================= */
+
+.paw{
+  position:fixed;
+  font-size:20px;
+  opacity:0.08;
+  animation:floatPaws 10s linear infinite;
+  color:var(--gold);
+  pointer-events:none;
+}
+
+.paw:nth-child(1){ left:10%; animation-delay:0s; }
+.paw:nth-child(2){ left:30%; animation-delay:2s; }
+.paw:nth-child(3){ left:50%; animation-delay:4s; }
+.paw:nth-child(4){ left:70%; animation-delay:1s; }
+.paw:nth-child(5){ left:90%; animation-delay:3s; }
+
+@keyframes floatPaws{
+  0%{ transform:translateY(100vh) rotate(0deg); opacity:0; }
+  50%{ opacity:0.15; }
+  100%{ transform:translateY(-10vh) rotate(360deg); opacity:0; }
+}
+
+/* =========================
+   GLOBAL
 ========================= */
 
 .container{
@@ -41,28 +72,12 @@ body{
   margin:auto;
 }
 
-/* =========================
-   SECTION ANIMATION
-========================= */
-
 section{
   padding:90px 0;
-  animation:fadeUp 0.8s ease both;
-}
-
-@keyframes fadeUp{
-  from{
-    opacity:0;
-    transform:translateY(30px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
 }
 
 /* =========================
-   TITLES
+   HEADINGS
 ========================= */
 
 .section-title{
@@ -71,49 +86,34 @@ section{
 }
 
 .section-title h2{
-  font-size:2.6rem;
+  font-size:2.8rem;
   font-weight:800;
+  color:#fff;
 }
 
 .section-title p{
-  color:#666;
-  margin-top:10px;
+  color:#aaa;
 }
 
 /* =========================
-   BUTTON
+   BUTTON (GOLD LUXURY)
 ========================= */
 
 .btn{
   display:inline-block;
-  padding:14px 32px;
-  background:#111;
-  color:#fff;
+  padding:14px 34px;
+  background:linear-gradient(135deg,#d4af37,#b8860b);
+  color:#111;
   text-decoration:none;
   border-radius:50px;
-  font-weight:700;
+  font-weight:800;
   transition:0.3s;
-  position:relative;
-  overflow:hidden;
+  box-shadow:0 10px 30px rgba(212,175,55,0.2);
 }
 
 .btn:hover{
-  transform:translateY(-4px);
-}
-
-.btn::before{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:rgba(255,255,255,0.2);
-  transition:0.4s;
-}
-
-.btn:hover::before{
-  left:100%;
+  transform:translateY(-4px) scale(1.03);
+  box-shadow:0 15px 40px rgba(212,175,55,0.4);
 }
 
 /* =========================
@@ -124,27 +124,7 @@ section{
   min-height:100vh;
   display:flex;
   align-items:center;
-  background:linear-gradient(135deg,#fff4f4,#eef5ff);
   position:relative;
-  overflow:hidden;
-}
-
-.hero::before{
-  content:"";
-  position:absolute;
-  width:600px;
-  height:600px;
-  background:rgba(0,0,0,0.05);
-  border-radius:50%;
-  top:-200px;
-  right:-200px;
-  filter:blur(60px);
-  animation:float 6s ease-in-out infinite;
-}
-
-@keyframes float{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(20px);}
 }
 
 .hero-grid{
@@ -156,75 +136,54 @@ section{
 
 .hero h1{
   font-size:4rem;
-  font-weight:800;
-  animation:slideLeft 1s ease;
+  color:#fff;
 }
 
 .hero p{
+  color:#bbb;
   margin:20px 0;
-  color:#555;
   font-size:1.1rem;
-  animation:slideLeft 1.2s ease;
-}
-
-.hero .btn{
-  animation:slideLeft 1.4s ease;
-}
-
-@keyframes slideLeft{
-  from{
-    opacity:0;
-    transform:translateX(-40px);
-  }
-  to{
-    opacity:1;
-    transform:translateX(0);
-  }
 }
 
 .hero img{
   width:100%;
-  border-radius:30px;
-  box-shadow:0 20px 60px rgba(0,0,0,.12);
-  animation:floatImg 5s ease-in-out infinite;
-}
-
-@keyframes floatImg{
-  0%,100%{transform:translateY(0);}
-  50%{transform:translateY(-15px);}
+  border-radius:25px;
+  box-shadow:0 30px 80px rgba(0,0,0,0.6);
+  border:1px solid rgba(212,175,55,0.2);
 }
 
 /* =========================
-   TRUST / LOGOS
+   GLOBAL PET COUNTER
 ========================= */
 
-.trust{
-  background:#fff;
-}
-
-.logo-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-
-.logo{
-  background:#f7f8fc;
-  padding:25px;
+.counter{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.1);
+  padding:40px;
   border-radius:20px;
   text-align:center;
-  font-weight:700;
-  box-shadow:0 5px 15px rgba(0,0,0,.04);
-  transition:0.3s;
+  margin:40px 0;
+  backdrop-filter:blur(12px);
 }
 
-.logo:hover{
-  transform:translateY(-5px);
-  background:#fff;
+.counter h3{
+  font-size:3rem;
+  color:var(--gold);
+  letter-spacing:2px;
+}
+
+/* fake animation effect */
+.counter span{
+  animation:countGlow 2s infinite alternate;
+}
+
+@keyframes countGlow{
+  from{ opacity:0.6; }
+  to{ opacity:1; }
 }
 
 /* =========================
-   CARDS
+   CARDS (LUXURY GLASS)
 ========================= */
 
 .cards{
@@ -234,48 +193,42 @@ section{
 }
 
 .card{
-  background:#fff;
-  border-radius:22px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  backdrop-filter:blur(12px);
   transition:0.3s;
-  position:relative;
 }
 
 .card:hover{
-  transform:translateY(-10px) scale(1.02);
-  box-shadow:0 20px 50px rgba(0,0,0,0.1);
+  transform:translateY(-10px);
+  border-color:var(--gold);
+  box-shadow:0 20px 60px rgba(212,175,55,0.15);
 }
 
 .card img{
   width:100%;
   height:220px;
   object-fit:cover;
-  transition:0.4s;
-}
-
-.card:hover img{
-  transform:scale(1.08);
 }
 
 .card-content{
   padding:22px;
+  color:#ddd;
 }
 
-/* shine effect */
-.card::after{
-  content:"";
-  position:absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.4),transparent);
-  transition:0.5s;
-}
+/* =========================
+   LOGOS
+========================= */
 
-.card:hover::after{
-  left:100%;
+.logo{
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:25px;
+  border-radius:18px;
+  text-align:center;
+  color:#ddd;
 }
 
 /* =========================
@@ -285,90 +238,49 @@ section{
 .compare table{
   width:100%;
   border-collapse:collapse;
-  background:#fff;
+  background:var(--glass);
+  backdrop-filter:blur(12px);
   border-radius:20px;
   overflow:hidden;
-  box-shadow:0 10px 30px rgba(0,0,0,.06);
-}
-
-.compare th,
-.compare td{
-  padding:18px;
-  text-align:center;
-  border-bottom:1px solid #eee;
 }
 
 .compare th{
-  background:#111;
-  color:#fff;
+  background:rgba(212,175,55,0.15);
+  color:var(--gold);
+  padding:18px;
 }
 
-.compare tr:hover td{
-  background:#f6f8ff;
+.compare td{
+  padding:18px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  color:#ddd;
 }
 
 /* =========================
    TIMELINE
 ========================= */
 
-.timeline{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
-}
-
 .step{
-  background:#fff;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.08);
   padding:20px;
   border-radius:18px;
-  box-shadow:0 8px 25px rgba(0,0,0,.05);
-  text-align:center;
-  transition:0.3s;
-}
-
-.step:hover{
-  transform:translateY(-6px);
+  color:#ddd;
 }
 
 /* =========================
-   STATS
+   FOOTER
 ========================= */
 
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
-  text-align:center;
-}
-
-.stat{
-  background:#fff;
-  padding:30px;
-  border-radius:20px;
-  box-shadow:0 10px 25px rgba(0,0,0,.05);
-}
-
-.stat h3{
-  font-size:2rem;
-  animation:pop 1s ease;
-}
-
-@keyframes pop{
-  from{transform:scale(0.5);opacity:0;}
-  to{transform:scale(1);opacity:1;}
+footer{
+  background:#000;
+  padding:70px 0;
+  color:#aaa;
 }
 
 /* =========================
-   INPUT
-========================= */
-
-input:focus{
-  outline:none;
-  border-color:#111;
-}
-
-/* =========================
-   MOBILE
+   RESPONSIVE
 ========================= */
 
 @media(max-width:768px){
@@ -378,11 +290,7 @@ input:focus{
   }
 
   .hero h1{
-    font-size:2.5rem;
-  }
-
-  section{
-    padding:60px 0;
+    font-size:2.6rem;
   }
 }
 
@@ -391,14 +299,29 @@ input:focus{
 
 <body>
 
+<!-- 🐾 FLOATING PAWS -->
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+<div class="paw">🐾</div>
+
 <!-- HERO -->
 <section class="hero">
 <div class="container hero-grid">
 
 <div>
-<h1>Premium Puppy Care Guide 🐶</h1>
-<p>Discover dog breeds, expert care tips, feeding advice, training guides and everything needed to raise a happy companion.</p>
-<a href="#breeds" class="btn">Explore Breeds</a>
+<h1>Luxury Puppy Care 🐶</h1>
+<p>Premium guide for elite dog lovers. Care, training, nutrition & lifestyle for your companion.</p>
+
+<a href="#breeds" class="btn">Explore World Breeds</a>
+
+<!-- 🌍 GLOBAL COUNTER -->
+<div class="counter">
+<h3><span>900,000,000+</span></h3>
+<p>Dogs currently living worldwide</p>
+</div>
+
 </div>
 
 <div>
@@ -409,83 +332,22 @@ input:focus{
 </section>
 
 <!-- TRUST -->
-<section class="trust">
+<section>
 <div class="container">
-
 <div class="section-title">
-<h2>Trusted By Dog Lovers</h2>
-<p>Thousands of happy puppy owners</p>
-</div>
-
-<div class="logo-grid">
-<div class="logo">10K+ Readers</div>
-<div class="logo">150+ Breeds</div>
-<div class="logo">95% Satisfaction</div>
-<div class="logo">Daily Tips</div>
-</div>
-
-</div>
-</section>
-
-<!-- BREEDS -->
-<section id="breeds">
-<div class="container">
-
-<div class="section-title">
-<h2>Popular Dog Breeds</h2>
-<p>Discover different personalities</p>
+<h2>Trusted Worldwide</h2>
+<p>Luxury dog care community</p>
 </div>
 
 <div class="cards">
-
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
-<div class="card-content">
-<h3>Golden Retriever</h3>
-<p>Friendly, intelligent and ideal for families.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Beagle__1.jpg?v=1780137176">
-<div class="card-content">
-<h3>Beagle</h3>
-<p>Energetic explorer with a playful personality.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Viva_Essence_Pet_-_Premium_Pet_Beds_Toys_Supplies.jpg?v=1780137037">
-<div class="card-content">
-<h3>Shih Tzu</h3>
-<p>Elegant companion perfect for apartment life.</p>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<!-- FEATURES -->
-<section class="features">
-<div class="container">
-
-<div class="section-title">
-<h2>Why Choose PawCare?</h2>
-<p>Everything you need to raise a happy dog</p>
-</div>
-
-<div class="cards">
-<div class="card"><div class="card-content"><h3>❤️ Loyalty</h3><p>Dogs create lifelong bonds.</p></div></div>
-<div class="card"><div class="card-content"><h3>🏃 Active</h3><p>Walks improve health.</p></div></div>
-<div class="card"><div class="card-content"><h3>😊 Happiness</h3><p>Pets reduce stress.</p></div></div>
-<div class="card"><div class="card-content"><h3>🧠 Intelligence</h3><p>Training builds trust.</p></div></div>
+<div class="logo">Elite Owners</div>
+<div class="logo">Premium Breeds</div>
+<div class="logo">Vet Approved</div>
+<div class="logo">Global Reach</div>
 </div>
 
 </div>
 </section>
-
-<!-- KEEP REST OF YOUR HTML EXACTLY SAME -->
 
 </body>
 </html>
