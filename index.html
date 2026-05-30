@@ -1,240 +1,472 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Dog Match Builder</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Find Your Perfect Dog Match</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: url("https://cdn.shopify.com/s/files/1/0813/7945/9311/files/4.jpg?v=1779911626") no-repeat center center fixed;
-  background-size: cover;
+/* ===============================
+   GLOBAL STYLES
+================================= */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 700px;
-  margin: 40px auto;
-  background: rgba(255,255,255,0.95);
-  padding: 25px;
-  border-radius: 20px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+html{
+    scroll-behavior:smooth;
 }
 
-/* SCREENS */
-.screen {
-  display: none;
-  animation: fade 0.4s ease;
+body{
+    font-family:'Poppins',sans-serif;
+    background:#fafafa;
+    color:#222;
+    line-height:1.6;
 }
 
-.screen.active {
-  display: block;
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
 }
 
-@keyframes fade {
-  from {opacity: 0; transform: translateY(10px);}
-  to {opacity: 1; transform: translateY(0);}
+section{
+    padding:100px 0;
 }
 
-/* BUTTON */
-button {
-  padding: 12px 18px;
-  border: none;
-  border-radius: 12px;
-  background: #b08968;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-top: 15px;
+h1,h2,h3{
+    line-height:1.2;
 }
 
-button:hover {
-  transform: scale(1.05);
+p{
+    color:#666;
 }
 
-/* OPTIONS */
-.options {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
+/* ===============================
+   HERO SECTION
+================================= */
+.hero{
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    background:linear-gradient(135deg,#fff7ec,#ffe4e6);
 }
 
-.option {
-  padding: 12px 16px;
-  border-radius: 12px;
-  border: 2px solid #eee;
-  cursor: pointer;
-  transition: 0.2s;
-  background: white;
+.hero-content{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
 }
 
-.option:hover {
-  transform: scale(1.05);
+.hero-text h1{
+    font-size:4rem;
+    font-weight:800;
+    color:#111;
+    margin-bottom:20px;
 }
 
-.option.active {
-  background: #b08968;
-  color: white;
-  border-color: #b08968;
+.hero-text p{
+    font-size:1.15rem;
+    margin-bottom:35px;
+    max-width:550px;
 }
 
-/* RESULT CARD */
-.card {
-  margin-top: 20px;
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  animation: pop 0.4s ease;
+.cta-btn{
+    display:inline-block;
+    padding:16px 34px;
+    background:#ff6b6b;
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-weight:600;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(255,107,107,.3);
 }
 
-.card img {
-  width: 100%;
-  height: 320px;
-  object-fit: cover;
+.cta-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 35px rgba(255,107,107,.4);
 }
 
-@keyframes pop {
-  from {transform: scale(0.9); opacity: 0;}
-  to {transform: scale(1); opacity: 1;}
+.hero-image img{
+    width:100%;
+    border-radius:30px;
+    box-shadow:0 20px 40px rgba(0,0,0,.12);
+}
+
+/* ===============================
+   ABOUT SECTION
+================================= */
+.about{
+    background:white;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+.section-title h2{
+    font-size:2.5rem;
+    margin-bottom:15px;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
+
+.about-card{
+    background:#fff;
+    padding:40px;
+    border-radius:24px;
+    box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+/* ===============================
+   FEATURES SECTION
+================================= */
+.features{
+    background:#f8fafc;
+}
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    padding:35px;
+    border-radius:24px;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 10px 30px rgba(0,0,0,.05);
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 20px 40px rgba(0,0,0,.1);
+}
+
+.feature-icon{
+    font-size:3rem;
+    margin-bottom:15px;
+}
+
+.feature-card h3{
+    margin-bottom:10px;
+}
+
+/* ===============================
+   BENEFITS SECTION
+================================= */
+.benefits{
+    background:white;
+}
+
+.benefits-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:25px;
+}
+
+.benefit{
+    padding:30px;
+    border-radius:20px;
+    background:#fff7ec;
+    transition:.3s;
+}
+
+.benefit:hover{
+    transform:translateY(-6px);
+}
+
+/* ===============================
+   CONTACT SECTION
+================================= */
+.contact{
+    background:linear-gradient(135deg,#fff7ec,#ffe4e6);
+}
+
+.contact-wrapper{
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:50px;
+    border-radius:30px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.contact-form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:16px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-family:inherit;
+    outline:none;
+}
+
+.contact-form textarea{
+    resize:none;
+    height:140px;
+}
+
+.contact-form button{
+    border:none;
+    cursor:pointer;
+}
+
+/* ===============================
+   FOOTER
+================================= */
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px 20px;
+}
+
+footer p{
+    color:#bbb;
+}
+
+/* ===============================
+   MOBILE RESPONSIVE
+================================= */
+@media(max-width:900px){
+
+.hero-content,
+.about-grid{
+    grid-template-columns:1fr;
+}
+
+.hero{
+    padding-top:120px;
+    text-align:center;
+}
+
+.hero-text h1{
+    font-size:2.8rem;
+}
+
+.hero-image{
+    order:-1;
+}
+
+section{
+    padding:80px 0;
+}
+}
+
+@media(max-width:600px){
+
+.hero-text h1{
+    font-size:2.2rem;
+}
+
+.section-title h2{
+    font-size:2rem;
+}
+
+.contact-wrapper{
+    padding:30px;
+}
 }
 </style>
 </head>
-
 <body>
 
+<!-- ===============================
+     HERO SECTION
+================================= -->
+<section class="hero">
+<div class="container">
+<div class="hero-content">
+
+<div class="hero-text">
+<h1>Find Your Perfect Dog Match 🐶</h1>
+<p>
+Answer a few fun questions and discover which dog breed fits your
+personality, lifestyle, and energy level best.
+</p>
+
+<a href="#features" class="cta-btn">
+Start Discovering
+</a>
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80" alt="Dog">
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- ===============================
+     ABOUT SECTION
+================================= -->
+<section class="about">
 <div class="container">
 
-<!-- INTRO SCREEN -->
-<div class="screen active" id="intro">
-  <h1>🐶 Find Your Perfect Dog</h1>
-  <p>Answer a few quick choices and discover your ideal match in seconds.</p>
-  <button onclick="start()">Start</button>
+<div class="section-title">
+<h2>About Our Dog Match Quiz</h2>
+<p>Helping future dog owners find their ideal companion.</p>
 </div>
 
-<!-- BUILDER SCREEN -->
-<div class="screen" id="builder">
+<div class="about-grid">
 
-  <h2>Build your dog 🧠</h2>
+<div class="about-card">
+<h3>Why We Created It</h3>
+<p>
+Every dog breed has a unique personality. Our goal is to help
+you discover which furry friend best matches your lifestyle,
+home environment, and daily routine.
+</p>
+</div>
 
-  <div class="section">
-    <h3>Size</h3>
-    <div class="options" data-type="size">
-      <div class="option" data-value="small">Small</div>
-      <div class="option" data-value="medium">Medium</div>
-      <div class="option" data-value="large">Large</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Energy</h3>
-    <div class="options" data-type="energy">
-      <div class="option" data-value="low">Low</div>
-      <div class="option" data-value="high">High</div>
-    </div>
-  </div>
-
-  <div class="section">
-    <h3>Personality</h3>
-    <div class="options" data-type="personality">
-      <div class="option" data-value="calm">Calm</div>
-      <div class="option" data-value="playful">Playful</div>
-      <div class="option" data-value="independent">Independent</div>
-    </div>
-  </div>
-
-  <div id="result"></div>
-
+<div class="about-card">
+<h3>Simple & Fun</h3>
+<p>
+Just answer a few easy questions and receive personalized
+recommendations based on your preferences and habits.
+</p>
 </div>
 
 </div>
+</div>
+</section>
 
-<script>
+<!-- ===============================
+     FEATURES SECTION
+================================= -->
+<section class="features" id="features">
+<div class="container">
 
-let state = {
-  size: null,
-  energy: null,
-  personality: null
-};
+<div class="section-title">
+<h2>Why You'll Love It</h2>
+<p>Designed to make choosing a dog easier and more fun.</p>
+</div>
 
-const dogs = [
-  {
-    name: "Golden Retriever",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194",
-    match: { size:"large", energy:"high", personality:"playful" }
-  },
-  {
-    name: "French Bulldog",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Black_and_white_french_bulldog_sitting_attentively_canine_animal.jpg?v=1779910869",
-    match: { size:"small", energy:"low", personality:"calm" }
-  },
-  {
-    name: "Border Collie",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927",
-    match: { size:"medium", energy:"high", personality:"playful" }
-  },
-  {
-    name: "Shiba Inu",
-    img: "https://cdn.shopify.com/s/files/1/0813/7945/9311/files/3.jpg?v=1779911250",
-    match: { size:"small", energy:"low", personality:"independent" }
-  }
-];
+<div class="features-grid">
 
-function start() {
-  document.getElementById("intro").classList.remove("active");
-  document.getElementById("builder").classList.add("active");
-}
+<div class="feature-card">
+<div class="feature-icon">🐕</div>
+<h3>Breed Matching</h3>
+<p>Find breeds that fit your personality.</p>
+</div>
 
-document.querySelectorAll(".option").forEach(el => {
-  el.addEventListener("click", () => {
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<h3>Lifestyle Analysis</h3>
+<p>Based on your energy level and daily routine.</p>
+</div>
 
-    const type = el.parentElement.dataset.type;
+<div class="feature-card">
+<div class="feature-icon">🏡</div>
+<h3>Home Friendly</h3>
+<p>Recommendations based on your living space.</p>
+</div>
 
-    state[type] = el.dataset.value;
+<div class="feature-card">
+<div class="feature-icon">❤️</div>
+<h3>Personalized Results</h3>
+<p>Unique matches tailored specifically for you.</p>
+</div>
 
-    el.parentElement.querySelectorAll(".option")
-      .forEach(x => x.classList.remove("active"));
+</div>
 
-    el.classList.add("active");
+</div>
+</section>
 
-    updateResult();
-  });
-});
+<!-- ===============================
+     BENEFITS SECTION
+================================= -->
+<section class="benefits">
+<div class="container">
 
-function updateResult() {
+<div class="section-title">
+<h2>Benefits</h2>
+<p>Find your future best friend with confidence.</p>
+</div>
 
-  let best = dogs[0];
-  let bestScore = -1;
+<div class="benefits-grid">
 
-  dogs.forEach(dog => {
-    let score = 0;
+<div class="benefit">
+<h3>✔ Save Time</h3>
+<p>No need to research hundreds of breeds.</p>
+</div>
 
-    for (let key in state) {
-      if (!state[key]) continue;
-      if (dog.match[key] === state[key]) score++;
-    }
+<div class="benefit">
+<h3>✔ Better Match</h3>
+<p>Find a dog that fits your daily lifestyle.</p>
+</div>
 
-    if (score > bestScore) {
-      bestScore = score;
-      best = dog;
-    }
-  });
+<div class="benefit">
+<h3>✔ Fun Experience</h3>
+<p>Enjoy a simple and interactive discovery process.</p>
+</div>
 
-  document.getElementById("result").innerHTML = `
-    <div class="card">
-      <img src="${best.img}">
-      <h2>${best.name}</h2>
-      <p>Your perfect match updates instantly 🐾</p>
-    </div>
-  `;
-}
+</div>
 
-</script>
+</div>
+</section>
+
+<!-- ===============================
+     CONTACT SECTION
+================================= -->
+<section class="contact">
+<div class="container">
+
+<div class="contact-wrapper">
+
+<div class="section-title">
+<h2>Get In Touch</h2>
+<p>Have questions? We'd love to hear from you.</p>
+</div>
+
+<form class="contact-form">
+
+<input type="text" placeholder="Your Name">
+
+<input type="email" placeholder="Your Email">
+
+<textarea placeholder="Your Message"></textarea>
+
+<button class="cta-btn">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</div>
+</section>
+
+<!-- ===============================
+     FOOTER
+================================= -->
+<footer>
+<p>© 2026 Find Your Perfect Dog Match. All rights reserved.</p>
+</footer>
 
 </body>
 </html>
