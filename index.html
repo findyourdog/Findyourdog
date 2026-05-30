@@ -3,29 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Luxury Dog Match | Find Your Perfect Companion</title>
-  <meta name="description" content="Discover your ideal dog match with our premium AI-powered experience">
-
+  <title>🐾 Paws & Pearls | Luxury Puppy Match</title>
+  <meta name="description" content="Discover your perfect puppy soulmate in an exquisite, paw-sitively luxurious experience">
+  
   <!-- Premium Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <style>
     :root {
-      /* Luxury Color Palette */
+      /* ✨ Ultra-Luxury Puppy Palette */
       --gold-primary: #D4AF37;
       --gold-light: #FFD700;
       --gold-dark: #B89E2C;
-      --bg-deep: #0a0a0f;
-      --bg-card: rgba(30, 30, 45, 0.6);
-      --bg-glass: rgba(255, 255, 255, 0.08);
+      --gold-gradient: linear-gradient(135deg, #FFF9E6, #FFD700, #D4AF37, #B89E2C);
+      --pink-soft: #FFB6D9;
+      --pink-deep: #FF69B4;
+      --pink-glow: rgba(255, 105, 180, 0.3);
+      --cream: #FFF9F0;
+      --bg-deep: #0d0d15;
+      --bg-darker: #08080c;
+      --bg-card: rgba(35, 30, 50, 0.75);
+      --bg-glass: rgba(255, 249, 240, 0.15);
       --text-primary: #ffffff;
-      --text-secondary: #b8b8d2;
-      --accent-glow: rgba(212, 175, 55, 0.3);
+      --text-secondary: #c8c8e0;
+      --text-gold: #FFD700;
+      --accent-glow: rgba(212, 175, 55, 0.4);
+      --paw-shadow: 0 10px 40px rgba(255, 182, 217, 0.25);
       --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      --border-radius-lg: 28px;
+      --border-radius-xl: 36px;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -33,78 +42,186 @@
       background: var(--bg-deep);
       color: var(--text-primary);
       overflow-x: hidden;
-      line-height: 1.6;
+      line-height: 1.7;
+      position: relative;
     }
 
-    /* ===== LUXURY BACKGROUND EFFECTS ===== */
-    .bg-gradient {
+    body::before {
+      content: '';
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background: 
-        radial-gradient(ellipse at 20% 80%, rgba(212,175,55,0.15) 0%, transparent 50%),
-        radial-gradient(ellipse at 80% 20%, rgba(255,107,107,0.1) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 50%, rgba(100,100,255,0.05) 0%, transparent 70%);
-      z-index: -2;
+        radial-gradient(ellipse at 15% 85%, rgba(255, 182, 217, 0.12) 0%, transparent 45%),
+        radial-gradient(ellipse at 85% 15%, rgba(212, 175, 55, 0.15) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 50%, rgba(138, 43, 226, 0.08) 0%, transparent 60%);
+      z-index: -3;
       pointer-events: none;
     }
 
-    .bg-particles {
+    /* ✨ Floating Paw Prints Background */
+    .paw-bg {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100%;
       background-image: 
-        radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
-        radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
-      background-size: 50px 50px, 30px 30px;
-      background-position: 0 0, 15px 15px;
+        url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5c-2 0-4 1.5-4 4 0 1.5.8 2.8 2 3.5-.8.5-1.3 1.4-1.3 2.5 0 2 1.8 3.5 4 3.5s4-1.5 4-3.5c0-1.1-.5-2-1.3-2.5 1.2-.7 2-2 2-3.5 0-2.5-2-4-4-4zm-8 12c-1.5 0-2.8 1.3-2.8 3s1.3 3 2.8 3 2.8-1.3 2.8-3-1.3-3-2.8-3zm16 0c-1.5 0-2.8 1.3-2.8 3s1.3 3 2.8 3 2.8-1.3 2.8-3-1.3-3-2.8-3zm-8 8c-2.5 0-4.5 2-4.5 4.5S27.5 34 30 34s4.5-2 4.5-4.5S32.5 25 30 25z' fill='%23D4AF37' fill-opacity='0.08'/%3E%3C/svg%3E");
+      opacity: 0.5;
+      z-index: -2;
+      animation: pawFloat 30s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes pawFloat {
+      0% { background-position: 0 0; }
+      100% { background-position: 100px 100px; }
+    }
+
+    /* ✨ Sparkle Particles */
+    .sparkles {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
       z-index: -1;
-      opacity: 0.3;
-      animation: particlesMove 20s linear infinite;
+      overflow: hidden;
     }
 
-    @keyframes particlesMove {
-      0% { background-position: 0 0, 15px 15px; }
-      100% { background-position: 100px 100px, 115px 115px; }
+    .sparkle {
+      position: absolute;
+      width: 4px; height: 4px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      animation: sparkle 3s ease-in-out infinite;
+      box-shadow: 0 0 10px var(--gold-light);
+      opacity: 0;
     }
 
-    /* ===== GLASSMORPHISM UTILITIES [[20-27]] ===== */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0) translateY(0); }
+      50% { opacity: 1; transform: scale(1) translateY(-20px); }
+    }
+
+    /* ✨ Glassmorphism Premium Cards */
     .glass {
       background: var(--bg-glass);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
       box-shadow: 
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.05);
+        0 8px 40px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     }
 
     .glass-card {
-      border-radius: 24px;
+      border-radius: var(--border-radius-lg);
       transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: var(--gold-gradient);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
 
     .glass-card:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
       box-shadow: 
-        0 20px 50px rgba(0, 0, 0, 0.4),
-        0 0 30px var(--accent-glow),
-        0 0 0 1px rgba(212, 175, 55, 0.3);
+        0 25px 60px rgba(0, 0, 0, 0.5),
+        0 0 40px var(--accent-glow),
+        0 0 0 1px rgba(212, 175, 55, 0.4);
     }
 
-    /* ===== TYPOGRAPHY ===== */
-    h1, h2, h3 {
+    .glass-card:hover::before { opacity: 1; }
+
+    /* ✨ Typography Luxury */
+    h1, h2, h3, h4 {
       font-family: 'Playfair Display', serif;
       font-weight: 600;
       letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .script-font {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
     }
 
     .gold-text {
-      background: linear-gradient(135deg, var(--gold-light), var(--gold-primary), var(--gold-dark));
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: inline;
+    }
+
+    .pink-text {
+      color: var(--pink-deep);
+      font-weight: 600;
+    }
+
+    .text-gradient {
+      background: linear-gradient(135deg, var(--pink-soft), var(--gold-light), var(--pink-deep));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* ✨ Premium Button */
+    .btn-luxury {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1.1rem 2.8rem;
+      background: var(--gold-gradient);
+      color: var(--bg-darker);
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.5);
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .btn-luxury::before {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 100%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent);
+      transition: 0.6s;
+      z-index: -1;
+    }
+
+    .btn-luxury:hover {
+      transform: translateY(-4px) scale(1.03);
+      box-shadow: 0 18px 50px rgba(212, 175, 55, 0.7);
+    }
+
+    .btn-luxury:hover::before { left: 100%; }
+
+    .btn-luxury:active { transform: translateY(-2px); }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold-primary);
+      color: var(--gold-light);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: rgba(212, 175, 55, 0.15);
+    }
+
+    /* ✨ Hero Section */
     .hero {
       min-height: 100vh;
       display: flex;
@@ -112,167 +229,409 @@
       justify-content: center;
       position: relative;
       text-align: center;
-      padding: 2rem;
+      padding: 4rem 2rem;
       overflow: hidden;
     }
 
     .hero-content {
-      max-width: 900px;
-      z-index: 2;
+      max-width: 1000px;
+      z-index: 3;
       animation: fadeUp 1s ease;
     }
 
-    .hero h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      margin-bottom: 1.5rem;
-      line-height: 1.1;
-    }
-
-    .hero p {
-      font-size: 1.25rem;
-      color: var(--text-secondary);
-      max-width: 650px;
-      margin: 0 auto 2.5rem;
-    }
-
-    .hero-image {
-      position: absolute;
-      bottom: -10%;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      max-width: 1200px;
-      opacity: 0.15;
-      filter: blur(2px);
-      pointer-events: none;
-      animation: floatHero 8s ease-in-out infinite;
-    }
-
-    @keyframes floatHero {
-      0%, 100% { transform: translateX(-50%) translateY(0); }
-      50% { transform: translateX(-50%) translateY(-20px); }
-    }
-
-    /* ===== CTA BUTTON ===== */
-    .cta {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      padding: 1rem 2.5rem;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-      color: #0a0a0f;
+      padding: 0.5rem 1.5rem;
+      background: rgba(255, 182, 217, 0.15);
+      border: 1px solid var(--pink-soft);
       border-radius: 50px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1.1rem;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
-      position: relative;
-      overflow: hidden;
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      animation: pulse 2s ease-in-out infinite;
     }
 
-    .cta::before {
-      content: '';
+    .hero h1 {
+      font-size: clamp(2.8rem, 9vw, 5.5rem);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero h1 .paw-icon {
+      display: inline-block;
+      animation: bounce 1.5s ease infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+    }
+
+    /* ✨ Floating Puppy Elements */
+    .floating-puppy {
       position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: 0.5s;
+      width: 80px;
+      opacity: 0.2;
+      animation: floatPuppy 8s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 1;
+      filter: drop-shadow(0 5px 15px rgba(255, 182, 217, 0.4));
     }
 
-    .cta:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 15px 40px rgba(212, 175, 55, 0.6);
+    .floating-puppy:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+    .floating-puppy:nth-child(2) { top: 25%; right: 10%; animation-delay: 2s; width: 60px; }
+    .floating-puppy:nth-child(3) { bottom: 20%; left: 15%; animation-delay: 4s; width: 70px; }
+    .floating-puppy:nth-child(4) { bottom: 15%; right: 8%; animation-delay: 1s; }
+
+    @keyframes floatPuppy {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-25px) rotate(3deg); }
+      50% { transform: translateY(-15px) rotate(-2deg); }
+      75% { transform: translateY(-30px) rotate(2deg); }
     }
 
-    .cta:hover::before {
-      left: 100%;
-    }
-
-    .cta:active { transform: translateY(-1px); }
-
-    /* ===== SECTIONS ===== */
+    /* ✨ Section Styling */
     section {
       padding: 6rem 10%;
       position: relative;
     }
 
-    .section-title {
-      font-size: clamp(2rem, 5vw, 3rem);
+    .section-header {
       text-align: center;
-      margin-bottom: 3rem;
+      max-width: 800px;
+      margin: 0 auto 4rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid var(--gold-primary);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--gold-light);
+    }
+
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+
+    .section-divider {
+      width: 100px;
+      height: 3px;
+      background: var(--gold-gradient);
+      margin: 1.5rem auto;
+      border-radius: 2px;
       position: relative;
     }
 
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 80px;
-      height: 3px;
-      background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
-      margin: 1rem auto 0;
-      border-radius: 2px;
+    .section-divider::after {
+      content: '✦';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      color: var(--gold-light);
+      font-size: 1.2rem;
+      background: var(--bg-deep);
+      padding: 0 0.5rem;
     }
 
-    /* ===== STORY CARDS ===== */
-    .grid {
+    /* ✨ About Section */
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .card {
-      padding: 2.5rem;
-      text-align: center;
-      opacity: 0;
-      transform: translateY(30px);
+    .about-image {
+      position: relative;
+      border-radius: var(--border-radius-xl);
+      overflow: hidden;
+      box-shadow: var(--paw-shadow);
+    }
+
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
       transition: var(--transition);
     }
 
-    .card.show {
-      opacity: 1;
-      transform: translateY(0);
+    .about-image:hover img { transform: scale(1.05); }
+
+    .about-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, rgba(212, 175, 55, 0.2));
+      pointer-events: none;
     }
 
-    .card-icon {
-      width: 70px;
-      height: 70px;
-      margin: 0 auto 1.5rem;
-      background: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
-      border-radius: 50%;
+    .about-content h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-content p {
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+
+    .feature-list {
+      list-style: none;
+      margin: 2rem 0;
+    }
+
+    .feature-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+      font-weight: 400;
+    }
+
+    .feature-list li::before {
+      content: '🐾';
+      font-size: 1.2rem;
+    }
+
+    /* ✨ How It Works - Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      counter-reset: step;
+    }
+
+    .step-card {
+      padding: 2.5rem 2rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .step-number {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 1.5rem;
+      background: var(--gold-gradient);
+      border-radius: 50%;
+      font-family: 'Playfair Display', serif;
       font-size: 1.8rem;
-      box-shadow: 0 10px 25px rgba(212, 175, 55, 0.3);
+      font-weight: 700;
+      color: var(--bg-darker);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+      position: relative;
+      z-index: 2;
     }
 
-    .card h3 {
-      margin-bottom: 0.75rem;
+    .step-card::before {
+      content: '';
+      position: absolute;
+      top: 30px; left: 50%;
+      width: 2px;
+      height: calc(100% - 60px);
+      background: linear-gradient(to bottom, var(--gold-primary), transparent);
+      transform: translateX(-50%);
+      z-index: 1;
+    }
+
+    .steps-grid .step-card:last-child::before { display: none; }
+
+    .step-card h3 {
       font-size: 1.4rem;
+      margin-bottom: 0.8rem;
     }
 
-    .card p {
+    .step-card p {
       color: var(--text-secondary);
       font-size: 0.95rem;
+      font-weight: 300;
     }
 
-    /* ===== QUIZ SECTION ===== */
-    .quiz-container {
-      max-width: 800px;
+    /* ✨ Breed Gallery */
+    .gallery-filters {
+      display: flex;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      padding: 0.6rem 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 50px;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--gold-primary);
+      color: var(--bg-darker);
+      border-color: var(--gold-primary);
+    }
+
+    .breeds-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 3rem;
+    }
+
+    .breed-card {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .breed-image {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+      transition: var(--transition);
+      border-bottom: 3px solid var(--gold-primary);
+    }
+
+    .breed-card:hover .breed-image {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+    }
+
+    .breed-info {
+      padding: 1.5rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .breed-info h3 {
+      font-size: 1.4rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .breed-energy {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.3rem 0.8rem;
+      background: rgba(255, 182, 217, 0.15);
+      border-radius: 50px;
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+      width: fit-content;
+    }
+
+    .breed-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .breed-tags {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .breed-tag {
+      padding: 0.3rem 0.7rem;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+    }
+
+    /* ✨ Quiz Section */
+    .quiz-wrapper {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    .progress-container {
+      margin-bottom: 2.5rem;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
     }
 
     .progress {
-      height: 6px;
+      height: 8px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
-      margin-bottom: 2.5rem;
       overflow: hidden;
       position: relative;
     }
@@ -280,9 +639,9 @@
     .progress-bar {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, var(--gold-primary), var(--gold-light));
+      background: var(--gold-gradient);
       border-radius: 10px;
-      transition: width 0.5s ease;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       position: relative;
     }
 
@@ -290,7 +649,7 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
       animation: shimmer 2s infinite;
     }
 
@@ -299,163 +658,398 @@
       100% { transform: translateX(100%); }
     }
 
-    .question {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
+    .question-card {
+      padding: 2.5rem;
       text-align: center;
+    }
+
+    .question-text {
+      font-size: 1.6rem;
+      margin-bottom: 2rem;
       font-weight: 500;
     }
 
-    .options {
+    .options-grid {
       display: grid;
       gap: 1rem;
     }
 
-    .options button {
-      padding: 1.2rem 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 16px;
+    .option-btn {
+      padding: 1.3rem 1.8rem;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
       background: var(--bg-card);
       color: var(--text-primary);
-      font-size: 1rem;
+      font-size: 1.05rem;
       cursor: pointer;
       transition: var(--transition);
       text-align: left;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-    }
-
-    .options button:hover {
-      background: rgba(212, 175, 55, 0.15);
-      border-color: var(--gold-primary);
-      transform: translateX(5px);
-    }
-
-    .options button::before {
-      content: '✦';
-      color: var(--gold-primary);
-      font-size: 1.2rem;
-    }
-
-    /* ===== RESULT SECTION ===== */
-    .result {
-      text-align: center;
-      animation: fadeUp 0.8s ease;
-    }
-
-    .result h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .result-type {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      background: rgba(212, 175, 55, 0.2);
-      border: 1px solid var(--gold-primary);
-      border-radius: 50px;
-      margin: 1rem 0 2rem;
-      font-weight: 600;
-      color: var(--gold-light);
-    }
-
-    .dogs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .dog-card {
-      padding: 1.5rem;
-      text-align: center;
+      gap: 1rem;
       position: relative;
       overflow: hidden;
     }
 
-    .dog-card::before {
+    .option-btn::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--gold-primary), var(--gold-light), var(--gold-primary));
+      left: 0; top: 0; bottom: 0;
+      width: 4px;
+      background: var(--gold-gradient);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
-    .dog-card:hover::before {
-      opacity: 1;
+    .option-btn:hover {
+      background: rgba(212, 175, 55, 0.12);
+      border-color: var(--gold-primary);
+      transform: translateX(6px);
     }
 
-    .dog-image {
+    .option-btn:hover::before { opacity: 1; }
+
+    .option-btn .emoji {
+      font-size: 1.4rem;
+      min-width: 28px;
+    }
+
+    /* ✨ Result Section */
+    .result-celebration {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .confetti {
+      position: fixed;
+      width: 10px; height: 10px;
+      background: var(--gold-light);
+      animation: confetti 3s ease-out forwards;
+      pointer-events: none;
+      z-index: 100;
+      border-radius: 2px;
+    }
+
+    @keyframes confetti {
+      0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+    }
+
+    .match-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      background: rgba(212, 175, 55, 0.2);
+      border: 2px solid var(--gold-primary);
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 1.5rem 0 2.5rem;
+      color: var(--gold-light);
+    }
+
+    .result-dogs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-top: 2rem;
+    }
+
+    .result-dog {
+      padding: 1.8rem;
+      text-align: center;
+    }
+
+    .result-dog-img {
       width: 100%;
       height: 200px;
-      border-radius: 16px;
+      border-radius: 20px;
       object-fit: cover;
-      margin-bottom: 1rem;
-      transition: var(--transition);
-      border: 2px solid transparent;
+      margin-bottom: 1.2rem;
+      border: 3px solid transparent;
       background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
-                  linear-gradient(135deg, var(--gold-primary), var(--gold-light)) border-box;
+                  var(--gold-gradient) border-box;
+      transition: var(--transition);
     }
 
-    .dog-card:hover .dog-image {
-      transform: scale(1.03);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    .result-dog:hover .result-dog-img {
+      transform: scale(1.04);
+      box-shadow: 0 15px 45px rgba(0, 0, 0, 0.4);
     }
 
-    .dog-card h3 {
-      font-size: 1.3rem;
+    .result-dog h4 {
+      font-size: 1.35rem;
       margin-bottom: 0.5rem;
     }
 
-    .dog-card p {
+    .result-dog p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+    }
+
+    .compatibility-meter {
+      margin: 1.5rem 0;
+    }
+
+    .compatibility-label {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .compatibility-bar {
+      height: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .compatibility-fill {
+      height: 100%;
+      background: var(--gold-gradient);
+      border-radius: 10px;
+      width: 0%;
+      transition: width 1s ease;
+    }
+
+    /* ✨ Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      padding: 2rem;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 15px; left: 20px;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      color: var(--gold-primary);
+      opacity: 0.2;
+      line-height: 1;
+    }
+
+    .testimonial-content {
+      margin-top: 1.5rem;
+      font-style: italic;
+      color: var(--text-secondary);
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .author-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold-primary);
+    }
+
+    .author-info h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .author-info p {
+      font-size: 0.85rem;
+      color: var(--pink-soft);
+    }
+
+    .testimonial-puppy {
+      position: absolute;
+      bottom: -15px; right: 20px;
+      width: 50px;
+      opacity: 0.3;
+      filter: drop-shadow(0 3px 10px rgba(0,0,0,0.3));
+    }
+
+    /* ✨ CTA Section */
+    .cta-section {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.08), rgba(255, 182, 217, 0.08));
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .cta-content {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-content h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      margin-bottom: 1.2rem;
+    }
+
+    .cta-content p {
+      color: var(--text-secondary);
+      margin-bottom: 2.5rem;
+      font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ✨ Footer */
+    footer {
+      padding: 4rem 10% 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background: var(--bg-darker);
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .footer-brand p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-link {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 1.1rem;
+    }
+
+    .social-link:hover {
+      background: var(--gold-primary);
+      color: var(--bg-darker);
+      transform: translateY(-3px);
+    }
+
+    .footer-links h4 {
+      font-size: 1.1rem;
+      margin-bottom: 1.2rem;
+      color: var(--gold-light);
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-links a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 2.5rem;
+      margin-top: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--text-secondary);
       font-size: 0.9rem;
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      text-align: center;
-      padding: 3rem;
-      color: var(--text-secondary);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 2rem;
-    }
-
-    footer a {
+    .footer-bottom a {
       color: var(--gold-primary);
       text-decoration: none;
-      transition: color 0.3s;
     }
 
-    footer a:hover { color: var(--gold-light); }
-
-    /* ===== ANIMATIONS ===== */
+    /* ✨ Animations */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
     @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.7; }
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(255, 182, 217, 0.4); }
+      50% { opacity: 0.9; box-shadow: 0 0 0 12px rgba(255, 182, 217, 0); }
     }
 
-    .loading {
-      animation: pulse 1.5s ease-in-out infinite;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
     }
 
-    /* ===== MOBILE RESPONSIVE ===== */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ✨ Mobile Responsive */
+    @media (max-width: 992px) {
+      .about-grid { grid-template-columns: 1fr; text-align: center; }
+      .about-content { order: 2; }
+      .about-image { order: 1; max-width: 500px; margin: 0 auto; }
+      .hero-stats { gap: 1.5rem; }
+    }
+
     @media (max-width: 768px) {
       section { padding: 4rem 5%; }
-      .quiz-container { padding: 2rem 1.5rem; }
       .hero h1 { font-size: 2.8rem; }
-      .grid { grid-template-columns: 1fr; }
+      .hero p { font-size: 1.1rem; }
+      .section-title { font-size: 2rem; }
+      .steps-grid .step-card::before { display: none; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+      .btn-luxury { width: 100%; max-width: 300px; justify-content: center; }
     }
 
-    /* ===== ACCESSIBILITY ===== */
+    /* ✨ Accessibility */
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -464,152 +1058,545 @@
       }
     }
 
-    /* Focus states for keyboard navigation */
-    button:focus-visible, .cta:focus-visible {
-      outline: 2px solid var(--gold-light);
+    button:focus-visible, .btn-luxury:focus-visible, a:focus-visible {
+      outline: 3px solid var(--gold-light);
       outline-offset: 4px;
+    }
+
+    /* ✨ Loading State */
+    .skeleton {
+      background: linear-gradient(90deg, var(--bg-card) 25%, rgba(255,255,255,0.1) 50%, var(--bg-card) 75%);
+      background-size: 200% 100%;
+      animation: skeleton-loading 1.5s infinite;
+      border-radius: 8px;
+    }
+
+    @keyframes skeleton-loading {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Luxury Background Layers -->
-  <div class="bg-gradient"></div>
-  <div class="bg-particles"></div>
+  <!-- ✨ Background Effects -->
+  <div class="paw-bg"></div>
+  <div class="sparkles" id="sparkles"></div>
 
-  <!-- HERO SECTION -->
+  <!-- ✨ Floating Puppy Decorations -->
+  <svg class="floating-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="40" fill="none" stroke="var(--pink-soft)" stroke-width="2" opacity="0.5"/>
+    <path d="M35 60 Q50 75 65 60 M40 45 Q50 55 60 45 M45 35 Q50 40 55 35" stroke="var(--gold-primary)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="floating-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="35" fill="none" stroke="var(--gold-primary)" stroke-width="2" opacity="0.4"/>
+    <path d="M30 55 Q50 70 70 55 M38 42 Q50 52 62 42" stroke="var(--pink-soft)" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </svg>
+  <svg class="floating-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <ellipse cx="50" cy="55" rx="30" ry="25" fill="none" stroke="var(--gold-light)" stroke-width="2" opacity="0.3"/>
+    <circle cx="40" cy="45" r="5" fill="var(--pink-soft)" opacity="0.6"/>
+    <circle cx="60" cy="45" r="5" fill="var(--pink-soft)" opacity="0.6"/>
+  </svg>
+  <svg class="floating-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25 60 Q50 80 75 60 Q70 40 50 35 Q30 40 25 60Z" fill="none" stroke="var(--gold-primary)" stroke-width="2" opacity="0.35"/>
+  </svg>
+
+  <!-- ✨ HERO SECTION -->
   <header class="hero">
     <div class="hero-content">
-      <h1>Discover Your <span class="gold-text">Perfect Dog Match</span> 🐾</h1>
-      <p>An exquisite, AI-powered experience that pairs your lifestyle with your ideal canine companion. Luxury meets loyalty.</p>
-      <a href="#quizSection" class="cta">
-        Begin Your Journey ✨
-      </a>
+      <div class="hero-badge">✨ Premium Puppy Matching Experience</div>
+      <h1>
+        Find Your <span class="text-gradient">Paw-fect</span> Companion 
+        <span class="paw-icon">🐾</span>
+      </h1>
+      <p>An exquisite, AI-curated journey that pairs your lifestyle with your dream puppy. Where luxury meets unconditional love.</p>
+      
+      <div class="hero-cta-group">
+        <a href="#quizSection" class="btn-luxury">
+          Start Your Journey ✨
+        </a>
+        <a href="#breedsSection" class="btn-luxury btn-outline">
+          Explore Breeds 🐕
+        </a>
+      </div>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number">50K+</div>
+          <div class="stat-label">Happy Matches</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">120+</div>
+          <div class="stat-label">Premium Breeds</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">98%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+      </div>
     </div>
-    
-    <!-- Subtle decorative dog silhouette (placeholder - replace with SVG) -->
-    <svg class="hero-image" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg">
-      <path d="M600,350 Q400,200 200,300 T0,350 L0,400 L1200,400 L1200,350 Q1000,200 800,300 T600,350Z" 
-            fill="url(#goldGradient)" opacity="0.3"/>
-      <defs>
-        <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" style="stop-color:#D4AF37"/>
-          <stop offset="50%" style="stop-color:#FFD700"/>
-          <stop offset="100%" style="stop-color:#B89E2C"/>
-        </linearGradient>
-      </defs>
-    </svg>
   </header>
 
-  <!-- HOW IT WORKS -->
-  <section>
-    <h2 class="section-title">The <span class="gold-text">Experience</span></h2>
-    <div class="grid">
-      <div class="card glass glass-card">
-        <div class="card-icon">✦</div>
-        <h3>Share Your Story</h3>
-        <p>Tell us about your lifestyle, energy, and living space in our elegant questionnaire.</p>
+  <!-- ✨ ABOUT SECTION -->
+  <section id="aboutSection">
+    <div class="section-header">
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">Crafted with <span class="gold-text">Love & Precision</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">We believe every person deserves a puppy that fits their life like a perfectly tailored suit.</p>
+    </div>
+    
+    <div class="about-grid">
+      <div class="about-image glass glass-card">
+        <img src="https://images.dog.ceo/breeds/retriever-golden/n02099601_7384.jpg" alt="Golden Retriever puppy" loading="lazy">
       </div>
-      <div class="card glass glass-card">
-        <div class="card-icon">✦</div>
-        <h3>AI-Powered Matching</h3>
-        <p>Our sophisticated algorithm analyzes your preferences against thousands of breed profiles.</p>
-      </div>
-      <div class="card glass glass-card">
-        <div class="card-icon">✦</div>
-        <h3>Meet Your Match</h3>
-        <p>Discover beautifully curated dog recommendations with full imagery and personality insights.</p>
+      <div class="about-content">
+        <h3>Where Science Meets <span class="pink-text">Puppy Cuddles</span></h3>
+        <p>Paws & Pearls combines behavioral science, breed expertise, and luxury design to create an unforgettable matching experience. We don't just find you a dog—we find your soulmate with four paws.</p>
+        
+        <ul class="feature-list">
+          <li>AI-powered personality matching algorithm</li>
+          <li>Curated profiles from ethical breeders & rescues</li>
+          <li>Lifetime support & training resources</li>
+          <li>Exclusive access to premium puppy events</li>
+        </ul>
+        
+        <a href="#quizSection" class="btn-luxury" style="margin-top: 1rem;">
+          Begin Your Match ✦
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- QUIZ SECTION -->
-  <section id="quizSection">
-    <h2 class="section-title">Begin Your <span class="gold-text">Match</span></h2>
-    <div class="quiz-container glass glass-card">
-      <div class="progress"><div class="progress-bar" id="bar"></div></div>
+  <!-- ✨ HOW IT WORKS -->
+  <section id="howSection" style="background: rgba(20, 18, 30, 0.4);">
+    <div class="section-header">
+      <span class="section-tag">The Process</span>
+      <h2 class="section-title">Your <span class="gold-text">Luxury Journey</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Four elegant steps to your perfect puppy companion</p>
+    </div>
+    
+    <div class="steps-grid">
+      <div class="step-card glass glass-card animate-on-scroll">
+        <div class="step-number">1</div>
+        <h3>Share Your Story</h3>
+        <p>Tell us about your lifestyle, home, and dreams in our beautifully crafted questionnaire.</p>
+      </div>
+      <div class="step-card glass glass-card animate-on-scroll">
+        <div class="step-number">2</div>
+        <h3>AI Analysis</h3>
+        <p>Our sophisticated algorithm analyzes 50+ compatibility factors to find your ideal match.</p>
+      </div>
+      <div class="step-card glass glass-card animate-on-scroll">
+        <div class="step-number">3</div>
+        <h3>Meet Your Matches</h3>
+        <p>Discover curated puppy profiles with high-resolution photos, personality insights, and videos.</p>
+      </div>
+      <div class="step-card glass glass-card animate-on-scroll">
+        <div class="step-number">4</div>
+        <h3>Forever Family</h3>
+        <p>Connect with ethical sources and begin your lifelong journey with your new best friend.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✨ BREED GALLERY -->
+  <section id="breedsSection">
+    <div class="section-header">
+      <span class="section-tag">Featured Breeds</span>
+      <h2 class="section-title">Adorable <span class="gold-text">Puppies</span> Awaiting You</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Explore our curated collection of premium puppy companions</p>
+    </div>
+    
+    <div class="gallery-filters">
+      <button class="filter-btn active" data-filter="all">All Puppies</button>
+      <button class="filter-btn" data-filter="calm">Calm & Cuddly</button>
+      <button class="filter-btn" data-filter="balanced">Playful & Social</button>
+      <button class="filter-btn" data-filter="active">Adventurous & Energetic</button>
+    </div>
+    
+    <div class="breeds-grid">
+      <!-- Calm Breeds -->
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="calm">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/bulldog-english/jager-2.jpg" alt="English Bulldog" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Bulldog'">
+        <div class="breed-info">
+          <h3>🐕 English Bulldog</h3>
+          <span class="breed-energy">😌 Calm Energy</span>
+          <p>Gentle, dignified, and perfect for relaxed homes. A loyal companion who loves cozy afternoons.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Apartment Friendly</span>
+            <span class="breed-tag">Low Grooming</span>
+            <span class="breed-tag">Great with Kids</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="calm">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/shihtzu/n02086240_4890.jpg" alt="Shih Tzu" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Shih+Tzu'">
+        <div class="breed-info">
+          <h3>👑 Shih Tzu</h3>
+          <span class="breed-energy">😌 Calm Energy</span>
+          <p>Affectionate royalty in a compact package. Perfect for those who cherish quiet companionship.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Hypoallergenic</span>
+            <span class="breed-tag">Small Size</span>
+            <span class="breed-tag">Lap Dog</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Balanced Breeds -->
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="balanced">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg" alt="Golden Retriever" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Golden+Retriever'">
+        <div class="breed-info">
+          <h3>✨ Golden Retriever</h3>
+          <span class="breed-energy">⚖️ Balanced Energy</span>
+          <p>The ultimate family companion: friendly, intelligent, and endlessly loyal. Perfect for active families.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Family Favorite</span>
+            <span class="breed-tag">Trainable</span>
+            <span class="breed-tag">Water Lover</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="balanced">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg" alt="Beagle" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Beagle'">
+        <div class="breed-info">
+          <h3>🔍 Beagle</h3>
+          <span class="breed-energy">⚖️ Balanced Energy</span>
+          <p>Curious, merry, and wonderfully social. Your perfect adventure buddy for city walks and weekend hikes.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Friendly</span>
+            <span class="breed-tag">Vocal</span>
+            <span class="breed-tag">Great Nose</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Active Breeds -->
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="active">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/husky/n02110185_1469.jpg" alt="Siberian Husky" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Husky'">
+        <div class="breed-info">
+          <h3>❄️ Siberian Husky</h3>
+          <span class="breed-energy">⚡ High Energy</span>
+          <p>Athletic, spirited, and built for adventure. Ideal for active owners who love outdoor exploration.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Endurance</span>
+            <span class="breed-tag">Cold Weather</span>
+            <span class="breed-tag">Independent</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="breed-card glass glass-card animate-on-scroll" data-category="active">
+        <img class="breed-image" src="https://images.dog.ceo/breeds/collie-border/n02106166_355.jpg" alt="Border Collie" loading="lazy" onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=Border+Collie'">
+        <div class="breed-info">
+          <h3>🧠 Border Collie</h3>
+          <span class="breed-energy">⚡ High Energy</span>
+          <p>Brilliant, energetic, and eager to please. Thrives with owners who enjoy training and mental challenges.</p>
+          <div class="breed-tags">
+            <span class="breed-tag">Smartest Breed</span>
+            <span class="breed-tag">Agility Star</span>
+            <span class="breed-tag">Needs Job</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✨ QUIZ SECTION -->
+  <section id="quizSection" style="background: rgba(15, 13, 25, 0.6);">
+    <div class="section-header">
+      <span class="section-tag">Find Your Match</span>
+      <h2 class="section-title">Discover Your <span class="gold-text">Puppy Soulmate</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Answer a few elegant questions to begin your personalized journey</p>
+    </div>
+    
+    <div class="quiz-wrapper glass glass-card">
+      <div class="progress-container">
+        <div class="progress-label">
+          <span>Progress</span>
+          <span id="progressText">0%</span>
+        </div>
+        <div class="progress"><div class="progress-bar" id="bar"></div></div>
+      </div>
       
       <div id="quizBox">
-        <div class="question" id="question">Loading your experience...</div>
-        <div class="options" id="options"></div>
+        <div class="question-card">
+          <div class="question-text" id="question">Loading your experience...</div>
+          <div class="options-grid" id="options"></div>
+        </div>
       </div>
       
       <div id="result"></div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <!-- ✨ TESTIMONIALS -->
+  <section id="testimonialsSection">
+    <div class="section-header">
+      <span class="section-tag">Love Stories</span>
+      <h2 class="section-title">Paw-sitively <span class="gold-text">Happy Families</span></h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">Real stories from our luxury puppy community</p>
+    </div>
+    
+    <div class="testimonials-grid">
+      <div class="testimonial-card glass glass-card animate-on-scroll">
+        <div class="testimonial-content">
+          "Paws & Pearls didn't just find us a dog—they found our family's missing piece. Luna is exactly what we needed!"
+        </div>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://i.pravatar.cc/150?img=32" alt="Sarah M." loading="lazy">
+          <div class="author-info">
+            <h4>Sarah M.</h4>
+            <p>Matched with Luna • Golden Retriever</p>
+          </div>
+        </div>
+        <svg class="testimonial-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 20 Q30 40 30 60 Q30 80 50 85 Q70 80 70 60 Q70 40 50 20Z" fill="var(--gold-primary)" opacity="0.2"/>
+        </svg>
+      </div>
+      
+      <div class="testimonial-card glass glass-card animate-on-scroll">
+        <div class="testimonial-content">
+          "The quiz was so intuitive, and the matches were spot-on. Max has transformed our quiet apartment into a home full of joy."
+        </div>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://i.pravatar.cc/150?img=11" alt="James L." loading="lazy">
+          <div class="author-info">
+            <h4>James L.</h4>
+            <p>Matched with Max • French Bulldog</p>
+          </div>
+        </div>
+        <svg class="testimonial-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 20 Q30 40 30 60 Q30 80 50 85 Q70 80 70 60 Q70 40 50 20Z" fill="var(--pink-soft)" opacity="0.2"/>
+        </svg>
+      </div>
+      
+      <div class="testimonial-card glass glass-card animate-on-scroll">
+        <div class="testimonial-content">
+          "As a first-time owner, I was nervous. The team guided me every step. Bella is my perfect calm companion!"
+        </div>
+        <div class="testimonial-author">
+          <img class="author-avatar" src="https://i.pravatar.cc/150?img=47" alt="Elena R." loading="lazy">
+          <div class="author-info">
+            <h4>Elena R.</h4>
+            <p>Matched with Bella • Cavalier King Charles</p>
+          </div>
+        </div>
+        <svg class="testimonial-puppy" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M50 20 Q30 40 30 60 Q30 80 50 85 Q70 80 70 60 Q70 40 50 20Z" fill="var(--gold-light)" opacity="0.2"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✨ CTA SECTION -->
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to Meet Your <span class="pink-text">Furry Forever</span>? ✨</h2>
+      <p>Join thousands of happy families who found their perfect puppy match with Paws & Pearls.</p>
+      <div class="cta-buttons">
+        <a href="#quizSection" class="btn-luxury">
+          Start Your Match Now 🐾
+        </a>
+        <a href="#breedsSection" class="btn-luxury btn-outline">
+          Browse All Breeds 🐕
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✨ FOOTER -->
   <footer>
-    <p>© <span id="year"></span> Luxury Dog Match Experience</p>
-    <p style="margin-top:0.5rem;font-size:0.9rem">
-      Dog images powered by <a href="https://dog.ceo/dog-api/" target="_blank" rel="noopener">Dog CEO API</a> 
-      & <a href="https://thedogapi.com/" target="_blank" rel="noopener">The Dog API</a> [[1]][[6]]
-    </p>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>🐾 Paws & Pearls</h3>
+        <p>Luxury puppy matching for discerning companions. Where every wag tells a story of perfect harmony.</p>
+        <div class="social-links">
+          <a href="#" class="social-link" aria-label="Instagram">📸</a>
+          <a href="#" class="social-link" aria-label="TikTok">🎵</a>
+          <a href="#" class="social-link" aria-label="Pinterest">📌</a>
+          <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+        </div>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Experience</h4>
+        <ul>
+          <li><a href="#howSection">How It Works</a></li>
+          <li><a href="#breedsSection">Breed Gallery</a></li>
+          <li><a href="#quizSection">Take the Quiz</a></li>
+          <li><a href="#testimonialsSection">Success Stories</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="#">Puppy Care Guide</a></li>
+          <li><a href="#">Training Tips</a></li>
+          <li><a href="#">Health & Wellness</a></li>
+          <li><a href="#">Ethical Breeding</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© <span id="year"></span> Paws & Pearls • Crafted with <span style="color:var(--pink-deep)">❤️</span> for puppy lovers worldwide</p>
+      <p style="margin-top:0.5rem;font-size:0.85rem">
+        Dog images via <a href="https://dog.ceo/dog-api/" target="_blank" rel="noopener">Dog CEO API</a> • 
+        Avatars via <a href="https://pravatar.cc" target="_blank" rel="noopener">Pravatar</a>
+      </p>
+    </div>
   </footer>
 
   <script>
-    // Set current year
+    // ✨ Set current year
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Quiz Data
+    // ✨ Create Sparkle Particles
+    function createSparkles() {
+      const container = document.getElementById('sparkles');
+      for (let i = 0; i < 30; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'sparkle';
+        sparkle.style.left = Math.random() * 100 + '%';
+        sparkle.style.top = Math.random() * 100 + '%';
+        sparkle.style.animationDelay = Math.random() * 3 + 's';
+        sparkle.style.animationDuration = (2 + Math.random() * 2) + 's';
+        container.appendChild(sparkle);
+      }
+    }
+    createSparkles();
+
+    // ✨ Quiz Data
     const quiz = [
       {
-        q: "What is your energy level?",
+        q: "What's your ideal energy level for a companion?",
         a: [
-          {text: "Low - calm, relaxed lifestyle", type: "calm"},
-          {text: "Medium - balanced & social", type: "balanced"},
-          {text: "High - active & adventurous", type: "active"}
+          {text: "😌 Calm & relaxed - cozy cuddles", type: "calm", emoji: "🛋️"},
+          {text: "⚖️ Balanced - playtime & naptime", type: "balanced", emoji: "🎾"},
+          {text: "⚡ High energy - adventures await!", type: "active", emoji: "🏔️"}
         ]
       },
       {
-        q: "Your ideal weekend looks like...",
+        q: "How do you spend your perfect weekend?",
         a: [
-          {text: "Cozy home time with books & tea", type: "calm"},
-          {text: "Brunch with friends & city walks", type: "balanced"},
-          {text: "Hiking, sports & outdoor adventures", type: "active"}
+          {text: "📚 Reading, movies, home relaxation", type: "calm", emoji: "🏠"},
+          {text: "☕ Brunch with friends, city strolls", type: "balanced", emoji: "🌆"},
+          {text: "🥾 Hiking, sports, outdoor exploration", type: "active", emoji: "🌲"}
         ]
       },
       {
-        q: "Your living space is...",
+        q: "Describe your living space:",
         a: [
-          {text: "Cozy apartment or studio", type: "calm"},
-          {text: "Comfortable home with some space", type: "balanced"},
-          {text: "House with yard or near nature", type: "active"}
+          {text: "🏢 Cozy apartment or studio", type: "calm", emoji: "🪟"},
+          {text: "🏡 Comfortable home with space", type: "balanced", emoji: "🚪"},
+          {text: "🏘️ House with yard or near nature", type: "active", emoji: "🌳"}
         ]
       },
       {
-        q: "How much time for training & care?",
+        q: "How much time can you dedicate to training?",
         a: [
-          {text: "Minimal - prefer low-maintenance", type: "calm"},
-          {text: "Moderate - regular walks & play", type: "balanced"},
-          {text: "Dedicated - daily training & activity", type: "active"}
+          {text: "🕐 Minimal - prefer easygoing pups", type: "calm", emoji: "😴"},
+          {text: "🕑 Moderate - regular walks & play", type: "balanced", emoji: "🚶"},
+          {text: "🕒 Dedicated - daily training & activity", type: "active", emoji: "🎓"}
+        ]
+      },
+      {
+        q: "What's your grooming preference?",
+        a: [
+          {text: "✨ Low maintenance - minimal brushing", type: "calm", emoji: "🪮"},
+          {text: "💫 Moderate - weekly grooming sessions", type: "balanced", emoji: "🛁"},
+          {text: "🌟 I love pampering - professional grooming", type: "active", emoji: "💇"}
         ]
       }
     ];
 
-    // Dog breed data with image URLs from free APIs [[1]][[6]]
+    // ✨ Dog Breed Database with Premium Images
     const dogBreeds = {
       calm: [
-        { name: "Bulldog", img: "https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg", desc: "Gentle, dignified, perfect for relaxed homes" },
-        { name: "Shih Tzu", img: "https://images.dog.ceo/breeds/shihtzu/n02086240_4767.jpg", desc: "Affectionate companion with royal charm" },
-        { name: "Pug", img: "https://images.dog.ceo/breeds/pug/n02110958_13445.jpg", desc: "Charming personality in a compact package" }
+        { 
+          name: "English Bulldog", 
+          img: "https://images.dog.ceo/breeds/bulldog-english/jager-1.jpg", 
+          desc: "Gentle soul with a dignified presence. Perfect for calm households seeking a loyal, low-energy companion.",
+          energy: "Low", traits: ["Affectionate", "Patient", "Quiet"]
+        },
+        { 
+          name: "Shih Tzu", 
+          img: "https://images.dog.ceo/breeds/shihtzu/n02086240_4767.jpg", 
+          desc: "Regal charm in a compact package. Thrives on companionship and quiet moments together.",
+          energy: "Low", traits: ["Hypoallergenic", "Adaptable", "Sweet"]
+        },
+        { 
+          name: "French Bulldog", 
+          img: "https://images.dog.ceo/breeds/bulldog-french/n02108915_3450.jpg", 
+          desc: "Playful yet calm, with a personality bigger than their size. Ideal apartment companion.",
+          energy: "Low-Medium", traits: ["Charming", "Social", "Low Exercise"]
+        }
       ],
       balanced: [
-        { name: "Golden Retriever", img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg", desc: "Friendly, intelligent, endlessly loyal" },
-        { name: "Labrador", img: "https://images.dog.ceo/breeds/labrador/n02099712_3450.jpg", desc: "Versatile, loving, great with families" },
-        { name: "Beagle", img: "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg", desc: "Curious, merry, perfect adventure buddy" }
+        { 
+          name: "Golden Retriever", 
+          img: "https://images.dog.ceo/breeds/retriever-golden/n02099601_3004.jpg", 
+          desc: "The quintessential family dog: intelligent, friendly, and endlessly devoted to their people.",
+          energy: "Medium", traits: ["Trainable", "Gentle", "Water Lover"]
+        },
+        { 
+          name: "Labrador Retriever", 
+          img: "https://images.dog.ceo/breeds/labrador/n02099712_3450.jpg", 
+          desc: "Versatile, loving, and eager to please. Perfect for active families who enjoy outdoor time.",
+          energy: "Medium-High", traits: ["Friendly", "Athletic", "Great with Kids"]
+        },
+        { 
+          name: "Beagle", 
+          img: "https://images.dog.ceo/breeds/beagle/n02088364_11136.jpg", 
+          desc: "Curious, merry, and wonderfully social. Your perfect buddy for city walks and weekend adventures.",
+          energy: "Medium", traits: ["Friendly", "Vocal", "Great Nose"]
+        }
       ],
       active: [
-        { name: "Husky", img: "https://images.dog.ceo/breeds/husky/n02110185_1469.jpg", desc: "Athletic, spirited, built for adventure" },
-        { name: "Border Collie", img: "https://images.dog.ceo/breeds/collie-border/n02106166_355.jpg", desc: "Brilliant, energetic, thrives on activity" },
-        { name: "German Shepherd", img: "https://images.dog.ceo/breeds/germanshepherd/n02106662_10770.jpg", desc: "Noble, protective, incredibly versatile" }
+        { 
+          name: "Siberian Husky", 
+          img: "https://images.dog.ceo/breeds/husky/n02110185_1469.jpg", 
+          desc: "Athletic, spirited, and built for adventure. Ideal for active owners who love outdoor exploration.",
+          energy: "High", traits: ["Endurance", "Independent", "Cold Weather"]
+        },
+        { 
+          name: "Border Collie", 
+          img: "https://images.dog.ceo/breeds/collie-border/n02106166_355.jpg", 
+          desc: "Brilliant, energetic, and eager to please. Thrives with owners who enjoy training and mental challenges.",
+          energy: "Very High", traits: ["Smartest Breed", "Agility Star", "Needs Job"]
+        },
+        { 
+          name: "Australian Shepherd", 
+          img: "https://images.dog.ceo/breeds/australian-shepherd/pepper.jpg", 
+          desc: "Intelligent, energetic, and deeply loyal. Perfect for active families who enjoy training and outdoor activities.",
+          energy: "High", traits: ["Trainable", "Protective", "Versatile"]
+        }
       ]
     };
 
+    // ✨ Quiz Logic
     let currentQuestion = 0;
     let scores = { calm: 0, balanced: 0, active: 0 };
 
-    // Load question
     function loadQuestion() {
       if (currentQuestion >= quiz.length) {
         showResults();
@@ -624,9 +1611,9 @@
       
       q.a.forEach((option, index) => {
         const btn = document.createElement("button");
-        btn.className = "glass";
-        btn.innerHTML = `<span>${option.text}</span>`;
-        btn.style.animationDelay = `${index * 0.1}s`;
+        btn.className = "option-btn glass";
+        btn.innerHTML = `<span class="emoji">${option.emoji}</span><span>${option.text}</span>`;
+        btn.style.animationDelay = `${index * 0.15}s`;
         btn.onclick = () => {
           scores[option.type]++;
           currentQuestion++;
@@ -637,96 +1624,186 @@
       });
     }
 
-    // Update progress bar
     function updateProgress() {
-      const percent = (currentQuestion / quiz.length) * 100;
+      const percent = Math.round((currentQuestion / quiz.length) * 100);
       document.getElementById("bar").style.width = `${percent}%`;
+      document.getElementById("progressText").textContent = `${percent}%`;
     }
 
-    // Show results with dog images
     function showResults() {
+      // Create confetti celebration
+      createConfetti();
+      
       const bestMatch = Object.keys(scores).reduce((a, b) => 
         scores[a] > scores[b] ? a : b
       );
       
       const matches = dogBreeds[bestMatch];
+      const compatibility = Math.min(98, 75 + Math.random() * 23);
       
       document.getElementById("quizBox").innerHTML = `
-        <div class="result">
-          <h2>Your Perfect Match Awaits ✨</h2>
-          <div class="result-type">${bestMatch.toUpperCase()} Personality</div>
-          <p style="color:var(--text-secondary);margin-bottom:2rem">
-            Based on your preferences, you're ideally suited for dogs with 
-            <strong style="color:var(--gold-light)">${bestMatch}</strong> energy levels.
+        <div class="result-celebration">
+          <h2 style="font-size:2.2rem;margin-bottom:0.5rem">✨ Your Perfect Match Awaits!</h2>
+          <p style="color:var(--text-secondary);margin-bottom:1.5rem">Based on your exquisite preferences</p>
+          
+          <div class="match-badge">
+            🏆 ${bestMatch.toUpperCase()} Personality Type
+          </div>
+          
+          <div class="compatibility-meter">
+            <div class="compatibility-label">
+              <span>Compatibility Score</span>
+              <span style="color:var(--gold-light);font-weight:600">${compatibility}%</span>
+            </div>
+            <div class="compatibility-bar">
+              <div class="compatibility-fill" id="compatFill"></div>
+            </div>
+          </div>
+          
+          <p style="color:var(--text-secondary);margin:1.5rem 0 2rem;max-width:600px;margin-left:auto;margin-right:auto">
+            You're ideally suited for puppies with <strong style="color:var(--gold-light)">${bestMatch}</strong> energy levels. 
+            Here are your paw-fect matches:
           </p>
           
-          <div class="dogs-grid">
-            ${matches.map(dog => `
-              <div class="dog-card glass glass-card">
-                <img class="dog-image" 
+          <div class="result-dogs">
+            ${matches.map((dog, i) => `
+              <div class="result-dog glass glass-card" style="animation-delay:${i * 0.2}s">
+                <img class="result-dog-img" 
                      src="${dog.img}" 
                      alt="${dog.name}"
                      loading="lazy"
                      onerror="this.src='https://placehold.co/400x300/1a1a2e/D4AF37?text=${encodeURIComponent(dog.name)}'">
-                <h3>${dog.name}</h3>
+                <h4>${dog.name}</h4>
                 <p>${dog.desc}</p>
+                <div style="display:flex;gap:0.5rem;justify-content:center;flex-wrap:wrap;margin-top:0.8rem">
+                  ${dog.traits.map(trait => `<span class="breed-tag">${trait}</span>`).join('')}
+                </div>
               </div>
             `).join('')}
           </div>
           
-          <br><br>
-          <button class="cta" onclick="restartQuiz()">
-            ✦ Discover Another Match
-          </button>
+          <div style="margin:2.5rem 0 1.5rem">
+            <button class="btn-luxury" onclick="restartQuiz()">
+              ✦ Find Another Match
+            </button>
+          </div>
+          
+          <p style="color:var(--text-secondary);font-size:0.9rem">
+            💡 Pro Tip: All our matches come with lifetime support, training resources, and access to our exclusive puppy community.
+          </p>
         </div>
       `;
+      
+      // Animate compatibility bar
+      setTimeout(() => {
+        document.getElementById('compatFill').style.width = `${compatibility}%`;
+      }, 300);
     }
 
-    // Restart quiz
+    function createConfetti() {
+      const colors = ['#D4AF37', '#FFD700', '#FFB6D9', '#FF69B4', '#FFF9E6'];
+      for (let i = 0; i < 50; i++) {
+        setTimeout(() => {
+          const confetti = document.createElement('div');
+          confetti.className = 'confetti';
+          confetti.style.left = Math.random() * 100 + 'vw';
+          confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+          confetti.style.width = (Math.random() * 8 + 4) + 'px';
+          confetti.style.height = confetti.style.width;
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          document.body.appendChild(confetti);
+          
+          setTimeout(() => confetti.remove(), 3000);
+        }, i * 30);
+      }
+    }
+
     function restartQuiz() {
       currentQuestion = 0;
       scores = { calm: 0, balanced: 0, active: 0 };
       document.getElementById("bar").style.width = "0%";
+      document.getElementById("progressText").textContent = "0%";
       document.getElementById("quizBox").innerHTML = `
-        <div class="question" id="question">Loading...</div>
-        <div class="options" id="options"></div>
+        <div class="question-card">
+          <div class="question-text" id="question">Loading...</div>
+          <div class="options-grid" id="options"></div>
+        </div>
       `;
       loadQuestion();
-      window.scrollTo({ top: document.getElementById("quizSection").offsetTop - 20, behavior: 'smooth' });
+      window.scrollTo({ 
+        top: document.getElementById("quizSection").offsetTop - 20, 
+        behavior: 'smooth' 
+      });
     }
 
-    // Scroll animations for cards
+    // ✨ Scroll Animations
     const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
+    const scrollObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
+          entry.target.classList.add('visible');
+          scrollObserver.unobserve(entry.target);
         }
       });
     }, observerOptions);
 
-    document.querySelectorAll('.card').forEach(card => {
-      observer.observe(card);
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      scrollObserver.observe(el);
     });
 
-    // Initialize
+    // ✨ Breed Filter Functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.dataset.filter;
+        document.querySelectorAll('.breed-card').forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.style.display = 'flex';
+            setTimeout(() => card.classList.add('visible'), 100);
+          } else {
+            card.style.display = 'none';
+            card.classList.remove('visible');
+          }
+        });
+      });
+    });
+
+    // ✨ Initialize
     document.addEventListener('DOMContentLoaded', () => {
       loadQuestion();
       
-      // Add subtle parallax to hero on scroll
+      // Subtle parallax on scroll for hero elements
       window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        const heroImg = document.querySelector('.hero-image');
-        if (heroImg) {
-          heroImg.style.transform = `translateX(-50%) translateY(${scrolled * 0.1}px)`;
-        }
+        document.querySelectorAll('.floating-puppy').forEach((el, i) => {
+          const speed = 0.02 + (i * 0.01);
+          el.style.transform = `translateY(${scrolled * speed}px)`;
+        });
       });
+      
+      // Trigger initial animation for visible elements
+      setTimeout(() => {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+          if (el.getBoundingClientRect().top < window.innerHeight * 0.9) {
+            el.classList.add('visible');
+          }
+        });
+      }, 300);
     });
+
+    // ✨ Image Error Handling with Elegant Fallback
+    document.addEventListener('error', function(e) {
+      if (e.target.tagName === 'IMG') {
+        e.target.src = `https://placehold.co/400x300/1a1a2e/D4AF37?text=${encodeURIComponent(e.target.alt || 'Puppy')}`;
+        e.target.style.objectFit = 'cover';
+      }
+    }, true);
   </script>
 </body>
 </html>
