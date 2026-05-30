@@ -3,14 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Puppy Care - Luxury Landing</title>
+<title>Puppy Care Studio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
 /* =========================
-   GLOBAL
+   BASE
 ========================= */
 *{
 margin:0;
@@ -20,202 +20,181 @@ box-sizing:border-box;
 
 body{
 font-family:'Inter',sans-serif;
-background:#f9fafb;
-color:#111;
-line-height:1.6;
-}
-
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-}
-
-/* =========================
-   BUTTON (FIXED + LUXURY FEEL)
-========================= */
-.btn{
-display:inline-block;
-padding:14px 30px;
-background:#111;
+background:#0b0c10;
 color:#fff;
-border-radius:50px;
-font-weight:500;
-transition:0.25s ease;
-border:none;
-cursor:pointer;
-text-decoration:none;
-position:relative;
-overflow:hidden;
+overflow-x:hidden;
 }
 
-/* hover */
-.btn:hover{
-background:#ff6b6b;
-transform:translateY(-3px);
-box-shadow:0 10px 25px rgba(255,107,107,0.25);
-}
-
-/* click effect (IMPORTANT FIX) */
-.btn:active{
-transform:translateY(1px) scale(0.98);
-}
-
-/* subtle glow animation */
-.btn::after{
+/* soft glowing background */
+body::before{
 content:"";
-position:absolute;
-top:0;
-left:-100%;
-width:100%;
-height:100%;
-background:linear-gradient(120deg,transparent,rgba(255,255,255,0.3),transparent);
-transition:0.5s;
+position:fixed;
+width:600px;
+height:600px;
+background:radial-gradient(circle,#ff6b6b33,transparent 60%);
+top:-200px;
+left:-200px;
+filter:blur(60px);
 }
 
-.btn:hover::after{
-left:100%;
+body::after{
+content:"";
+position:fixed;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#7dd3fc33,transparent 60%);
+bottom:-200px;
+right:-200px;
+filter:blur(60px);
 }
 
 /* =========================
-   HERO
+   HERO (LUXURY SaaS STYLE)
 ========================= */
 .hero{
-background:linear-gradient(135deg,#fff6f0,#f0f9ff);
-padding:120px 0;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
 text-align:center;
+padding:0 20px;
+position:relative;
+}
+
+.hero-card{
+max-width:800px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 16px;
+background:rgba(255,255,255,0.08);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:50px;
+font-size:12px;
+margin-bottom:20px;
+backdrop-filter:blur(10px);
 }
 
 .hero h1{
-font-size:3rem;
-font-weight:700;
-margin-bottom:15px;
+font-size:4rem;
+font-weight:800;
+letter-spacing:-2px;
 }
 
 .hero p{
+color:#bbb;
+margin-top:20px;
 font-size:1.1rem;
-color:#555;
 max-width:600px;
-margin:auto;
-margin-bottom:30px;
+margin-left:auto;
+margin-right:auto;
+}
+
+.btn{
+display:inline-block;
+margin-top:30px;
+padding:14px 34px;
+border-radius:50px;
+background:linear-gradient(135deg,#ff6b6b,#ff9a9e);
+color:#fff;
+font-weight:600;
+text-decoration:none;
+transition:.3s;
+}
+
+.btn:hover{
+transform:translateY(-5px) scale(1.03);
+box-shadow:0 20px 40px rgba(255,107,107,0.25);
 }
 
 /* =========================
-   ABOUT
+   SECTION LAYOUT
 ========================= */
-.about{
-padding:100px 0;
-background:#fff;
-}
-
-.about-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:50px;
-align-items:center;
-}
-
-.about h2{
-font-size:2rem;
-margin-bottom:20px;
-}
-
-.about p{
-color:#555;
-}
-
-.about-img{
-width:100%;
-border-radius:20px;
+section{
+padding:120px 10%;
 }
 
 /* =========================
-   FEATURES
+   STORY GRID (not simple cards anymore)
 ========================= */
-.features{
-padding:100px 0;
-background:#f9fafb;
-text-align:center;
-}
-
-.features h2{
-font-size:2rem;
-margin-bottom:50px;
-}
-
-.feature-grid{
+.grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:25px;
+margin-top:60px;
 }
 
 .card{
-background:#fff;
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.08);
 padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,0.05);
-transition:0.3s;
+border-radius:24px;
+backdrop-filter:blur(12px);
+transition:.4s;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 15px 40px rgba(0,0,0,0.1);
+transform:translateY(-10px);
+background:rgba(255,255,255,0.08);
 }
 
 /* =========================
-   BANNER
+   SECTION TITLE STYLE
 ========================= */
-.banner{
-padding:80px 0;
-text-align:center;
-background:linear-gradient(135deg,#111,#333);
-color:#fff;
+.title{
+font-size:2.5rem;
+font-weight:700;
+letter-spacing:-1px;
 }
 
-.banner p{
-color:#ccc;
-margin-bottom:25px;
+.subtitle{
+color:#aaa;
+margin-top:10px;
+max-width:600px;
+}
+
+/* =========================
+   FEATURES VISUAL BLOCK
+========================= */
+.feature-wrap{
+margin-top:60px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+}
+
+.feature-box{
+background:rgba(255,255,255,0.05);
+padding:40px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
 }
 
 /* =========================
    CONTACT
 ========================= */
 .contact{
-padding:100px 0;
-background:#fff;
+background:rgba(255,255,255,0.03);
+border-top:1px solid rgba(255,255,255,0.08);
 }
 
-.contact h2{
-text-align:center;
-margin-bottom:40px;
-font-size:2rem;
-}
-
-.form{
-max-width:600px;
-margin:auto;
-display:flex;
-flex-direction:column;
-gap:15px;
-}
-
-input, textarea{
+input,textarea{
+width:100%;
 padding:15px;
-border:1px solid #ddd;
-border-radius:12px;
-font-family:inherit;
-transition:0.3s;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.1);
+background:rgba(255,255,255,0.05);
+color:#fff;
+margin-bottom:15px;
 outline:none;
 }
 
-input:focus, textarea:focus{
-border-color:#ff6b6b;
-box-shadow:0 0 0 3px rgba(255,107,107,0.1);
-}
+textarea{height:120px;}
 
-textarea{
-height:140px;
-resize:none;
+input:focus,textarea:focus{
+border-color:#ff6b6b;
 }
 
 /* =========================
@@ -223,17 +202,16 @@ resize:none;
 ========================= */
 footer{
 text-align:center;
-padding:30px;
-background:#111;
-color:#aaa;
+padding:40px;
+color:#777;
 }
 
 /* =========================
    RESPONSIVE
 ========================= */
 @media(max-width:768px){
-.hero h1{font-size:2.2rem;}
-.about-grid{grid-template-columns:1fr;}
+.hero h1{font-size:2.5rem;}
+.feature-wrap{grid-template-columns:1fr;}
 }
 
 </style>
@@ -243,111 +221,95 @@ color:#aaa;
 
 <!-- HERO -->
 <section class="hero">
-<div class="container">
+<div class="hero-card">
 
-<h1>Puppy Care Made Simple 🐶</h1>
-<p>Learn modern, simple and effective puppy care with a clean luxury experience.</p>
+<div class="badge">🐶 Puppy Care Studio</div>
 
-<a href="#about" class="btn">Get Started</a>
+<h1>Raise a Perfect Puppy</h1>
+
+<p>
+A modern guide to puppy care — nutrition, training, behavior and love, designed like a premium experience.
+</p>
+
+<a href="#start" class="btn">Start Journey</a>
 
 </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="about">
-<div class="container">
+<!-- STORY -->
+<section id="start">
 
-<div class="about-grid">
+<div class="title">Your Puppy Journey</div>
+<div class="subtitle">Not just information — a guided experience for modern dog owners.</div>
 
-<div>
-<h2>About Puppy Care</h2>
-<p>
-A complete guide to raising a healthy and happy puppy. From nutrition to training, everything is simple and structured.
-</p>
+<div class="grid">
 
-<br>
-
-<a href="#features" class="btn">Explore More</a>
+<div class="card">
+<h3>Step 01</h3>
+<p>Understand your puppy’s needs and behavior patterns.</p>
 </div>
 
-<div>
-<img class="about-img" src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=900&q=80" alt="puppy">
+<div class="card">
+<h3>Step 02</h3>
+<p>Build daily routine, feeding and training structure.</p>
+</div>
+
+<div class="card">
+<h3>Step 03</h3>
+<p>Create emotional bond and healthy lifestyle.</p>
 </div>
 
 </div>
 
-</div>
 </section>
 
 <!-- FEATURES -->
-<section class="features" id="features">
-<div class="container">
+<section>
 
-<h2>Puppy Care Essentials</h2>
+<div class="title">Core Essentials</div>
+<div class="subtitle">Everything your puppy needs to grow healthy and happy.</div>
 
-<div class="feature-grid">
+<div class="feature-wrap">
 
-<div class="card">
+<div class="feature-box">
 <h3>🍖 Nutrition</h3>
-<p>Balanced diet for healthy puppy growth.</p>
-</div>
-
-<div class="card">
+<p>Balanced diet designed for growth and energy.</p>
+<br>
 <h3>🏡 Safety</h3>
-<p>Create a safe home environment.</p>
+<p>Safe environment setup for stress-free living.</p>
 </div>
 
-<div class="card">
+<div class="feature-box">
 <h3>🎾 Training</h3>
-<p>Easy behavior training methods.</p>
-</div>
-
-<div class="card">
+<p>Simple behavioral training methods.</p>
+<br>
 <h3>❤️ Health</h3>
-<p>Regular vet care and prevention.</p>
+<p>Preventive care and vet routine guidance.</p>
 </div>
 
 </div>
 
-<br><br>
-
-<a href="#contact" class="btn">Join Community</a>
-
-</div>
-</section>
-
-<!-- BANNER -->
-<section class="banner">
-<div class="container">
-
-<h2>Start Your Puppy Journey Today</h2>
-<p>Everything you need to raise a happy dog in one place.</p>
-
-<a href="#contact" class="btn">Get Started</a>
-
-</div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="contact">
-<div class="container">
+<section class="contact">
 
-<h2>Contact Us</h2>
+<div class="title">Join the Puppy Community</div>
+<div class="subtitle">Get updates, guides and expert tips.</div>
 
-<form class="form">
-<input type="text" placeholder="Your Name" required>
-<input type="email" placeholder="Your Email" required>
+<br><br>
+
+<form style="max-width:600px;margin:auto;">
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Your Email">
 <textarea placeholder="Your Message"></textarea>
-
-<button class="btn" type="submit">Send Message</button>
+<button class="btn" type="button">Send Message</button>
 </form>
 
-</div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-© 2026 Puppy Care. All rights reserved.
+© 2026 Puppy Care Studio — All rights reserved
 </footer>
 
 </body>
