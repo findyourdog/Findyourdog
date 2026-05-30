@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PawCare - Premium Puppy Guide</title>
+<title>PawCare - Premium Puppy Care</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -85,13 +85,8 @@ box-shadow:0 20px 50px rgba(0,0,0,0.1);
 }
 
 /* ======================
-   ABOUT
+   SECTION TITLE
 ====================== */
-.about{
-padding:100px 0;
-background:#fff;
-}
-
 .section-title{
 text-align:center;
 margin-bottom:50px;
@@ -105,6 +100,14 @@ font-weight:800;
 .section-title p{
 color:#666;
 margin-top:10px;
+}
+
+/* ======================
+   ABOUT
+====================== */
+.about{
+padding:100px 0;
+background:#fff;
 }
 
 .about-grid{
@@ -126,7 +129,7 @@ font-size:1.05rem;
 }
 
 /* ======================
-   FEATURES
+   BREEDS SECTION
 ====================== */
 .features{
 padding:100px 0;
@@ -154,8 +157,9 @@ box-shadow:0 20px 40px rgba(0,0,0,0.1);
 
 .card img{
 width:100%;
-height:250px;
+height:220px;     /* FIXED SIZE */
 object-fit:cover;
+display:block;
 }
 
 .card-content{
@@ -167,30 +171,35 @@ margin-bottom:8px;
 }
 
 /* ======================
-   INFO SECTION (NEW)
+   CARE GUIDE
 ====================== */
-.info{
+.care-guide{
 padding:100px 0;
 background:#fff;
 }
 
-.info-grid{
+.guide-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
 }
 
-.info-box{
+.guide-card{
 background:#f9fafb;
 padding:25px;
 border-radius:20px;
-transition:.3s;
 border:1px solid #eee;
+transition:.3s;
 }
 
-.info-box:hover{
+.guide-card:hover{
 transform:translateY(-6px);
 background:#fff;
+box-shadow:0 15px 35px rgba(0,0,0,0.08);
+}
+
+.guide-card h3{
+margin-bottom:10px;
 }
 
 /* ======================
@@ -240,6 +249,7 @@ padding:40px 20px;
    RESPONSIVE
 ====================== */
 @media(max-width:900px){
+
 .hero-grid,
 .about-grid{
 grid-template-columns:1fr;
@@ -253,6 +263,7 @@ font-size:2.5rem;
 .cta{
 margin:80px 20px;
 }
+
 }
 
 </style>
@@ -267,10 +278,10 @@ margin:80px 20px;
 <div>
 <h1>Premium Puppy Care Guide 🐶</h1>
 <p>
-A modern luxury guide for dog owners — nutrition, training, behavior, and breed understanding.
+Learn how to raise a healthy, happy, and well-trained dog with modern expert guidance.
 </p>
 
-<a href="#about" class="btn">Explore Guide</a>
+<a href="#about" class="btn">Explore Now</a>
 </div>
 
 <div>
@@ -285,7 +296,7 @@ A modern luxury guide for dog owners — nutrition, training, behavior, and bree
 
 <div class="section-title">
 <h2>About Puppy Care</h2>
-<p>Everything you need to raise a happy and healthy dog</p>
+<p>Everything your puppy needs for a healthy life</p>
 </div>
 
 <div class="container about-grid">
@@ -295,21 +306,21 @@ A modern luxury guide for dog owners — nutrition, training, behavior, and bree
 </div>
 
 <div class="about-text">
-Raising a puppy is not just care — it’s lifestyle, discipline, and emotional bonding.
+Puppy care is not just feeding — it is building trust, structure, and emotional connection.
 <br><br>
-Our guide helps you understand behavior, nutrition, and training in a modern and simple way so your puppy grows healthy, calm, and happy.
+With the right guidance, your puppy grows into a healthy, calm, and happy companion.
 </div>
 
 </div>
 
 </section>
 
-<!-- FEATURES -->
+<!-- BREEDS -->
 <section class="features">
 
 <div class="section-title">
-<h2>Dog Breed Highlights</h2>
-<p>Discover popular breeds and their personality</p>
+<h2>Dog Breeds & Personality</h2>
+<p>Popular breeds and their unique traits</p>
 </div>
 
 <div class="container feature-grid">
@@ -318,7 +329,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
 <div class="card-content">
 <h3>Golden Retriever</h3>
-<p>Friendly, intelligent and perfect family dog.</p>
+<p>Friendly, intelligent and family-oriented.</p>
 </div>
 </div>
 
@@ -326,7 +337,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/2016_Daily_Dose_Part_2_-_Barbara_O_Brien.jpg?v=1780136982">
 <div class="card-content">
 <h3>English Bulldog</h3>
-<p>Calm, loyal and very affectionate companion.</p>
+<p>Calm, loyal and affectionate companion.</p>
 </div>
 </div>
 
@@ -334,15 +345,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Viva_Essence_Pet_-_Premium_Pet_Beds_Toys_Supplies.jpg?v=1780137037">
 <div class="card-content">
 <h3>Shih Tzu</h3>
-<p>Small, playful and perfect indoor pet.</p>
-</div>
-</div>
-
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
-<div class="card-content">
-<h3>Golden Retriever</h3>
-<p>Loving, loyal and highly trainable dog.</p>
+<p>Small, friendly and perfect indoor dog.</p>
 </div>
 </div>
 
@@ -350,7 +353,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Beagle__1.jpg?v=1780137176">
 <div class="card-content">
 <h3>Beagle</h3>
-<p>Curious, friendly and energetic explorer.</p>
+<p>Curious, energetic and playful explorer.</p>
 </div>
 </div>
 
@@ -358,7 +361,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927">
 <div class="card-content">
 <h3>Border Collie</h3>
-<p>Highly intelligent and extremely active breed.</p>
+<p>Extremely intelligent and active dog.</p>
 </div>
 </div>
 
@@ -366,34 +369,44 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 
 </section>
 
-<!-- INFO SECTION (NEW CONTENT) -->
-<section class="info">
+<!-- CARE GUIDE -->
+<section class="care-guide">
 
 <div class="section-title">
-<h2>Why Puppy Care Matters</h2>
-<p>Not just pets — they become family</p>
+<h2>Complete Puppy Care Guide</h2>
+<p>Everything you need to raise a perfect puppy</p>
 </div>
 
-<div class="container info-grid">
+<div class="container guide-grid">
 
-<div class="info-box">
-<h3>❤️ Emotional Bond</h3>
-<p>Dogs reduce stress and improve emotional well-being.</p>
+<div class="guide-card">
+<h3>🍽️ Feeding</h3>
+<p>Feed 3–4 times daily with high-quality puppy food. Avoid harmful human food.</p>
 </div>
 
-<div class="info-box">
-<h3>🏡 Home Balance</h3>
-<p>A trained dog creates harmony in daily life.</p>
+<div class="guide-card">
+<h3>🛏️ Sleep</h3>
+<p>Puppies sleep 16–20 hours daily. Provide a safe and quiet space.</p>
 </div>
 
-<div class="info-box">
-<h3>🧠 Mental Growth</h3>
-<p>Training improves intelligence and behavior stability.</p>
+<div class="guide-card">
+<h3>🚽 Training</h3>
+<p>Be consistent, use rewards, and never punish harshly.</p>
 </div>
 
-<div class="info-box">
-<h3>🐶 Responsibility</h3>
-<p>Teaches discipline, care, and routine structure.</p>
+<div class="guide-card">
+<h3>🧠 Behavior</h3>
+<p>Teach basic commands early: sit, stay, come.</p>
+</div>
+
+<div class="guide-card">
+<h3>🐕 Socialization</h3>
+<p>Introduce your puppy to new people and environments early.</p>
+</div>
+
+<div class="guide-card">
+<h3>❤️ Health</h3>
+<p>Regular vet visits, vaccinations, and grooming are essential.</p>
 </div>
 
 </div>
@@ -404,7 +417,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <section class="cta">
 
 <h2>Start Your Puppy Journey Today</h2>
-<p>Everything you need to raise a happy, healthy dog</p>
+<p>Give your dog the best life possible</p>
 
 <a class="cta-btn" href="#about">Get Started</a>
 
@@ -413,7 +426,7 @@ Our guide helps you understand behavior, nutrition, and training in a modern and
 <!-- FOOTER -->
 <footer>
 <h3>PawCare</h3>
-<p>Luxury Puppy Care Guide © 2026</p>
+<p>Premium Puppy Care Guide © 2026</p>
 </footer>
 
 </body>
