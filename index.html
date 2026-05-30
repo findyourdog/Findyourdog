@@ -9,14 +9,9 @@
 
 <style>
 
-/* ======================
-   GLOBAL
-====================== */
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
 
 body{
 font-family:'Inter',sans-serif;
@@ -30,9 +25,7 @@ max-width:1200px;
 margin:auto;
 }
 
-/* ======================
-   HERO
-====================== */
+/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -48,18 +41,8 @@ gap:50px;
 align-items:center;
 }
 
-.hero h1{
-font-size:3.5rem;
-font-weight:800;
-line-height:1.1;
-}
-
-.hero p{
-margin-top:20px;
-color:#555;
-font-size:1.1rem;
-max-width:500px;
-}
+.hero h1{font-size:3.5rem;font-weight:800;line-height:1.1;}
+.hero p{margin-top:20px;color:#555;font-size:1.1rem;max-width:500px;}
 
 .btn{
 display:inline-block;
@@ -73,39 +56,24 @@ font-weight:600;
 transition:.3s;
 }
 
-.btn:hover{
-background:#ff6b6b;
-transform:translateY(-3px);
-}
+.btn:hover{background:#ff6b6b;transform:translateY(-3px);}
 
-/* HERO IMAGE */
 .hero img{
 width:100%;
 border-radius:30px;
 box-shadow:0 20px 50px rgba(0,0,0,0.1);
 }
 
-/* ======================
-   SECTION TITLE
-====================== */
+/* TITLES */
 .section-title{
 text-align:center;
 margin-bottom:50px;
 }
 
-.section-title h2{
-font-size:2.5rem;
-font-weight:800;
-}
+.section-title h2{font-size:2.5rem;font-weight:800;}
+.section-title p{color:#666;margin-top:10px;}
 
-.section-title p{
-color:#666;
-margin-top:10px;
-}
-
-/* ======================
-   ABOUT
-====================== */
+/* ABOUT */
 .about{
 padding:100px 0;
 background:#fff;
@@ -129,9 +97,7 @@ line-height:1.8;
 font-size:1.05rem;
 }
 
-/* ======================
-   BREEDS GRID FIX (IMPORTANT)
-====================== */
+/* CARDS */
 .features{
 padding:100px 0;
 background:#f6f7fb;
@@ -141,7 +107,6 @@ background:#f6f7fb;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
-align-items:stretch;
 }
 
 .card{
@@ -150,11 +115,7 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.05);
 transition:.3s;
-
-/* IMPORTANT FIX */
-display:flex;
-flex-direction:column;
-height:100%;
+cursor:pointer;
 }
 
 .card:hover{
@@ -166,49 +127,39 @@ box-shadow:0 25px 50px rgba(0,0,0,0.12);
 width:100%;
 height:220px;
 object-fit:cover;
-display:block;
-flex-shrink:0;
 }
 
 .card-content{
 padding:20px;
-display:flex;
-flex-direction:column;
-gap:8px;
-flex-grow:1;
 }
 
-/* ======================
-   CARE GUIDE
-====================== */
-.care-guide{
-padding:100px 0;
+/* BREED SECTIONS */
+.breed-section{
+padding:80px 0;
 background:#fff;
+border-top:1px solid #eee;
 }
 
-.guide-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:25px;
-}
-
-.guide-card{
+.breed-box{
+max-width:800px;
+margin:auto;
 background:#f9fafb;
-padding:25px;
+padding:30px;
 border-radius:20px;
-border:1px solid #eee;
-transition:.3s;
+box-shadow:0 10px 30px rgba(0,0,0,0.05);
 }
 
-.guide-card:hover{
-transform:translateY(-6px);
-background:#fff;
-box-shadow:0 15px 35px rgba(0,0,0,0.08);
+.breed-box h3{
+font-size:1.8rem;
+margin-bottom:15px;
 }
 
-/* ======================
-   CTA
-====================== */
+.breed-box p{
+color:#555;
+line-height:1.8;
+}
+
+/* CTA */
 .cta{
 padding:80px 0;
 text-align:center;
@@ -216,11 +167,6 @@ background:linear-gradient(135deg,#111,#2a2a2a);
 color:#fff;
 margin:80px 10%;
 border-radius:30px;
-}
-
-.cta p{
-color:#bbb;
-margin-top:10px;
 }
 
 .cta-btn{
@@ -232,42 +178,13 @@ border-radius:50px;
 color:#fff;
 text-decoration:none;
 font-weight:600;
-transition:.3s;
 }
 
-.cta-btn:hover{
-transform:scale(1.05);
-}
-
-/* ======================
-   FOOTER
-====================== */
-footer{
-background:#111;
-color:#aaa;
-text-align:center;
-padding:40px 20px;
-}
-
-/* ======================
-   RESPONSIVE
-====================== */
+/* RESPONSIVE */
 @media(max-width:900px){
-
-.hero-grid,
-.about-grid{
-grid-template-columns:1fr;
-text-align:center;
-}
-
-.hero h1{
-font-size:2.5rem;
-}
-
-.cta{
-margin:80px 20px;
-}
-
+.hero-grid,.about-grid{grid-template-columns:1fr;text-align:center;}
+.hero h1{font-size:2.5rem;}
+.cta{margin:80px 20px;}
 }
 
 </style>
@@ -275,164 +192,112 @@ margin:80px 20px;
 
 <body>
 
-<!-- ================= HERO (UPDATED IMAGE) ================= -->
+<!-- HERO -->
 <section class="hero">
 <div class="container hero-grid">
 
 <div>
 <h1>Premium Puppy Care Guide 🐶</h1>
-<p>
-Learn how to raise a healthy, happy, and well-trained dog with modern expert guidance.
-</p>
-
-<a href="#about" class="btn">Explore Now</a>
+<p>Learn how to raise a healthy, happy, and well-trained dog.</p>
+<a href="#breeds" class="btn">Explore Breeds</a>
 </div>
 
 <div>
-<!-- ✅ CHANGED HERO IMAGE TO GOLDEN RETRIEVER -->
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
 </div>
 
 </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
+<!-- ABOUT -->
 <section class="about" id="about">
-
 <div class="section-title">
 <h2>About Puppy Care</h2>
-<p>Everything your puppy needs for a healthy life</p>
+<p>Everything your puppy needs</p>
 </div>
 
 <div class="container about-grid">
 
-<div>
 <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=80">
-</div>
 
 <div class="about-text">
-Puppy care is more than feeding — it’s building trust, routine, and emotional bonding.
-<br><br>
-A well-trained puppy grows into a calm, happy, and confident dog. This guide helps you achieve exactly that.
+Puppy care is not only feeding. It is about building trust, discipline, and emotional bonding.
+A well-trained puppy grows into a calm and confident adult dog. Daily routine, love, and training shape behavior.
+Consistency is the key to raising a happy companion.
 </div>
 
 </div>
-
 </section>
 
-<!-- ================= BREEDS ================= -->
-<section class="features">
+<!-- BREEDS -->
+<section class="features" id="breeds">
 
 <div class="section-title">
-<h2>Dog Breeds & Personality</h2>
-<p>Popular breeds and their unique traits</p>
+<h2>Dog Breeds</h2>
+<p>Click a breed to learn more</p>
 </div>
 
 <div class="container feature-grid">
 
-<div class="card">
+<!-- Golden Retriever -->
+<div class="card" onclick="document.getElementById('golden').scrollIntoView()">
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
 <div class="card-content">
-<h3>Golden Retriever</h3>
-<p>Friendly, intelligent and family-oriented.</p>
+<h3>🐶 Golden Retriever</h3>
+<p>Friendly and intelligent family dog.</p>
 </div>
 </div>
 
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/2016_Daily_Dose_Part_2_-_Barbara_O_Brien.jpg?v=1780136982">
-<div class="card-content">
-<h3>English Bulldog</h3>
-<p>Calm, loyal and affectionate companion.</p>
-</div>
-</div>
-
-<div class="card">
+<!-- Shih Tzu -->
+<div class="card" onclick="document.getElementById('shihtzu').scrollIntoView()">
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Viva_Essence_Pet_-_Premium_Pet_Beds_Toys_Supplies.jpg?v=1780137037">
 <div class="card-content">
-<h3>Shih Tzu</h3>
-<p>Small, friendly and perfect indoor dog.</p>
+<h3>🐶 Shih Tzu</h3>
+<p>Small, loving indoor companion.</p>
 </div>
 </div>
 
-<div class="card">
+<!-- Beagle -->
+<div class="card" onclick="document.getElementById('beagle').scrollIntoView()">
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Beagle__1.jpg?v=1780137176">
 <div class="card-content">
+<h3>🐶 Beagle</h3>
+<p>Curious and playful explorer.</p>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- BREED DETAILS -->
+
+<div id="golden" class="breed-section">
+<div class="breed-box">
+<h3>Golden Retriever</h3>
+<p>Golden Retrievers are known for their friendly and gentle nature. They are highly intelligent and easy to train, making them one of the best family dogs. They love human interaction and are very loyal. This breed needs daily exercise and attention. They are also commonly used as therapy and service dogs due to their calm personality.</p>
+</div>
+</div>
+
+<div id="shihtzu" class="breed-section">
+<div class="breed-box">
+<h3>Shih Tzu</h3>
+<p>Shih Tzus are small indoor dogs originally bred for royalty. They are affectionate, calm, and enjoy being close to their owners. Despite their small size, they have a confident personality. Regular grooming is important due to their long coat. They are perfect for apartment living and love companionship.</p>
+</div>
+</div>
+
+<div id="beagle" class="breed-section">
+<div class="breed-box">
 <h3>Beagle</h3>
-<p>Curious, energetic and playful explorer.</p>
+<p>Beagles are energetic and extremely curious dogs. They have a strong sense of smell and love exploring their surroundings. This breed is friendly with children and other pets. They require regular walks and mental stimulation. Without activity, they can become bored and noisy.</p>
 </div>
 </div>
 
-<div class="card">
-<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927">
-<div class="card-content">
-<h3>Border Collie</h3>
-<p>Extremely intelligent and highly active.</p>
-</div>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= CARE GUIDE ================= -->
-<section class="care-guide">
-
-<div class="section-title">
-<h2>Complete Puppy Care Guide</h2>
-<p>Everything you need to raise a perfect puppy</p>
-</div>
-
-<div class="container guide-grid">
-
-<div class="guide-card">
-<h3>🍽️ Feeding</h3>
-<p>3–4 meals daily with balanced puppy nutrition.</p>
-</div>
-
-<div class="guide-card">
-<h3>🛏️ Sleep</h3>
-<p>16–20 hours of rest is normal for puppies.</p>
-</div>
-
-<div class="guide-card">
-<h3>🚽 Training</h3>
-<p>Consistency + rewards = fast learning.</p>
-</div>
-
-<div class="guide-card">
-<h3>🧠 Behavior</h3>
-<p>Teach basic commands early for discipline.</p>
-</div>
-
-<div class="guide-card">
-<h3>🐕 Socialization</h3>
-<p>Expose to people & environments early.</p>
-</div>
-
-<div class="guide-card">
-<h3>❤️ Health</h3>
-<p>Vet visits, vaccines and grooming are essential.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- ================= CTA ================= -->
+<!-- CTA -->
 <section class="cta">
-
 <h2>Start Your Puppy Journey Today</h2>
 <p>Give your dog the best life possible</p>
-
-<a class="cta-btn" href="#about">Get Started</a>
-
+<a class="cta-btn" href="#breeds">Get Started</a>
 </section>
-
-<!-- ================= FOOTER ================= -->
-<footer>
-<h3>PawCare</h3>
-<p>Premium Puppy Care Guide © 2026</p>
-</footer>
 
 </body>
 </html>
