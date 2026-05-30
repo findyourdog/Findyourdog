@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PuppyCare Pro - Premium Puppy Care Guide</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>PuppyCare Elite | Premium Puppy Care & Wellness</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,13 +14,17 @@
         }
 
         :root {
-            --primary: #2D5A7B;
-            --secondary: #F4A261;
-            --accent: #E76F51;
-            --light: #F8F9FA;
-            --dark: #1A1A2E;
-            --gray: #6C757D;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --primary: #1a1a2e;
+            --secondary: #c9a962;
+            --accent: #d4af37;
+            --gold: #f4e5c2;
+            --light: #faf9f7;
+            --dark: #0f0f1e;
+            --gray: #6b7280;
+            --gradient-gold: linear-gradient(135deg, #c9a962 0%, #f4e5c2 50%, #d4af37 100%);
+            --gradient-dark: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-gold: 0 20px 40px rgba(201, 169, 98, 0.3);
         }
 
         html {
@@ -28,72 +32,86 @@
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
-            color: var(--dark);
+            color: var(--primary);
             overflow-x: hidden;
+            background: var(--light);
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
         }
 
-        /* Navigation */
+        /* Luxury Navigation */
         nav {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(20px);
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(201, 169, 98, 0.2);
+            transition: all 0.4s ease;
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1.5rem 3rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--gold);
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.75rem;
+            letter-spacing: 2px;
+        }
+
+        .logo i {
+            font-size: 1.8rem;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
             display: flex;
-            gap: 2.5rem;
+            gap: 3rem;
             list-style: none;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--gold);
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
             position: relative;
+            padding: 0.5rem 0;
         }
 
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: 0;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--secondary);
-            transition: width 0.3s ease;
+            background: var(--gradient-gold);
+            transition: width 0.4s ease;
         }
 
         .nav-links a:hover::after {
@@ -101,160 +119,227 @@
         }
 
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--secondary);
+            transform: translateY(-2px);
         }
 
         .mobile-menu {
             display: none;
             font-size: 1.5rem;
             cursor: pointer;
+            color: var(--gold);
         }
 
-        /* Hero Section */
+        /* Premium Hero with Banner */
         .hero {
-            margin-top: 80px;
-            padding: 6rem 2rem;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin-top: 0;
             position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             overflow: hidden;
         }
 
-        .hero::before {
-            content: '';
+        .hero-banner {
             position: absolute;
-            top: -50%;
-            right: -10%;
-            width: 600px;
-            height: 600px;
-            background: rgba(244, 162, 97, 0.1);
-            border-radius: 50%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://cdn.shopify.com/s/files/1/0813/7945/9311/files/wallpaper_dogs.jpg?v=1779910780') center/cover no-repeat;
+            filter: brightness(0.4);
+            z-index: 0;
         }
 
-        .hero-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9) 0%, rgba(22, 33, 62, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1000px;
+            padding: 0 2rem;
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: rgba(201, 169, 98, 0.15);
+            border: 1px solid var(--secondary);
+            border-radius: 50px;
+            color: var(--gold);
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
         }
 
         .hero-content h1 {
-            font-size: 3.5rem;
-            line-height: 1.2;
+            font-size: 4.5rem;
+            color: var(--gold);
             margin-bottom: 1.5rem;
-            color: var(--dark);
+            line-height: 1.1;
+            font-weight: 300;
+            letter-spacing: 3px;
         }
 
         .hero-content h1 span {
-            color: var(--secondary);
-            position: relative;
+            font-weight: 700;
+            background: var(--gradient-gold);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero-content p {
-            font-size: 1.25rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            color: rgba(244, 229, 194, 0.9);
+            margin-bottom: 3rem;
             line-height: 1.8;
+            font-weight: 300;
+            letter-spacing: 1px;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
+            justify-content: center;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1.25rem 3rem;
             border: none;
-            border-radius: 50px;
-            font-size: 1rem;
+            border-radius: 3px;
+            font-size: 0.9rem;
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s ease;
             text-decoration: none;
             display: inline-block;
-        }
-
-        .btn-primary {
-            background: var(--gradient);
-            color: white;
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.5);
-        }
-
-        .btn-secondary {
-            background: white;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-secondary:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .hero-image {
+            letter-spacing: 2px;
+            text-transform: uppercase;
             position: relative;
-            animation: float 6s ease-in-out infinite;
+            overflow: hidden;
         }
 
-        .hero-image img {
-            width: 100%;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-        }
-
-        .floating-card {
+        .btn::before {
+            content: '';
             position: absolute;
-            background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            animation: float 4s ease-in-out infinite;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.6s ease;
         }
 
-        .card-1 {
-            bottom: 50px;
-            left: -30px;
-            animation-delay: 0s;
+        .btn:hover::before {
+            left: 100%;
         }
 
-        .card-2 {
-            top: 50px;
-            right: -20px;
-            animation-delay: 2s;
+        .btn-gold {
+            background: var(--gradient-gold);
+            color: var(--primary);
+            box-shadow: var(--shadow-gold);
         }
 
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 25px 50px rgba(201, 169, 98, 0.4);
         }
 
-        /* Features Section */
+        .btn-outline {
+            background: transparent;
+            color: var(--gold);
+            border: 2px solid var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background: rgba(201, 169, 98, 0.1);
+            transform: translateY(-3px);
+            border-color: var(--gold);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator i {
+            color: var(--gold);
+            font-size: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-20px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        /* Luxury Features Section */
         .features {
-            padding: 6rem 2rem;
-            background: white;
+            padding: 8rem 2rem;
+            background: var(--light);
+            position: relative;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 5rem;
+        }
+
+        .section-subtitle {
+            color: var(--secondary);
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
         }
 
         .section-header h2 {
-            font-size: 2.8rem;
-            color: var(--dark);
-            margin-bottom: 1rem;
+            font-size: 3.5rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
         }
 
         .section-header p {
@@ -262,21 +347,23 @@
             color: var(--gray);
             max-width: 600px;
             margin: 0 auto;
+            font-weight: 300;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
         }
 
         .feature-card {
-            padding: 2.5rem;
-            background: var(--light);
-            border-radius: 20px;
-            transition: all 0.3s ease;
+            padding: 3rem;
+            background: white;
+            border-radius: 3px;
+            transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+            border: 1px solid rgba(201, 169, 98, 0.1);
         }
 
         .feature-card::before {
@@ -285,10 +372,10 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: var(--gradient);
+            height: 4px;
+            background: var(--gradient-gold);
             transform: scaleX(0);
-            transition: transform 0.3s ease;
+            transition: transform 0.4s ease;
         }
 
         .feature-card:hover::before {
@@ -297,202 +384,264 @@
 
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow-premium);
+            border-color: rgba(201, 169, 98, 0.3);
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: var(--gradient);
-            border-radius: 15px;
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 2rem;
-            color: white;
+            margin-bottom: 2rem;
+            font-size: 2.2rem;
+            color: var(--primary);
+            box-shadow: var(--shadow-gold);
         }
 
         .feature-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--dark);
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .feature-card p {
             color: var(--gray);
-            line-height: 1.8;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
         /* Stats Section */
         .stats {
-            padding: 5rem 2rem;
-            background: var(--dark);
+            padding: 6rem 2rem;
+            background: var(--gradient-dark);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none" stroke="rgba(201,169,98,0.05)" stroke-width="1"/></svg>');
+            opacity: 0.3;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
 
         .stat-item h3 {
-            font-size: 3.5rem;
+            font-size: 4rem;
             color: var(--secondary);
             margin-bottom: 0.5rem;
+            font-weight: 300;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .stat-item p {
             font-size: 1.1rem;
             opacity: 0.9;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
         }
 
-        /* Guide Section */
+        /* Premium Guide Section */
         .guide {
-            padding: 6rem 2rem;
-            background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+            padding: 8rem 2rem;
+            background: linear-gradient(to bottom, var(--light), #f5f3ef);
         }
 
         .guide-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
             gap: 3rem;
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .guide-card {
             background: white;
-            border-radius: 20px;
+            border-radius: 3px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
+            border: 1px solid rgba(201, 169, 98, 0.1);
         }
 
         .guide-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-premium);
         }
 
         .guide-image {
-            height: 250px;
-            background: var(--gradient);
+            height: 280px;
+            background: var(--gradient-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
-            color: white;
+            font-size: 5rem;
+            color: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(0,0,0,0.1) 100%);
         }
 
         .guide-content {
-            padding: 2rem;
+            padding: 2.5rem;
         }
 
         .guide-content h3 {
-            font-size: 1.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
-            color: var(--dark);
+            color: var(--primary);
+            font-weight: 600;
         }
 
         .guide-content p {
             color: var(--gray);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+            margin-bottom: 2rem;
+            line-height: 1.9;
+            font-weight: 400;
         }
 
         .read-more {
-            color: var(--primary);
+            color: var(--secondary);
             text-decoration: none;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            transition: gap 0.3s ease;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border-bottom: 2px solid transparent;
         }
 
         .read-more:hover {
-            gap: 1rem;
+            color: var(--accent);
+            border-bottom-color: var(--secondary);
+            gap: 1.2rem;
         }
 
         /* Testimonials */
         .testimonials {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             background: white;
         }
 
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 3rem;
+            margin-top: 4rem;
         }
 
         .testimonial-card {
             background: var(--light);
-            padding: 2.5rem;
-            border-radius: 20px;
+            padding: 3rem;
+            border-radius: 3px;
             position: relative;
+            border: 1px solid rgba(201, 169, 98, 0.15);
+            transition: all 0.4s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-premium);
+            border-color: rgba(201, 169, 98, 0.3);
         }
 
         .testimonial-card::before {
             content: '"';
-            font-size: 6rem;
+            font-size: 8rem;
             color: var(--secondary);
-            opacity: 0.3;
+            opacity: 0.15;
             position: absolute;
-            top: 10px;
-            left: 20px;
-            font-family: 'Playfair Display', serif;
+            top: 20px;
+            left: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .stars {
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
         .testimonial-text {
-            font-size: 1.1rem;
-            color: var(--gray);
-            margin-bottom: 2rem;
-            line-height: 1.8;
+            font-size: 1.15rem;
+            color: var(--primary);
+            margin-bottom: 2.5rem;
+            line-height: 1.9;
             position: relative;
             z-index: 1;
+            font-weight: 400;
+            font-style: italic;
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .testimonial-author {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 1.25rem;
         }
 
         .author-avatar {
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
-            background: var(--gradient);
+            background: var(--gradient-gold);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 600;
+            color: var(--primary);
+            font-weight: 700;
             font-size: 1.5rem;
+            box-shadow: var(--shadow-gold);
         }
 
         .author-info h4 {
-            color: var(--dark);
-            margin-bottom: 0.2rem;
+            color: var(--primary);
+            margin-bottom: 0.3rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .author-info p {
             color: var(--gray);
             font-size: 0.9rem;
-        }
-
-        .stars {
-            color: #FFD700;
-            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         /* CTA Section */
         .cta-section {
-            padding: 6rem 2rem;
-            background: var(--gradient);
+            padding: 8rem 2rem;
+            background: var(--gradient-dark);
             color: white;
             text-align: center;
             position: relative;
@@ -504,69 +653,189 @@
             position: absolute;
             top: -50%;
             left: -10%;
-            width: 500px;
-            height: 500px;
-            background: rgba(255,255,255,0.1);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(201, 169, 98, 0.1) 0%, transparent 70%);
             border-radius: 50%;
         }
 
         .cta-section h2 {
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
             position: relative;
             z-index: 1;
+            font-weight: 400;
+        }
+
+        .cta-section h2 span {
+            color: var(--secondary);
+            font-weight: 600;
         }
 
         .cta-section p {
             font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
+            margin-bottom: 3rem;
+            opacity: 0.9;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
             position: relative;
             z-index: 1;
+            font-weight: 300;
         }
 
-        .btn-white {
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-content {
             background: white;
-            color: var(--primary);
-            padding: 1.2rem 3rem;
-            font-size: 1.1rem;
+            max-width: 800px;
+            width: 100%;
+            border-radius: 3px;
+            overflow: hidden;
             position: relative;
-            z-index: 1;
+            animation: slideUp 0.4s ease;
+            box-shadow: var(--shadow-premium);
         }
 
-        .btn-white:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        .modal-header {
+            background: var(--gradient-gold);
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-header h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 2rem;
+            color: var(--primary);
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0,0,0,0.1);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 3rem;
+        }
+
+        .modal-body h4 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+
+        .modal-body p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+
+        .modal-body ul {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .modal-body ul li {
+            padding: 0.75rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        .modal-body ul li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Footer */
         footer {
             background: var(--dark);
             color: white;
-            padding: 4rem 2rem 2rem;
+            padding: 5rem 2rem 2rem;
+            border-top: 3px solid var(--secondary);
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 4rem;
+            max-width: 1400px;
+            margin: 0 auto 4rem;
         }
 
         .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary);
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .footer-col p {
             color: rgba(255,255,255,0.7);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            margin-bottom: 2rem;
+            font-weight: 400;
         }
 
         .footer-col ul {
@@ -574,49 +843,57 @@
         }
 
         .footer-col ul li {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .footer-col ul li a {
             color: rgba(255,255,255,0.7);
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            display: inline-block;
+            font-weight: 500;
         }
 
         .footer-col ul li a:hover {
             color: var(--secondary);
+            transform: translateX(5px);
         }
 
         .social-links {
             display: flex;
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255,255,255,0.1);
+            width: 45px;
+            height: 45px;
+            background: rgba(201, 169, 98, 0.1);
+            border: 1px solid var(--secondary);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: var(--gold);
             transition: all 0.3s ease;
+            font-size: 1.1rem;
         }
 
         .social-links a:hover {
-            background: var(--secondary);
+            background: var(--gradient-gold);
+            color: var(--primary);
             transform: translateY(-3px);
+            box-shadow: var(--shadow-gold);
         }
 
         .footer-bottom {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 3rem;
             border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.6);
-            max-width: 1200px;
+            color: rgba(255,255,255,0.5);
+            max-width: 1400px;
             margin: 0 auto;
+            font-size: 0.9rem;
         }
 
         /* Responsive */
@@ -629,34 +906,31 @@
                 display: block;
             }
 
-            .hero-container {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
             .hero-content h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
 
-            .hero-image {
-                order: -1;
-            }
-
-            .floating-card {
-                display: none;
+            .hero-content p {
+                font-size: 1.1rem;
             }
 
             .section-header h2 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
 
-            .cta-section h2 {
-                font-size: 2rem;
-            }
-
+            .features-grid,
             .guide-grid,
             .testimonial-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+
+            .modal-content {
+                max-height: 90vh;
+                overflow-y: auto;
             }
         }
 
@@ -679,14 +953,14 @@
     <nav id="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <i class="fas fa-paw"></i>
-                PuppyCare Pro
+                <i class="fas fa-crown"></i>
+                PuppyCare Elite
             </a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#guide">Guide</a></li>
-                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#features">Services</a></li>
+                <li><a href="#guide">Guides</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="mobile-menu">
@@ -695,28 +969,21 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Banner -->
     <section class="hero" id="home">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1>Give Your Puppy the <span>Best Start</span> in Life</h1>
-                <p>Expert guidance, nutrition tips, and care strategies to help your furry friend grow into a happy, healthy companion. Your journey to perfect puppy parenthood starts here.</p>
-                <div class="cta-buttons">
-                    <a href="#guide" class="btn btn-primary">Explore Guide</a>
-                    <a href="#contact" class="btn btn-secondary">Get Started</a>
-                </div>
+        <div class="hero-banner"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="hero-badge">Premium Puppy Care Since 2020</div>
+            <h1>Elevate Your Puppy's <span>Journey</span></h1>
+            <p>Experience world-class puppy care with our exclusive guides, expert veterinary support, and personalized wellness programs designed for discerning pet parents.</p>
+            <div class="cta-buttons">
+                <a href="#guide" class="btn btn-gold">Explore Collection</a>
+                <a href="#contact" class="btn btn-outline">Book Consultation</a>
             </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1587300003435-1e6f17084ce5?w=600&h=700&fit=crop" alt="Happy Puppy">
-                <div class="floating-card card-1">
-                    <i class="fas fa-heart" style="color: var(--accent); font-size: 2rem;"></i>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">50k+ Happy Puppies</p>
-                </div>
-                <div class="floating-card card-2">
-                    <i class="fas fa-star" style="color: #FFD700; font-size: 2rem;"></i>
-                    <p style="margin-top: 0.5rem; font-weight: 600;">4.9/5 Rating</p>
-                </div>
-            </div>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i>
         </div>
     </section>
 
@@ -724,51 +991,52 @@
     <section class="features" id="features">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Everything Your Puppy Needs</h2>
-                <p>Comprehensive care guides crafted by veterinary experts and experienced dog trainers</p>
+                <span class="section-subtitle">Our Expertise</span>
+                <h2>Bespoke Care Solutions</h2>
+                <p>Tailored programs and expert guidance for the most important member of your family</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-apple-alt"></i>
+                        <i class="fas fa-utensils"></i>
                     </div>
-                    <h3>Nutrition Guide</h3>
-                    <p>Learn about proper feeding schedules, portion sizes, and the best nutrition for your puppy's growth and development.</p>
+                    <h3>Gourmet Nutrition</h3>
+                    <p>Curated meal plans featuring premium ingredients, portion optimization, and dietary supplements vetted by certified nutritionists.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-heartbeat"></i>
+                        <i class="fas fa-heart-pulse"></i>
                     </div>
-                    <h3>Health & Wellness</h3>
-                    <p>Vaccination schedules, common health issues, and preventive care to keep your puppy healthy and thriving.</p>
+                    <h3>Concierge Health</h3>
+                    <p>24/7 veterinary access, preventive care protocols, and personalized health monitoring for optimal wellness.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-graduation-cap"></i>
+                        <i class="fas fa-award"></i>
                     </div>
-                    <h3>Training Basics</h3>
-                    <p>Essential obedience training, potty training tips, and socialization techniques for well-behaved puppies.</p>
+                    <h3>Elite Training</h3>
+                    <p>Private obedience sessions, behavioral conditioning, and socialization programs led by certified master trainers.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-cut"></i>
+                        <i class="fas fa-spa"></i>
                     </div>
-                    <h3>Grooming Care</h3>
-                    <p>Professional grooming tips, bathing schedules, and coat care for a clean and comfortable puppy.</p>
+                    <h3>Luxury Grooming</h3>
+                    <p>Professional spa treatments, breed-specific coat care, and hygiene protocols for impeccable presentation.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-home"></i>
+                        <i class="fas fa-shield-halved"></i>
                     </div>
-                    <h3>Puppy-Proofing</h3>
-                    <p>Create a safe environment with our comprehensive guide to puppy-proofing your home.</p>
+                    <h3>Safety First</h3>
+                    <p>Comprehensive home assessments, puppy-proofing consultations, and emergency preparedness planning.</p>
                 </div>
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
-                        <i class="fas fa-comments"></i>
+                        <i class="fas fa-user-doctor"></i>
                     </div>
-                    <h3>Expert Support</h3>
-                    <p>24/7 access to veterinary advice and puppy care experts whenever you need them.</p>
+                    <h3>Expert Advisory</h3>
+                    <p>Direct access to our network of specialists including behaviorists, nutritionists, and veterinary surgeons.</p>
                 </div>
             </div>
         </div>
@@ -779,20 +1047,20 @@
         <div class="container">
             <div class="stats-grid">
                 <div class="stat-item">
-                    <h3>50k+</h3>
-                    <p>Puppies Cared For</p>
+                    <h3 class="counter" data-target="50000">0</h3>
+                    <p>Puppies Nurtured</p>
                 </div>
                 <div class="stat-item">
-                    <h3>100+</h3>
-                    <p>Expert Articles</p>
+                    <h3 class="counter" data-target="150">0</h3>
+                    <p>Premium Guides</p>
                 </div>
                 <div class="stat-item">
                     <h3>24/7</h3>
-                    <p>Expert Support</p>
+                    <p>Concierge Support</p>
                 </div>
                 <div class="stat-item">
-                    <h3>4.9/5</h3>
-                    <p>Customer Rating</p>
+                    <h3>4.9</h3>
+                    <p>Elite Rating</p>
                 </div>
             </div>
         </div>
@@ -802,18 +1070,19 @@
     <section class="guide" id="guide">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>Premium Care Guides</h2>
-                <p>Step-by-step resources for every stage of your puppy's development</p>
+                <span class="section-subtitle">Knowledge Base</span>
+                <h2>Curated Care Guides</h2>
+                <p>Comprehensive resources crafted by industry leaders</p>
             </div>
             <div class="guide-grid">
                 <div class="guide-card fade-in">
                     <div class="guide-image">
-                        <i class="fas fa-bone"></i>
+                        <i class="fas fa-home"></i>
                     </div>
                     <div class="guide-content">
-                        <h3>First Week Essentials</h3>
-                        <p>Everything you need to know about bringing your puppy home, from setup to first vet visit.</p>
-                        <a href="#" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        <h3>The First Week Protocol</h3>
+                        <p>Master the critical first days with your new companion. From environment setup to establishing routines and first veterinary protocols.</p>
+                        <a href="#" class="read-more" onclick="openModal('modal1'); return false;">Access Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="guide-card fade-in">
@@ -821,19 +1090,19 @@
                         <i class="fas fa-toilet"></i>
                     </div>
                     <div class="guide-content">
-                        <h3>Potty Training Mastery</h3>
-                        <p>Proven methods and schedules to house-train your puppy quickly and effectively.</p>
-                        <a href="#" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        <h3>Refined House Training</h3>
+                        <p>Advanced techniques for efficient potty training. Schedule optimization, positive reinforcement methods, and troubleshooting common challenges.</p>
+                        <a href="#" class="read-more" onclick="openModal('modal2'); return false;">Access Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="guide-card fade-in">
                     <div class="guide-image">
-                        <i class="fas fa-dog"></i>
+                        <i class="fas fa-users"></i>
                     </div>
                     <div class="guide-content">
-                        <h3>Socialization Guide</h3>
-                        <p>How to properly introduce your puppy to new people, animals, and environments.</p>
-                        <a href="#" class="read-more">Read Guide <i class="fas fa-arrow-right"></i></a>
+                        <h3>Socialization Mastery</h3>
+                        <p>Strategic introduction methods for people, animals, and environments. Building confidence and preventing behavioral issues.</p>
+                        <a href="#" class="read-more" onclick="openModal('modal3'); return false;">Access Guide <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -844,8 +1113,9 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-header fade-in">
-                <h2>What Pet Parents Say</h2>
-                <p>Real stories from happy puppy families</p>
+                <span class="section-subtitle">Testimonials</span>
+                <h2>Client Experiences</h2>
+                <p>Hear from distinguished pet parents</p>
             </div>
             <div class="testimonial-grid">
                 <div class="testimonial-card fade-in">
@@ -856,12 +1126,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"The nutrition guide completely transformed my puppy's health. Within weeks, I noticed more energy and a shinier coat. Highly recommend!"</p>
+                    <p class="testimonial-text">"The gourmet nutrition program transformed my Golden Retriever's vitality. The personalized meal plans and expert guidance exceeded all expectations. Truly exceptional service."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">SM</div>
                         <div class="author-info">
                             <h4>Sarah Mitchell</h4>
-                            <p>Golden Retriever Mom</p>
+                            <p>Golden Retriever Guardian</p>
                         </div>
                     </div>
                 </div>
@@ -873,12 +1143,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"Potty training seemed impossible until I followed their step-by-step method. My puppy was fully trained in just 3 weeks!"</p>
+                    <p class="testimonial-text">"House training was accomplished in record time following their methodology. The step-by-step approach and ongoing support made the process seamless and stress-free."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">JC</div>
                         <div class="author-info">
                             <h4>James Chen</h4>
-                            <p>Labrador Dad</p>
+                            <p>Labrador Proprietor</p>
                         </div>
                     </div>
                 </div>
@@ -890,12 +1160,12 @@
                         <i class="fas fa-star"></i>
                         <i class="fas fa-star"></i>
                     </div>
-                    <p class="testimonial-text">"The 24/7 expert support gave me peace of mind as a first-time puppy owner. They answered all my questions promptly!"</p>
+                    <p class="testimonial-text">"The 24/7 concierge veterinary service provides unparalleled peace of mind. As a first-time puppy owner, having instant access to experts has been invaluable."</p>
                     <div class="testimonial-author">
                         <div class="author-avatar">EP</div>
                         <div class="author-info">
                             <h4>Emma Parker</h4>
-                            <p>Beagle Mom</p>
+                            <p>Beagle Custodian</p>
                         </div>
                     </div>
                 </div>
@@ -905,32 +1175,129 @@
 
     <!-- CTA Section -->
     <section class="cta-section" id="contact">
-        <h2>Start Your Puppy Care Journey Today</h2>
-        <p>Join thousands of happy pet parents who trust PuppyCare Pro for expert guidance and support.</p>
-        <a href="#" class="btn btn-white">Get Free Access Now</a>
+        <h2>Begin Your <span>Elite</span> Journey</h2>
+        <p>Join our exclusive community of discerning pet parents who demand the finest care for their companions.</p>
+        <a href="#" class="btn btn-gold" onclick="openModal('membership'); return false;">Request Membership</a>
     </section>
+
+    <!-- Modals -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal1')">&times;</button>
+                <h3>The First Week Protocol</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Your Comprehensive First Week Checklist</h4>
+                <p>The initial seven days are crucial for establishing trust, routine, and healthy habits. Our elite protocol covers:</p>
+                <ul>
+                    <li>Environment preparation and puppy-proofing essentials</li>
+                    <li>First 24-hour adjustment strategies</li>
+                    <li>Feeding schedule optimization and nutrition basics</li>
+                    <li>Sleep routine establishment</li>
+                    <li>Initial veterinary examination checklist</li>
+                    <li>Bonding techniques and trust building</li>
+                    <li>Common first-week challenges and solutions</li>
+                </ul>
+                <p>This premium guide includes downloadable schedules, shopping lists, and direct access to our veterinary team for any questions during this critical period.</p>
+                <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 1rem;">Download Full Guide</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal2')">&times;</button>
+                <h3>Refined House Training</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Advanced Potty Training Methodology</h4>
+                <p>Our proven system combines positive reinforcement with strategic scheduling for rapid, lasting results:</p>
+                <ul>
+                    <li>Crate training fundamentals and best practices</li>
+                    <li>Optimal feeding and watering schedules</li>
+                    <li>Recognition of elimination signals</li>
+                    <li>Positive reinforcement techniques</li>
+                    <li>Nighttime training protocols</li>
+                    <li>Accident management without stress</li>
+                    <li>Transition to outdoor independence</li>
+                </ul>
+                <p>Most puppies achieve full house training within 2-3 weeks using our comprehensive method. Includes video tutorials and progress tracking tools.</p>
+                <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 1rem;">Download Full Guide</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('modal3')">&times;</button>
+                <h3>Socialization Mastery</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Building a Confident, Well-Adjusted Companion</h4>
+                <p>Proper socialization during the critical developmental window prevents behavioral issues and creates a confident adult dog:</p>
+                <ul>
+                    <li>Critical socialization periods and windows</li>
+                    <li>Controlled exposure to diverse environments</li>
+                    <li>Safe introduction to other animals</li>
+                    <li>Positive human interaction techniques</li>
+                    <li>Noise and stimulus desensitization</li>
+                    <li>Puppy class selection and participation</li>
+                    <li>Long-term socialization maintenance</li>
+                </ul>
+                <p>Our guide includes a 12-week socialization calendar, safety protocols, and troubleshooting for common challenges like fear or over-excitement.</p>
+                <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 1rem;">Download Full Guide</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="membership" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="modal-close" onclick="closeModal('membership')">&times;</button>
+                <h3>Elite Membership</h3>
+            </div>
+            <div class="modal-body">
+                <h4>Join PuppyCare Elite Today</h4>
+                <p>Experience the pinnacle of puppy care with our exclusive membership program:</p>
+                <ul>
+                    <li>Unlimited 24/7 veterinary concierge access</li>
+                    <li>All premium guides and resources</li>
+                    <li>Monthly personalized wellness reviews</li>
+                    <li>Priority booking for training sessions</li>
+                    <li>Exclusive member community access</li>
+                    <li>Quarterly nutrition consultations</li>
+                    <li>Emergency support hotline</li>
+                </ul>
+                <p>Ready to provide your puppy with world-class care? Complete the form below and our membership team will contact you within 24 hours.</p>
+                <a href="#" class="btn btn-gold" style="display: inline-block; margin-top: 1rem;">Request Application</a>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h3><i class="fas fa-paw"></i> PuppyCare Pro</h3>
-                <p>Your trusted partner in raising happy, healthy puppies. Expert advice, comprehensive guides, and 24/7 support.</p>
+                <h3><i class="fas fa-crown"></i> PuppyCare Elite</h3>
+                <p>The premier destination for discerning pet parents seeking exceptional care, expert guidance, and luxury services for their beloved companions.</p>
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
             <div class="footer-col">
-                <h3>Quick Links</h3>
+                <h3>Navigation</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Services</a></li>
-                    <li><a href="#">Care Guides</a></li>
-                    <li><a href="#">Expert Team</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#guide">Guides</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Membership</a></li>
                 </ul>
             </div>
             <div class="footer-col">
@@ -938,22 +1305,22 @@
                 <ul>
                     <li><a href="#">Nutrition Calculator</a></li>
                     <li><a href="#">Vaccination Tracker</a></li>
-                    <li><a href="#">Training Videos</a></li>
-                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Training Library</a></li>
+                    <li><a href="#">Expert Blog</a></li>
                     <li><a href="#">FAQ</a></li>
                 </ul>
             </div>
             <div class="footer-col">
-                <h3>Contact Us</h3>
+                <h3>Concierge</h3>
                 <ul>
-                    <li><i class="fas fa-envelope"></i> support@puppycarepro.com</li>
-                    <li><i class="fas fa-phone"></i> 1-800-PUPPY-CARE</li>
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Pet Street, Dogville, CA 90210</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 0.5rem; color: var(--secondary);"></i> concierge@puppycareelite.com</li>
+                    <li><i class="fas fa-phone" style="margin-right: 0.5rem; color: var(--secondary);"></i> +1 (888) ELITE-K9</li>
+                    <li><i class="fas fa-location-dot" style="margin-right: 0.5rem; color: var(--secondary);"></i> 456 Luxury Lane, Beverly Hills, CA 90210</li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 PuppyCare Pro. All rights reserved. Made with <i class="fas fa-heart" style="color: var(--accent);"></i> for puppies everywhere.</p>
+            <p>&copy; 2026 PuppyCare Elite. All rights reserved. Crafted with <i class="fas fa-heart" style="color: var(--secondary);"></i> for exceptional puppies.</p>
         </div>
     </footer>
 
@@ -962,9 +1329,9 @@
         window.addEventListener('scroll', function() {
             const navbar = document.getElementById('navbar');
             if (window.scrollY > 50) {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.1)';
+                navbar.style.background = 'rgba(26, 26, 46, 0.98)';
             } else {
-                navbar.style.boxShadow = '0 2px 20px rgba(0,0,0,0.05)';
+                navbar.style.background = 'rgba(26, 26, 46, 0.95)';
             }
         });
 
@@ -987,20 +1354,25 @@
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                if (href !== '#' && !this.getAttribute('onclick')) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
 
         // Counter animation for stats
         const animateCounter = (el) => {
-            const target = parseInt(el.innerText);
+            const target = parseInt(el.getAttribute('data-target'));
+            if (!target) return;
+            
             const duration = 2000;
             const step = target / (duration / 16);
             let current = 0;
@@ -1008,10 +1380,18 @@
             const timer = setInterval(() => {
                 current += step;
                 if (current >= target) {
-                    el.innerText = target + (el.innerText.includes('k') ? 'k+' : el.innerText.includes('/') ? '/5' : '+');
+                    if (target >= 1000) {
+                        el.innerText = (target / 1000).toFixed(0) + 'k+';
+                    } else {
+                        el.innerText = target + '+';
+                    }
                     clearInterval(timer);
                 } else {
-                    el.innerText = Math.floor(current) + (el.innerText.includes('k') ? 'k+' : el.innerText.includes('/') ? '' : '+');
+                    if (target >= 1000) {
+                        el.innerText = (current / 1000).toFixed(1) + 'k';
+                    } else {
+                        el.innerText = Math.floor(current);
+                    }
                 }
             }, 16);
         };
@@ -1019,8 +1399,8 @@
         const statsObserver = new IntersectionObserver(function(entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const statNumbers = entry.target.querySelectorAll('h3');
-                    statNumbers.forEach(stat => animateCounter(stat));
+                    const counters = entry.target.querySelectorAll('.counter');
+                    counters.forEach(counter => animateCounter(counter));
                     statsObserver.unobserve(entry.target);
                 }
             });
@@ -1030,6 +1410,41 @@
         if (statsSection) {
             statsObserver.observe(statsSection);
         }
+
+        // Modal functions
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal.active').forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
     </script>
 </body>
 </html>
