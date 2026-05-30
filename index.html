@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PawCare - Premium Puppy Care</title>
+<title>PawCare - Luxury Puppy Care</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
@@ -78,6 +78,7 @@ background:#ff6b6b;
 transform:translateY(-3px);
 }
 
+/* HERO IMAGE */
 .hero img{
 width:100%;
 border-radius:30px;
@@ -129,7 +130,7 @@ font-size:1.05rem;
 }
 
 /* ======================
-   BREEDS SECTION
+   BREEDS GRID FIX (IMPORTANT)
 ====================== */
 .features{
 padding:100px 0;
@@ -140,6 +141,7 @@ background:#f6f7fb;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:25px;
+align-items:stretch;
 }
 
 .card{
@@ -148,26 +150,32 @@ border-radius:20px;
 overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.05);
 transition:.3s;
+
+/* IMPORTANT FIX */
+display:flex;
+flex-direction:column;
+height:100%;
 }
 
 .card:hover{
-transform:translateY(-8px);
-box-shadow:0 20px 40px rgba(0,0,0,0.1);
+transform:translateY(-10px);
+box-shadow:0 25px 50px rgba(0,0,0,0.12);
 }
 
 .card img{
 width:100%;
-height:220px;     /* FIXED SIZE */
+height:220px;
 object-fit:cover;
 display:block;
+flex-shrink:0;
 }
 
 .card-content{
 padding:20px;
-}
-
-.card h3{
-margin-bottom:8px;
+display:flex;
+flex-direction:column;
+gap:8px;
+flex-grow:1;
 }
 
 /* ======================
@@ -196,10 +204,6 @@ transition:.3s;
 transform:translateY(-6px);
 background:#fff;
 box-shadow:0 15px 35px rgba(0,0,0,0.08);
-}
-
-.guide-card h3{
-margin-bottom:10px;
 }
 
 /* ======================
@@ -271,7 +275,7 @@ margin:80px 20px;
 
 <body>
 
-<!-- HERO -->
+<!-- ================= HERO (UPDATED IMAGE) ================= -->
 <section class="hero">
 <div class="container hero-grid">
 
@@ -285,13 +289,14 @@ Learn how to raise a healthy, happy, and well-trained dog with modern expert gui
 </div>
 
 <div>
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80">
+<!-- ✅ CHANGED HERO IMAGE TO GOLDEN RETRIEVER -->
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
 </div>
 
 </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ================= ABOUT ================= -->
 <section class="about" id="about">
 
 <div class="section-title">
@@ -306,16 +311,16 @@ Learn how to raise a healthy, happy, and well-trained dog with modern expert gui
 </div>
 
 <div class="about-text">
-Puppy care is not just feeding — it is building trust, structure, and emotional connection.
+Puppy care is more than feeding — it’s building trust, routine, and emotional bonding.
 <br><br>
-With the right guidance, your puppy grows into a healthy, calm, and happy companion.
+A well-trained puppy grows into a calm, happy, and confident dog. This guide helps you achieve exactly that.
 </div>
 
 </div>
 
 </section>
 
-<!-- BREEDS -->
+<!-- ================= BREEDS ================= -->
 <section class="features">
 
 <div class="section-title">
@@ -361,7 +366,7 @@ With the right guidance, your puppy grows into a healthy, calm, and happy compan
 <img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927">
 <div class="card-content">
 <h3>Border Collie</h3>
-<p>Extremely intelligent and active dog.</p>
+<p>Extremely intelligent and highly active.</p>
 </div>
 </div>
 
@@ -369,7 +374,7 @@ With the right guidance, your puppy grows into a healthy, calm, and happy compan
 
 </section>
 
-<!-- CARE GUIDE -->
+<!-- ================= CARE GUIDE ================= -->
 <section class="care-guide">
 
 <div class="section-title">
@@ -381,39 +386,39 @@ With the right guidance, your puppy grows into a healthy, calm, and happy compan
 
 <div class="guide-card">
 <h3>🍽️ Feeding</h3>
-<p>Feed 3–4 times daily with high-quality puppy food. Avoid harmful human food.</p>
+<p>3–4 meals daily with balanced puppy nutrition.</p>
 </div>
 
 <div class="guide-card">
 <h3>🛏️ Sleep</h3>
-<p>Puppies sleep 16–20 hours daily. Provide a safe and quiet space.</p>
+<p>16–20 hours of rest is normal for puppies.</p>
 </div>
 
 <div class="guide-card">
 <h3>🚽 Training</h3>
-<p>Be consistent, use rewards, and never punish harshly.</p>
+<p>Consistency + rewards = fast learning.</p>
 </div>
 
 <div class="guide-card">
 <h3>🧠 Behavior</h3>
-<p>Teach basic commands early: sit, stay, come.</p>
+<p>Teach basic commands early for discipline.</p>
 </div>
 
 <div class="guide-card">
 <h3>🐕 Socialization</h3>
-<p>Introduce your puppy to new people and environments early.</p>
+<p>Expose to people & environments early.</p>
 </div>
 
 <div class="guide-card">
 <h3>❤️ Health</h3>
-<p>Regular vet visits, vaccinations, and grooming are essential.</p>
+<p>Vet visits, vaccines and grooming are essential.</p>
 </div>
 
 </div>
 
 </section>
 
-<!-- CTA -->
+<!-- ================= CTA ================= -->
 <section class="cta">
 
 <h2>Start Your Puppy Journey Today</h2>
@@ -423,7 +428,7 @@ With the right guidance, your puppy grows into a healthy, calm, and happy compan
 
 </section>
 
-<!-- FOOTER -->
+<!-- ================= FOOTER ================= -->
 <footer>
 <h3>PawCare</h3>
 <p>Premium Puppy Care Guide © 2026</p>
