@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,14 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Find Your Perfect Dog Match</title>
 
-<!-- Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* ===============================
-   GLOBAL
-================================= */
+/* ================= GLOBAL ================= */
 
 *{
   margin:0;
@@ -29,7 +25,6 @@ body{
   font-family:'Poppins',sans-serif;
   background:#fafafa;
   color:#1a1a1a;
-  overflow-x:hidden;
 }
 
 .container{
@@ -42,496 +37,196 @@ section{
   padding:100px 0;
 }
 
-img{
-  width:100%;
-  display:block;
-}
-
-a{
-  text-decoration:none;
-}
-
-/* ===============================
-   HERO
-================================= */
-
-.hero{
-  min-height:100vh;
-  background:linear-gradient(135deg,#fff8f0,#ffe7e7);
-  display:flex;
-  align-items:center;
-  text-align:center;
-}
-
-.hero-content{
-  max-width:900px;
-  margin:auto;
-}
-
-.hero-badge{
-  display:inline-block;
-  background:white;
-  padding:10px 18px;
-  border-radius:50px;
-  font-size:14px;
-  font-weight:600;
-  box-shadow:0 10px 25px rgba(0,0,0,.08);
-  margin-bottom:25px;
-}
-
-.hero h1{
-  font-size:4rem;
-  line-height:1.1;
-  margin-bottom:20px;
-  font-weight:800;
-}
-
-.hero p{
-  font-size:1.2rem;
-  color:#666;
-  max-width:650px;
-  margin:auto;
-  margin-bottom:35px;
-}
+/* ================= BUTTON ================= */
 
 .cta-btn{
   display:inline-block;
-  padding:18px 38px;
+  padding:16px 34px;
   background:#ff6b6b;
   color:white;
   border-radius:999px;
   font-weight:600;
   transition:.3s;
-  box-shadow:0 15px 30px rgba(255,107,107,.35);
+  box-shadow:0 10px 25px rgba(255,107,107,.25);
 }
 
 .cta-btn:hover{
   transform:translateY(-4px);
 }
 
-/* ===============================
-   DOG GALLERY
-================================= */
+/* ================= HERO ================= */
 
-.section-title{
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
   text-align:center;
-  margin-bottom:60px;
+  background:linear-gradient(135deg,#fff7f0,#ffe4e6);
 }
 
-.section-title h2{
-  font-size:2.6rem;
-  margin-bottom:15px;
+.hero h1{
+  font-size:3.5rem;
+  margin-bottom:20px;
 }
 
-.section-title p{
+.hero p{
   color:#666;
+  max-width:600px;
+  margin:auto;
+  margin-bottom:30px;
 }
+
+/* ================= DOG GRID ================= */
 
 .dogs-grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:20px;
 }
 
 .dog-card{
   background:white;
-  border-radius:24px;
+  border-radius:20px;
   overflow:hidden;
-  box-shadow:0 15px 35px rgba(0,0,0,.08);
-  transition:.35s;
-}
-
-.dog-card:hover{
-  transform:translateY(-8px);
-}
-
-.dog-card:hover img{
-  transform:scale(1.08);
-}
-
-.dog-image{
-  overflow:hidden;
-  height:260px;
-}
-
-.dog-image img{
-  height:100%;
-  object-fit:cover;
-  transition:.5s;
-}
-
-.dog-content{
-  padding:25px;
-}
-
-.dog-content h3{
-  margin-bottom:8px;
-}
-
-.dog-content p{
-  color:#777;
-  font-size:14px;
-}
-
-/* ===============================
-   HOW IT WORKS
-================================= */
-
-.steps{
-  background:white;
-}
-
-.steps-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
-}
-
-.step-card{
-  background:#fff7f2;
-  padding:35px;
-  border-radius:24px;
-  text-align:center;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
   transition:.3s;
 }
 
-.step-card:hover{
+.dog-card:hover{
   transform:translateY(-6px);
 }
 
-.step-number{
-  width:60px;
-  height:60px;
-  border-radius:50%;
-  background:#ff6b6b;
-  color:white;
-  margin:auto;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  font-size:1.2rem;
-  margin-bottom:20px;
+.dog-card img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
 }
 
-/* ===============================
-   BENEFITS
-================================= */
-
-.benefits-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:25px;
+.dog-card div{
+  padding:20px;
 }
 
-.benefit{
+/* ================= QUIZ ================= */
+
+#quiz{
   background:white;
-  padding:30px;
-  border-radius:24px;
-  text-align:center;
-  box-shadow:0 10px 25px rgba(0,0,0,.06);
 }
 
-.benefit span{
-  font-size:2.5rem;
-  display:block;
-  margin-bottom:15px;
-}
-
-/* ===============================
-   CTA SECTION
-================================= */
-
-.final-cta{
-  background:linear-gradient(135deg,#ff6b6b,#ff8e8e);
-  color:white;
-  text-align:center;
-}
-
-.final-cta h2{
-  font-size:3rem;
-  margin-bottom:20px;
-}
-
-.final-cta p{
-  color:white;
+.quiz-box{
   max-width:600px;
   margin:auto;
-  margin-bottom:35px;
+  background:#fff7f2;
+  padding:40px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.08);
 }
 
-.final-cta .cta-btn{
-  background:white;
-  color:#ff6b6b;
-}
-
-/* ===============================
-   FOOTER
-================================= */
+/* ================= FOOTER ================= */
 
 footer{
-  background:#111;
-  color:white;
   text-align:center;
   padding:30px;
-}
-
-footer p{
-  opacity:.7;
-}
-
-/* ===============================
-   MOBILE
-================================= */
-
-@media(max-width:768px){
-
-.hero h1{
-  font-size:2.7rem;
-}
-
-.section-title h2{
-  font-size:2rem;
-}
-
-.final-cta h2{
-  font-size:2.2rem;
-}
-
-section{
-  padding:80px 0;
-}
-
+  background:#111;
+  color:white;
 }
 
 </style>
 </head>
+
 <body>
 
 <!-- HERO -->
-
 <section class="hero">
-<div class="container">
-
-<div class="hero-content">
-
-<div class="hero-badge">
-🐾 Discover Your Canine Soulmate
-</div>
-
-<h1>Find Your Perfect Dog Match</h1>
-
-<p>
-Every dog has a unique personality. Answer a few fun questions and discover which breed matches your lifestyle best.
-</p>
-
-<a href="#dogs" class="cta-btn">
-Take The Quiz
-</a>
-
-</div>
-
-</div>
-</section>
-
-<!-- DOGS -->
-
-<section id="dogs">
 
 <div class="container">
 
-<div class="section-title">
-<h2>Meet Some Possible Matches 🐶</h2>
-<p>Which one will be your perfect companion?</p>
-</div>
+<h1>Find Your Perfect Dog Match 🐶</h1>
 
-<div class="dogs-grid">
+<p>Discover which dog breed matches your personality and lifestyle in just a few steps.</p>
 
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1552053831-71594a27632d?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Golden Retriever</h3>
-<p>Friendly • Loyal • Family-Oriented</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Husky</h3>
-<p>Energetic • Adventurous • Independent</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Corgi</h3>
-<p>Playful • Smart • Charming</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>German Shepherd</h3>
-<p>Brave • Intelligent • Protective</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1561037404-61cd46aa615b?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Labrador</h3>
-<p>Outgoing • Loving • Gentle</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Border Collie</h3>
-<p>Focused • Active • Brilliant</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Shiba Inu</h3>
-<p>Confident • Curious • Independent</p>
-</div>
-</div>
-
-<div class="dog-card">
-<div class="dog-image">
-<img src="https://images.unsplash.com/photo-1525253086316-d0c936c814f8?w=800" alt="">
-</div>
-<div class="dog-content">
-<h3>Dachshund</h3>
-<p>Bold • Clever • Loyal</p>
-</div>
-</div>
+<a href="#quiz" class="cta-btn">Take The Quiz</a>
 
 </div>
 
-</div>
 </section>
 
-<!-- HOW IT WORKS -->
-
-<section class="steps">
-
-<div class="container">
-
-<div class="section-title">
-<h2>How It Works</h2>
-<p>Three simple steps to find your perfect match.</p>
-</div>
-
-<div class="steps-grid">
-
-<div class="step-card">
-<div class="step-number">1</div>
-<h3>Answer Questions</h3>
-<p>Tell us about your lifestyle and preferences.</p>
-</div>
-
-<div class="step-card">
-<div class="step-number">2</div>
-<h3>We Analyze</h3>
-<p>Our quiz matches your personality with dog breeds.</p>
-</div>
-
-<div class="step-card">
-<div class="step-number">3</div>
-<h3>Meet Your Match</h3>
-<p>Discover the dog breed that suits you best.</p>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- BENEFITS -->
-
+<!-- DOG GALLERY -->
 <section>
 
 <div class="container">
 
-<div class="section-title">
-<h2>Why People Love It</h2>
-<p>Fun, fast and surprisingly accurate.</p>
+<h2 style="text-align:center;margin-bottom:50px;">Meet Your Possible Matches</h2>
+
+<div class="dogs-grid">
+
+<div class="dog-card">
+<img src="https://images.unsplash.com/photo-1552053831-71594a27632d" alt="">
+<div>
+<h3>Golden Retriever</h3>
+<p>Friendly & Loyal</p>
+</div>
 </div>
 
-<div class="benefits-grid">
-
-<div class="benefit">
-<span>🐾</span>
-<h3>Personalized Results</h3>
+<div class="dog-card">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a" alt="">
+<div>
+<h3>Husky</h3>
+<p>Energetic & Adventurous</p>
+</div>
 </div>
 
-<div class="benefit">
-<span>⚡</span>
-<h3>Takes Less Than 2 Minutes</h3>
+<div class="dog-card">
+<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b" alt="">
+<div>
+<h3>Corgi</h3>
+<p>Playful & Smart</p>
+</div>
 </div>
 
-<div class="benefit">
-<span>❤️</span>
-<h3>Learn About Breeds</h3>
+<div class="dog-card">
+<img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb" alt="">
+<div>
+<h3>German Shepherd</h3>
+<p>Brave & Protective</p>
 </div>
-
-<div class="benefit">
-<span>🏡</span>
-<h3>Match Your Lifestyle</h3>
 </div>
 
 </div>
 
 </div>
+
 </section>
 
-<!-- FINAL CTA -->
-
-<section class="final-cta">
+<!-- QUIZ SECTION -->
+<section id="quiz">
 
 <div class="container">
 
-<h2>Ready To Meet Your Canine Soulmate?</h2>
+<h2 style="text-align:center;margin-bottom:40px;">Start Your Quiz 🐾</h2>
 
-<p>
-Take the quiz and discover the dog breed that matches your personality.
-</p>
+<div class="quiz-box">
 
-<a href="#" class="cta-btn">
-Start Quiz Now
-</a>
+<h3>Question 1</h3>
+<p>What is your ideal lifestyle?</p>
+
+<label><input type="radio" name="q1"> Active & Outdoors</label><br><br>
+<label><input type="radio" name="q1"> Calm & Relaxed</label><br><br>
+<label><input type="radio" name="q1"> Social & Busy</label><br><br>
+
+<br>
+
+<a href="#" class="cta-btn">Next Question</a>
+
+</div>
 
 </div>
 
 </section>
 
 <!-- FOOTER -->
-
 <footer>
-<p>© 2026 Find Your Perfect Dog Match. All Rights Reserved.</p>
+© 2026 Find Your Dog Match
 </footer>
 
 </body>
 </html>
-```
