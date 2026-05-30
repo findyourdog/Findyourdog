@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PawCare - Luxury Puppy Care</title>
+<title>PawCare - Premium Puppy Guide</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
 
-/* =======================
+/* ======================
    GLOBAL
-======================= */
+====================== */
 *{
 margin:0;
 padding:0;
@@ -24,16 +24,15 @@ background:#f6f7fb;
 color:#111;
 }
 
-/* container */
 .container{
 width:90%;
 max-width:1200px;
 margin:auto;
 }
 
-/* =======================
+/* ======================
    HERO
-======================= */
+====================== */
 .hero{
 min-height:100vh;
 display:flex;
@@ -79,16 +78,20 @@ background:#ff6b6b;
 transform:translateY(-3px);
 }
 
-/* hero image */
 .hero img{
 width:100%;
 border-radius:30px;
 box-shadow:0 20px 50px rgba(0,0,0,0.1);
 }
 
-/* =======================
-   SECTION TITLE
-======================= */
+/* ======================
+   ABOUT
+====================== */
+.about{
+padding:100px 0;
+background:#fff;
+}
+
 .section-title{
 text-align:center;
 margin-bottom:50px;
@@ -104,14 +107,6 @@ color:#666;
 margin-top:10px;
 }
 
-/* =======================
-   ABOUT
-======================= */
-.about{
-padding:100px 0;
-background:#fff;
-}
-
 .about-grid{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -125,14 +120,14 @@ border-radius:25px;
 }
 
 .about-text{
-font-size:1.05rem;
 color:#555;
-line-height:1.7;
+line-height:1.8;
+font-size:1.05rem;
 }
 
-/* =======================
+/* ======================
    FEATURES
-======================= */
+====================== */
 .features{
 padding:100px 0;
 background:#f6f7fb;
@@ -146,10 +141,10 @@ gap:25px;
 
 .card{
 background:#fff;
-padding:25px;
 border-radius:20px;
-transition:.3s;
+overflow:hidden;
 box-shadow:0 10px 30px rgba(0,0,0,0.05);
+transition:.3s;
 }
 
 .card:hover{
@@ -159,55 +154,58 @@ box-shadow:0 20px 40px rgba(0,0,0,0.1);
 
 .card img{
 width:100%;
-border-radius:15px;
-height:180px;
+height:200px;
 object-fit:cover;
-margin-bottom:15px;
 }
 
-/* =======================
-   GALLERY SECTION
-======================= */
-.gallery{
+.card-content{
+padding:20px;
+}
+
+.card h3{
+margin-bottom:8px;
+}
+
+/* ======================
+   INFO SECTION (NEW)
+====================== */
+.info{
 padding:100px 0;
 background:#fff;
 }
 
-.gallery-grid{
+.info-grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-gap:20px;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
 }
 
-.gallery img{
-width:100%;
-height:220px;
-object-fit:cover;
+.info-box{
+background:#f9fafb;
+padding:25px;
 border-radius:20px;
 transition:.3s;
+border:1px solid #eee;
 }
 
-.gallery img:hover{
-transform:scale(1.05);
+.info-box:hover{
+transform:translateY(-6px);
+background:#fff;
 }
 
-/* =======================
-   CTA SECTION
-======================= */
-.cta-section{
+/* ======================
+   CTA
+====================== */
+.cta{
 padding:80px 0;
+text-align:center;
 background:linear-gradient(135deg,#111,#2a2a2a);
 color:#fff;
-text-align:center;
-border-radius:30px;
 margin:80px 10%;
+border-radius:30px;
 }
 
-.cta-section h2{
-font-size:2.2rem;
-}
-
-.cta-section p{
+.cta p{
 color:#bbb;
 margin-top:10px;
 }
@@ -228,9 +226,9 @@ transition:.3s;
 transform:scale(1.05);
 }
 
-/* =======================
+/* ======================
    FOOTER
-======================= */
+====================== */
 footer{
 background:#111;
 color:#aaa;
@@ -238,16 +236,10 @@ text-align:center;
 padding:40px 20px;
 }
 
-footer p{
-margin-top:10px;
-color:#777;
-}
-
-/* =======================
+/* ======================
    RESPONSIVE
-======================= */
+====================== */
 @media(max-width:900px){
-
 .hero-grid,
 .about-grid{
 grid-template-columns:1fr;
@@ -258,10 +250,9 @@ text-align:center;
 font-size:2.5rem;
 }
 
-.cta-section{
+.cta{
 margin:80px 20px;
 }
-
 }
 
 </style>
@@ -269,119 +260,157 @@ margin:80px 20px;
 
 <body>
 
-<!-- ================= HERO ================= -->
+<!-- HERO -->
 <section class="hero">
 <div class="container hero-grid">
 
 <div>
-<h1>Luxury Puppy Care for Modern Dog Lovers 🐶</h1>
+<h1>Premium Puppy Care Guide 🐶</h1>
 <p>
-Discover premium puppy care tips, training guidance, and lifestyle advice designed for happy, healthy dogs.
+A modern luxury guide for dog owners — nutrition, training, behavior, and breed understanding.
 </p>
 
-<a href="#about" class="btn">Explore Now</a>
+<a href="#about" class="btn">Explore Guide</a>
 </div>
 
 <div>
-<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80" alt="puppy">
+<img src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1000&q=80">
 </div>
 
 </div>
 </section>
 
-<!-- ================= ABOUT ================= -->
-<section id="about" class="about">
-<div class="container">
+<!-- ABOUT -->
+<section class="about" id="about">
 
 <div class="section-title">
 <h2>About Puppy Care</h2>
-<p>Everything your puppy needs for a healthy and happy life</p>
+<p>Everything you need to raise a happy and healthy dog</p>
 </div>
 
-<div class="about-grid">
+<div class="container about-grid">
 
 <div>
 <img src="https://images.unsplash.com/photo-1558788353-f76d92427f16?auto=format&fit=crop&w=1000&q=80">
 </div>
 
 <div class="about-text">
-We believe puppy care should be simple, modern, and full of love.
-From nutrition to training, every detail matters in building a strong bond with your dog.
+Raising a puppy is not just care — it’s lifestyle, discipline, and emotional bonding.
 <br><br>
-Our guide helps you raise a happy, healthy, and well-trained puppy with ease.
+Our guide helps you understand behavior, nutrition, and training in a modern and simple way so your puppy grows healthy, calm, and happy.
 </div>
 
 </div>
 
-</div>
 </section>
 
-<!-- ================= FEATURES ================= -->
+<!-- FEATURES -->
 <section class="features">
-<div class="container">
 
 <div class="section-title">
-<h2>Essential Care Areas</h2>
-<p>Everything your puppy needs, in one place</p>
+<h2>Dog Breed Highlights</h2>
+<p>Discover popular breeds and their personality</p>
 </div>
 
-<div class="feature-grid">
+<div class="container feature-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=800&q=80">
-<h3>Nutrition</h3>
-<p>Balanced meals for growth and energy.</p>
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
+<div class="card-content">
+<h3>Golden Retriever</h3>
+<p>Friendly, intelligent and perfect family dog.</p>
 </div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1560807707-8cc77767d783?auto=format&fit=crop&w=800&q=80">
-<h3>Training</h3>
-<p>Simple routines for good behavior.</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1507146426996-ef05306b995a?auto=format&fit=crop&w=800&q=80">
-<h3>Health</h3>
-<p>Vet care and preventive wellness.</p>
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/2016_Daily_Dose_Part_2_-_Barbara_O_Brien.jpg?v=1780136982">
+<div class="card-content">
+<h3>English Bulldog</h3>
+<p>Calm, loyal and very affectionate companion.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Viva_Essence_Pet_-_Premium_Pet_Beds_Toys_Supplies.jpg?v=1780137037">
+<div class="card-content">
+<h3>Shih Tzu</h3>
+<p>Small, playful and perfect indoor pet.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/095daeabbae4f1be3802a0fdf61945c7.jpg?v=1779910194">
+<div class="card-content">
+<h3>Golden Retriever</h3>
+<p>Loving, loyal and highly trainable dog.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Beagle__1.jpg?v=1780137176">
+<div class="card-content">
+<h3>Beagle</h3>
+<p>Curious, friendly and energetic explorer.</p>
+</div>
+</div>
+
+<div class="card">
+<img src="https://cdn.shopify.com/s/files/1/0813/7945/9311/files/Red_bordercollie.jpg?v=1779910927">
+<div class="card-content">
+<h3>Border Collie</h3>
+<p>Highly intelligent and extremely active breed.</p>
+</div>
 </div>
 
 </div>
 
-</div>
 </section>
 
-<!-- ================= GALLERY ================= -->
-<section class="gallery">
-<div class="container">
+<!-- INFO SECTION (NEW CONTENT) -->
+<section class="info">
 
 <div class="section-title">
-<h2>Puppy Gallery</h2>
-<p>Because every puppy deserves to shine</p>
+<h2>Why Puppy Care Matters</h2>
+<p>Not just pets — they become family</p>
 </div>
 
-<div class="gallery-grid">
+<div class="container info-grid">
 
-<img src="https://images.unsplash.com/photo-1517423440428-a5a00ad493e8">
-<img src="https://images.unsplash.com/photo-1605568427561-40dd23c2acea">
-<img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b">
-<img src="https://images.unsplash.com/photo-1598133894008-61f7fdb8cc3a">
+<div class="info-box">
+<h3>❤️ Emotional Bond</h3>
+<p>Dogs reduce stress and improve emotional well-being.</p>
+</div>
 
+<div class="info-box">
+<h3>🏡 Home Balance</h3>
+<p>A trained dog creates harmony in daily life.</p>
+</div>
+
+<div class="info-box">
+<h3>🧠 Mental Growth</h3>
+<p>Training improves intelligence and behavior stability.</p>
+</div>
+
+<div class="info-box">
+<h3>🐶 Responsibility</h3>
+<p>Teaches discipline, care, and routine structure.</p>
 </div>
 
 </div>
+
 </section>
 
-<!-- ================= CTA ================= -->
-<section class="cta-section">
+<!-- CTA -->
+<section class="cta">
 
 <h2>Start Your Puppy Journey Today</h2>
-<p>Join thousands of dog lovers creating a better life for their pets</p>
+<p>Everything you need to raise a happy, healthy dog</p>
 
-<a href="#about" class="cta-btn">Get Started</a>
+<a class="cta-btn" href="#about">Get Started</a>
 
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!-- FOOTER -->
 <footer>
 <h3>PawCare</h3>
 <p>Luxury Puppy Care Guide © 2026</p>
